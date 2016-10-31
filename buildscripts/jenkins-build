@@ -1,0 +1,100 @@
+#!/bin/bash
+
+PYTHON_VERSION=2.7
+
+if [ "${PYTHON_VERSION}" == "" ]; then
+    echo You must select a Python version with the PYTHON_VERSION variable.
+    exit 1
+fi
+
+# Start from scratch
+if [ -d build ]; then
+    rm -rf build
+fi
+mkdir build
+cd build
+
+# Use conda to create a conda environment of the required
+# python version and containing the dependencies.
+export PYENV_PREFIX=${WORKSPACE}/build/pyenv
+rm -rf ${PYENV_PREFIX}
+~/anaconda/bin/conda create --yes -p ${PYENV_PREFIX} anaconda python=${PYTHON_VERSION} numpy=1.7 || exit 1
+export PATH=${PYENV_PREFIX}/bin:${PATH}
+
+# JNB: Get rid of any iopro that conda may have installed
+rm -rf ${PYENV_PREFIX}/lib/python2.7/site-packages/iopro*
+
+# Get and build mongo c driver
+if [ ! -d mongo-c-driver ]; then
+    git clone git://github.com/mongodb/mongo-c-driver.git
+    cd mongo-c-driver
+    git checkout v0.7.1
+    cd ..
+fi
+
+export MONGO_PATH=${WORKSPACE}/build/mongo-c-driver
+cd mongo-c-driver
+make
+mkdir temp
+make install PREFIX=${WORKSPACE}/build/mongo-c-driver/temp
+cd ..
+
+# Get and build pcre lib
+if [ ! -f ${WORKSPACE}/pcre-8.30.tar.gz ]; then
+    cd ..
+    wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.30.tar.gz
+    cd build
+fi
+
+tar -zxvf ../pcre-8.30.tar.gz
+cd pcre-8.30
+./configure
+make
+cd ..
+
+# Get and build gzip compression lib
+if [ ! -f ${WORKSPACE}/zlib-1.2.7.tar.bz2 ]; then
+    cd ..
+    wget http://downloads.sourceforge.net/project/libpng/zlib/1.2.7/zlib-1.2.7.tar.bz2
+    cd build
+fi
+
+tar -jxvf ../zlib-1.2.7.tar.bz2
+cd zlib-1.2.7
+./configure
+make
+cd ..
+
+# Get and build unix odbc lib
+if [ ! -f ${WORKSPACE}/unixODBC-2.3.1.tar.gz ]; then
+    cd ..
+    wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.1.tar.gz
+    cd build
+fi
+
+tar -zxvf ../unixODBC-2.3.1.tar.gz
+cd unixODBC-2.3.1
+./configure
+make
+cd ..
+
+# Set up include and lib paths since we're not installing in default system paths
+export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/mongo-c-driver/src:$IOPRO_INCLUDE_PATH
+export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/mongo-c-driver:$IOPRO_LIBRARY_PATH
+export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/pcre-8.30:$IOPRO_INCLUDE_PATH
+export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/pcre-8.30/.libs:$IOPRO_LIBRARY_PATH
+export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/zlib-1.2.7:$IOPRO_INCLUDE_PATH
+export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/zlib-1.2.7:$IOPRO_LIBRARY_PATH
+export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/unixODBC-2.3.1:${WORKSPACE}/build/unixODBC-2.3.1/include:$IOPRO_INCLUDE_PATH
+export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/unixODBC-2.3.1/DriverManager/.libs:$IOPRO_LIBRARY_PATH
+export IOPRO_INCLUDE_PATH=~/anaconda/include/python${PYTHON_VERSION}:$IOPRO_INCLUDE_PATH
+export IOPRO_LIBRARY_PATH=~/anaconda/lib:$IOPRO_LIBRARY_PATH
+
+export LD_LIBRARY_PATH=${WORKSPACE}/build/mongo-c-driver/temp/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=${WORKSPACE}/build/pcre-8.30/.libs:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=${WORKSPACE}/build/zlib-1.2.7:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=${WORKSPACE}/build/unixODBC-2.3.1/DriverManager/.libs:$LD_LIBRARY_PATH
+
+cd ..
+python setup.py build_ext --inplace --include-dirs=$IOPRO_INCLUDE_PATH --library-dirs=$IOPRO_LIBRARY_PATH || exit 1
+python -c 'import iopro; import sys; sys.exit(1 - iopro.test(num_records=1000))'

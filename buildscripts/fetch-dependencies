@@ -1,0 +1,124 @@
+#!/bin/bash
+
+
+IOPRO_INCLUDE_PATH=$HOME/anaconda/envs/iopro-test-np1.7/include/python2.7
+
+WHERE="$HOME/dependencies/"
+
+function mk_depend_path()
+{
+    echo $WHERE$1
+}
+
+if [ ! -d $(mk_depend_path '') ]; then
+    mkdir $(mk_depend_path '')
+fi
+
+pushd $(mk_depend_path '') >/dev/null
+
+# mongo-c-driver (v.0.7.1)
+if [ ! -d mongo-c-driver ]; then
+    git clone git://github.com/mongodb/mongo-c-driver.git
+    pushd mongo-c-driver >/dev/null
+    git checkout v0.7.1
+
+    # build mongo-c-driver
+    export MONGO_PATH=$(mk_depend_path 'build/mongo-c-driver')
+
+    make
+    mkdir temp
+    make install PREFIX=$(mk_depend_path install/mongo-c-driver/temp)
+    popd >/dev/null
+fi
+
+
+
+# pcre version 8.30
+if [ ! -d pcre-8.30 ]; then
+    if [ ! -f pcre-8.30.tar.gz ]; then
+	wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.30.tar.gz
+    fi
+
+    tar -zxvf pcre-8.30.tar.gz
+    pushd pcre-8.30 >/dev/null
+    ./configure
+    make
+    popd >/dev/null
+fi
+
+if [ -f pcre-8.30.tar.gz ]; then
+    # leave it clean
+    rm pcre-8.30.tar.gz
+fi
+
+
+# zlib-1.2.7
+if [ ! -d zlib-1.2.7 ]; then
+    if [ ! -f zlib-1.2.7.tar.bz2 ]; then
+	wget http://downloads.sourceforge.net/project/libpng/zlib/1.2.7/zlib-1.2.7.tar.bz2
+    fi
+    tar -jxvf zlib-1.2.7.tar.bz2
+
+    pushd zlib-1.2.7 >/dev/null
+    ./configure
+    make
+    popd >/dev/null
+fi
+
+if [ -f zlib-1.2.7.tar.bz2 ]; then
+    #leave it clean
+    rm zlib-1.2.7.tar.bz2
+fi
+
+# get a unixODBC driver manager
+if [ ! -d unixODBC-2.3.1 ]; then
+    if [ ! -f unixODBC-2.3.1.tar.gz ]; then
+	wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.1.tar.gz
+    fi
+
+    tar -zxvf unixODBC-2.3.1.tar.gz
+    pushd unixODBC-2.3.1 >/dev/null
+    ./configure
+    make
+    popd >/dev/null
+fi
+
+if [ -f unixODBC-2.3.1.tar.gz ]; then
+    # leave it clean
+    rm unixODBC-2.3.1.tar.gz
+fi
+
+
+IOPRO_INCLUDE_PATH=$(mk_depend_path mongo-c-driver/src):$IOPRO_INCLUDE_PATH
+IOPRO_INCLUDE_PATH=$(mk_depend_path pcre-8.30):$IOPRO_INCLUDE_PATH
+IOPRO_INCLUDE_PATH=$(mk_depend_path zlib-1.2.7):$IOPRO_INCLUDE_PATH
+IOPRO_INCLUDE_PATH=$(mk_depend_path unixODBC-2.3.1):$IOPRO_INCLUDE_PATH
+IOPRO_INCLUDE_PATH=$(mk_depend_path unixODBC-2.3.1/include):$IOPRO_INCLUDE_PATH
+export IOPRO_INCLUDE_PATH
+
+echo 'IOPRO_INCLUDE_PATH=' $IOPRO_INCLUDE_PATH
+
+IOPRO_LIBRARY_PATH=$(mk_depend_path mongo-c-driver):$IOPRO_LIBRARY_PATH
+IOPRO_LIBRARY_PATH=$(mk_depend_path pcre-8.30/.libs):$IOPRO_LIBRARY_PATH
+IOPRO_LIBRARY_PATH=$(mk_depend_path zlib-1.2.7):$IOPRO_LIBRARY_PATH
+IOPRO_LIBRARY_PATH=$(mk_depend_path unixODBC-2.3.1):$IOPRO_LIBRARY_PATH
+export IOPRO_LIBRARY_PATH
+
+echo 'IOPRO_LIBRARY_PATH=' $IOPRO_LIBRARY_PATH
+
+LD_LIBRARY_PATH=$(mk_depend_path install/mongo-c-driver/temp/lib):$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=$(mk_depend_path pcre-8.30/.libs):$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=$(mk_depend_path zlib-1.2.7):$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=$(mk_depend_path unixODBC-2.3.1/DriverManager/.libs):$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+
+echo 'LD_LIBRARY_PATH=' $LD_LIBRARY_PATH
+
+popd >/dev/null
+
+printf '\n\nBuilding...\n'
+python setup.py build_ext --inplace --include-dirs=$IOPRO_INCLUDE_PATH --library-dirs=$IOPRO_LIBRARY_PATH || exit 1
+
+exit
+
+

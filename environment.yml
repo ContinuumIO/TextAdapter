@@ -1,0 +1,13 @@
+name: TextAdapter
+dependencies:
+- ipython
+- numpy
+- pandas
+- pytest
+- cython
+- pcre
+- mongo-driver
+- zlib
+- openssl
+- postgresql
+
