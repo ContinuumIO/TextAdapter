@@ -1,0 +1,11 @@
+package:
+    name: postgresql
+    version: "9.1.4"
+
+source:
+    fn: REL9_1_4.tar.gz
+    url: https://github.com/postgres/postgres/archive/REL9_1_4.tar.gz
+
+requirements:
+    build:
+    run:

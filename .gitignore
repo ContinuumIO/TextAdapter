@@ -1,0 +1,68 @@
+# Editor temporary/working/backup files #
+#########################################
+.#*
+[#]*#
+*~
+*$
+*.bak
+*.diff
+*.org
+.project
+*.rej
+.settings/
+.*.sw[nop]
+.sw[nop]
+*.tmp
+
+# Compiled source #
+###################
+*.a
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.py[ocd]
+*.so
+
+# Python files #
+################
+# setup.py working directory
+build
+# sphinx build directory
+_build
+# setup.py dist directory
+dist
+doc/build
+doc/cdoc/build
+# Egg metadata
+*.egg-info
+# The shelf plugin uses this dir
+./.shelf
+
+# Patches #
+###########
+*.patch
+*.diff
+
+# OS generated files #
+######################
+.DS_Store*
+.VolumeIcon.icns
+.fseventsd
+Icon?
+.gdb_history
+ehthumbs.db
+Thumbs.db
+
+# Specific cython generated c files
+######################
+iopro/textadapter/TextAdapter.c
+iopro/mongoadapter/MongoAdapter.c
+
+# Generated data files for /tests and /examples
+iopro/tests/data/fixedwidths
+iopro/tests/data/floats
+iopro/tests/data/ints
+iopro/tests/data/ints.gz
+iopro/tests/data/missingvalues

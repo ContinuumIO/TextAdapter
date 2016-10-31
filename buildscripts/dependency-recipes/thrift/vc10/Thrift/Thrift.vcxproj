@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\lib\cpp\src\thrift\protocol\TBase64Utils.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\protocol\TDebugProtocol.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\protocol\TJSONProtocol.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\protocol\TMultiplexedProtocol.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\protocol\TProtocol.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\TApplicationException.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\TOutput.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TBufferTransports.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TFDTransport.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TFileTransport.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\THttpClient.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\THttpServer.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\THttpTransport.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TPipe.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TPipeServer.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TServerSocket.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TSimpleFileTransport.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TSocket.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TSocketPool.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TTransportException.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\transport\TTransportUtils.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\VirtualProfiling.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\windows\GetTimeOfDay.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\windows\OverlappedSubmissionThread.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\windows\SocketPair.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\windows\TWinsockSingleton.cpp" />
+    <ClCompile Include="..\lib\cpp\src\thrift\windows\WinFcntl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lib\cpp\src\thrift\cxxfunctional.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TBase64Utils.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TBinaryProtocol.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TCompactProtocol.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TDebugProtocol.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TJSONProtocol.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TMultiplexedProtocol.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TProtocol.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TProtocolDecorator.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TProtocolException.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TProtocolTap.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\protocol\TVirtualProtocol.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\TApplicationException.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\TDispatchProcessor.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\thrift-config.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\Thrift.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\TLogging.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\TOutput.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\TProcessor.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\PlatformSocket.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TBufferTransports.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TFDTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TFileTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\THttpClient.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\THttpServer.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\THttpTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TPipe.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TPipeServer.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TServerSocket.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TServerTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TShortReadTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TSimpleFileTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TSocket.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TSocketPool.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TTransportException.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TTransportUtils.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\transport\TVirtualTransport.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\TToString.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\config.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\GetTimeOfDay.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\Operators.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\OverlappedSubmissionThread.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\SocketPair.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\Sync.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\TWinsockSingleton.h" />
+    <ClInclude Include="..\lib\cpp\src\thrift\windows\WinFcntl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\lib\cpp\src\thrift\protocol\TBinaryProtocol.tcc" />
+    <None Include="..\lib\cpp\src\thrift\protocol\TCompactProtocol.tcc" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8D9563A5-AFD8-4398-97E3-67F30228CF28}</ProjectGuid>
+    <RootNamespace>Thrift</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\temp\Thrift\src;C:\temp\boost_1_60_0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\temp\Thrift\src;C:\temp\boost_1_60_0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(LIBRARY_INC);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>BOOST_ALL_DYN_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

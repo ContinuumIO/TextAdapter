@@ -1,0 +1,4 @@
+To run examples, first generate example data using:
+
+cd ../tests
+python generate.py 500  # number of records
