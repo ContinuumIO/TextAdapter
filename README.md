@@ -1,5 +1,3 @@
-# TextAdapter
-
 # Working Efficiently with Big Data in Text Formats Using Free Software
 
 One of our first commercial software products at Continuum Analytics was a product called *IOPro* which we have sold continuously since 2009. Now we are releasing the code under a liberal open source license. 
