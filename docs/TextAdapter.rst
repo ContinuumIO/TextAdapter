@@ -190,8 +190,8 @@ Basic Usage
 
 Create TextAdapter object for data source::
 
-    >>> import iopro
-    >>> adapter = iopro.text_adapter('data.csv', parser='csv')
+    >>> import TextAdapter
+    >>> adapter = TextAdapter.text_adapter('data.csv', parser='csv')
 
 Parse text and store records in NumPy array using slicing notation::
 
@@ -212,11 +212,11 @@ Advanced Usage
 
 user defined converter function for field 0::
 
-    >>> import iopro
+    >>> import TextAdapter
     >>> import io
 
     >>> data = '1, abc, 3.3\n2, xxx, 9.9'
-    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='csv', field_names=False)
+    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='csv', field_names=False)
 
     >>> # Override default converter for first field
     >>> adapter.set_converter(0, lambda x: int(x)*2)
@@ -226,11 +226,11 @@ user defined converter function for field 0::
 
 overriding default missing and fill values::
 
-    >>> import iopro
+    >>> import TextAdapter
     >>> import io
 
     >>> data = '1,abc,inf\n2,NA,9.9'
-    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='csv', field_names=False)
+    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='csv', field_names=False)
 
     >>> # Define field dtypes (example: set field 1 to string object and field 2 to float)
     >>> adapter.field_types = {1:'O', 2:'f4'}
@@ -246,14 +246,14 @@ overriding default missing and fill values::
 
 creating and saving tuple of index arrays for gzip file, and reloading indices::
 
-    >>> import iopro
-    >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip')
+    >>> import TextAdapter
+    >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip')
 
     >>> # Build index of records and save index to disk.
     >>> adapter.create_index(index_name='index_file')
 
     >>> # Create new adapter object and load index from disk.
-    >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip', indexing=True, index_name='index_file')
+    >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip', indexing=True, index_name='index_file')
 
     >>> # Read last record
     >>> adapter[-1]
@@ -261,14 +261,14 @@ creating and saving tuple of index arrays for gzip file, and reloading indices::
 
 Use regular expression for finer control of extracting data::
 
-    >>> import iopro
+    >>> import TextAdapter
     >>> import io
 
     >>> # Define regular expression to extract dollar amount, percentage, and month.
     >>> # Each set of parentheses defines a field.
     >>> data = '$2.56, 50%, September 20 1978\n$1.23, 23%, April 5 1981'
     >>> regex_string = '([0-9]\.[0-9][0-9]+)\,\s ([0-9]+)\%\,\s ([A-Za-z]+)'
-    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='regex', regex_string=regex_string, field_names=False, infer_types=False)
+    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='regex', regex_string=regex_string, field_names=False, infer_types=False)
 
     >>> # set dtype of field to float
     >>> adapter.field_types = {0:'f4', 1:'u4', 2:'S10'}

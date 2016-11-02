@@ -1,6 +1,14 @@
+TextAdapter Release Notes
+=========================
+
+2016-10-30: 2.0.0
+-----------------
+
+* Release the closed source of IOPro as Freee Software.  Touch up some
+naming issues and small tweaks to build scripts, documentation, etc.
+
 IOPro Release Notes
 ===================
-
 
 2016-07-30:  1.9.0
 ------------------
