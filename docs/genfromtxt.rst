@@ -1,5 +1,5 @@
 ***REMOVED***---
-iopro.genfromtxt
+TextAdapter.genfromtxt
 ***REMOVED***---
 
 Load data from a text file, with missing values handled as specified.
@@ -82,7 +82,7 @@ out : ndarray
 
 See Also
 --------
-iopro.loadtxt : equivalent function when no data is missing.
+TextAdapter.loadtxt : equivalent function when no data is missing.
 
 Notes
 -----
@@ -102,7 +102,7 @@ Examples
 Comma delimited file with mixed dtype
 
     >>> s = StringIO("1,1.3,abcde")
-    >>> data = iopro.genfromtxt(s, dtype=[('myint','i8'),('myfloat','f8'),
+    >>> data = TextAdapter.genfromtxt(s, dtype=[('myint','i8'),('myfloat','f8'),
     ... ('mystring','S5')], delimiter=",")
     >>> data
     array((1, 1.3, 'abcde'),
@@ -111,7 +111,7 @@ Comma delimited file with mixed dtype
 Using dtype = None
 
     >>> s.seek(0) # needed for StringIO example only
-    >>> data = iopro.genfromtxt(s, dtype=None,
+    >>> data = TextAdapter.genfromtxt(s, dtype=None,
     ... names = ['myint','myfloat','mystring'], delimiter=",")
     >>> data
     array((1, 1.3, 'abcde'),
@@ -120,7 +120,7 @@ Using dtype = None
 Specifying dtype and names
 
     >>> s.seek(0)
-    >>> data = iopro.genfromtxt(s, dtype="i8,f8,S5",
+    >>> data = TextAdapter.genfromtxt(s, dtype="i8,f8,S5",
     ... names=['myint','myfloat','mystring'], delimiter=",")
     >>> data
     array((1, 1.3, 'abcde'),
@@ -129,7 +129,7 @@ Specifying dtype and names
 An example with fixed-width columns
 
     >>> s = StringIO("11.3abcde")
-    >>> data = iopro.genfromtxt(s, dtype=None, names=['intvar','fltvar','strvar'],
+    >>> data = TextAdapter.genfromtxt(s, dtype=None, names=['intvar','fltvar','strvar'],
     ...     delimiter=[1,3,5])
     >>> data
     array((1, 1.3, 'abcde'),

@@ -191,7 +191,7 @@ The TextAdapter object supports array slicing:
 Create TextAdapter object for data source::
 
 ***REMOVED***
-    >>> adapter = iopro.text_adapter('data.csv', parser='csv')
+    >>> adapter = TextAdapter.text_adapter('data.csv', parser='csv')
 
 Parse text and store records in NumPy array using slicing notation::
 
@@ -216,7 +216,7 @@ user defined converter function for field 0::
     >>> import io
 
     >>> data = '1, abc, 3.3\n2, xxx, 9.9'
-    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='csv', field_names=False)
+    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='csv', field_names=False)
 
     >>> # Override default converter for first field
     >>> adapter.set_converter(0, lambda x: int(x)*2)
@@ -230,7 +230,7 @@ overriding default missing and fill values::
     >>> import io
 
     >>> data = '1,abc,inf\n2,NA,9.9'
-    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='csv', field_names=False)
+    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='csv', field_names=False)
 
     >>> # Define field dtypes (example: set field 1 to string object and field 2 to float)
  ***REMOVED*** = {1:'O', 2:'f4'}
@@ -268,7 +268,7 @@ Use regular expression for finer control of extracting data::
     >>> # Each set of parentheses defines a field.
     >>> data = '$2.56, 50%, September 20 1978\n$1.23, 23%, April 5 1981'
     >>> regex_string = '([0-9]\.[0-9][0-9]+)\,\s ([0-9]+)\%\,\s ([A-Za-z]+)'
-    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='regex', regex_string=regex_string, field_names=False, infer_types=False)
+    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='regex', regex_string=regex_string, field_names=False, infer_types=False)
 
     >>> # set dtype of field to float
  ***REMOVED*** = {0:'f4', 1:'u4', 2:'S10'}
