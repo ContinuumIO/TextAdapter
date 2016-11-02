@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ***REMOVED******REMOVED***
 iopro.pyodbc Enhanced Capabilities
 ***REMOVED******REMOVED***
 
 ***REMOVED***
+=======
+----------------------------------
+iopro.pyodbc Enhanced Capabilities
+----------------------------------
+
+.. raw:: html
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     <div class="section" id="demo-code-showing-the-enhanced-capabilities-of-iopro-pyodbc-submodule">
     <h2>Demo code showing the enhanced capabilities of iopro.pyodbc submodule<a class="headerlink" href="#demo-code-showing-the-enhanced-capabilities-of-iopro-pyodbc-submodule" title="Permalink to this headline">¶</a></h2>
@@ -17,8 +25,13 @@ iopro.pyodbc Enhanced Capabilities
     <span class="gp">&gt;&gt;&gt; </span><span class="n">connection</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">connect_string</span><span class="p">)</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="create-the-test-table-optional-if-already-done">
     <h2>Create the test table (optional if already done)<a class="headerlink" href="#create-the-test-table-optional-if-already-done" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
@@ -27,8 +40,13 @@ iopro.pyodbc Enhanced Capabilities
     <span class="gp">... </span>    <span class="k">pass</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;create table market (symbol_ varchar(5), open_ float, low_ float, high_ float, close_ float, volume_ int)&#39;</span><span class="p">)</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="fill-the-test-table-optional-if-already-done">
     <h2>Fill the test table (optional if already done)<a class="headerlink" href="#fill-the-test-table-optional-if-already-done" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">time</span>
@@ -43,8 +61,13 @@ iopro.pyodbc Enhanced Capabilities
     <span class="gp">&gt;&gt;&gt; </span><span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;Stored </span><span class="si">%d</span><span class="s2"> rows in </span><span class="si">%.3f</span><span class="s2">s&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="do-the-query-in-the-traditional-way">
     <h2>Do the query in the traditional way<a class="headerlink" href="#do-the-query-in-the-traditional-way" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Query of the full table using the traditional fetchall</span>
@@ -54,8 +77,13 @@ iopro.pyodbc Enhanced Capabilities
     <span class="go">CPU times: user 5.23 s, sys: 0.56 s, total: 5.79 s</span>
     <span class="go">Wall time: 7.09 s</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="do-the-query-and-get-a-dictionary-of-numpy-arrays">
     <h2>Do the query and get a dictionary of NumPy arrays<a class="headerlink" href="#do-the-query-and-get-a-dictionary-of-numpy-arrays" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Query of the full table using the fetchdictarray (retrieve a dictionary of arrays)</span>
@@ -64,8 +92,13 @@ iopro.pyodbc Enhanced Capabilities
     <span class="go">CPU times: user 0.92 s, sys: 0.10 s, total: 1.02 s</span>
     <span class="go">Wall time: 1.44 s</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="peek-into-the-retrieved-data">
     <h2>Peek into the retrieved data<a class="headerlink" href="#peek-into-the-retrieved-data" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dictarray</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -75,8 +108,13 @@ iopro.pyodbc Enhanced Capabilities
     <span class="gp">&gt;&gt;&gt; </span><span class="n">dictarray</span><span class="p">[</span><span class="s1">&#39;symbol_&#39;</span><span class="p">]</span>
     <span class="go">array([&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, ..., &#39;99999&#39;, &#39;99999&#39;, &#39;99999&#39;], dtype=&#39;|S6&#39;)</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="do-the-query-and-get-a-numpy-structured-array">
     <h2>Do the query and get a NumPy structured array<a class="headerlink" href="#do-the-query-and-get-a-numpy-structured-array" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Query of the full table using the fetchsarray (retrieve a structured array)</span>
@@ -85,8 +123,13 @@ iopro.pyodbc Enhanced Capabilities
     <span class="go">CPU times: user 1.08 s, sys: 0.11 s, total: 1.20 s</span>
     <span class="go">Wall time: 1.99 s</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="peek-into-retrieved-data">
     <h2>Peek into retrieved data<a class="headerlink" href="#peek-into-retrieved-data" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sarray</span><span class="o">.</span><span class="n">dtype</span>
@@ -101,5 +144,10 @@ iopro.pyodbc Enhanced Capabilities
     <span class="gp">&gt;&gt;&gt; </span><span class="n">sarray</span><span class="p">[</span><span class="s1">&#39;symbol_&#39;</span><span class="p">]</span>
     <span class="go">array([&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, ..., &#39;99999&#39;, &#39;99999&#39;, &#39;99999&#39;], dtype=&#39;|S6&#39;)</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1

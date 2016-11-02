@@ -447,7 +447,11 @@ cdef class PostgresAdapter:
         elif isinstance(names, dict):
             self._field_names = []
             for field_num in names.keys():
+<<<<<<< HEAD
                 if field_num >= self.num_***REMOVED***
+=======
+                if field_num >= self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
                     raise ValueError('Invalid field number {0}'.format(field_num))
             for i in range(self.num_fields):
                 if i in names.keys():
@@ -461,7 +465,11 @@ cdef class PostgresAdapter:
                         field_name = make_unique_name(field_name)
                     self._field_names.append(field_name)
         else:
+<<<<<<< HEAD
             if len(names) != self.num_***REMOVED***
+=======
+            if len(names) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
                 raise ValueError('Number of field names does not match number of fields')
             self._field_names = names
 
@@ -577,7 +585,11 @@ cdef class PostgresAdapter:
                 else:
                     raise ValueError('Invalid field name "{0}"'.format(key))
         else:
+<<<<<<< HEAD
             if len(types) != self.num_***REMOVED***
+=======
+            if len(types) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
                 raise ValueError('length of types list does not match the number of fields')
             self._field_types = types
     
@@ -621,7 +633,11 @@ cdef class PostgresAdapter:
         # Convert list of shapes to dict with field number to shape mapping
         new_shapes = {}
         if not isinstance(shapes, dict):
+<<<<<<< HEAD
             if len(shapes) != self.num_***REMOVED***
+=======
+            if len(shapes) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
                 raise ValueError('number of shapes must equal number of fields')
             shapes = dict(zip(range(len(shapes)), shapes))
 

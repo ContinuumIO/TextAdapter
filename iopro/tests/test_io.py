@@ -350,7 +350,11 @@ class TestLoadTxt(TestCase):
         assert_array_equal(res, np.arange(10))
 
 
+<<<<<<< HEAD
 #####***REMOVED******REMOVED******REMOVED***-----
+=======
+#####--------------------------------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 class TestFromTxt(TestCase):

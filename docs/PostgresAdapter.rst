@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ***REMOVED******REMOVED***
 PostgresAdapter, PostGIS, and GreenPlum
 ***REMOVED******REMOVED***
+=======
+----------------------------------------------
+PostgresAdapter, PostGIS, and GreenPlum
+----------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. contents::
 
@@ -21,7 +27,11 @@ following features are currently implemented:
   columns for the records.
 
 Adapter Methods
+<<<<<<< HEAD
 ***REMOVED***----
+=======
+---------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 PostgreSQL Adapter Constructor:
 
 **PostgresAdapter** (connection_uri, table=None, query=None, field_filter=None, dataframe=False, field_names=None, field_types=None, field_shapes=None):
@@ -66,11 +76,19 @@ The PostgresAdapter object supports array slicing:
     | Read last record:
       adapter[-1]
 
+<<<<<<< HEAD
     | ***REMOVED***
       adapter[::2]
 
 Adapter Properties
 ***REMOVED***-------
+=======
+    | Read every other record:
+      adapter[::2]
+
+Adapter Properties
+------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 **num_records** (readonly)
     | Get number of records that will be returned from table or custom query.
 
@@ -102,28 +120,48 @@ Adapter Properties
       stored in Python list object if field is PostgreSQL geometry type, or
       as Well Known Text string objects if field is PostGIS type.
 
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
 
 Create PostgresAdapter object for data source::
 
 ***REMOVED***
+=======
+Basic Usage
+-----------
+
+Create PostgresAdapter object for data source::
+
+    >>> import iopro
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     >>> adapter = iopro.PostgresAdapter('host=localhost dbname=db_name user=user table=table_name')
 
 IOPro adapters use slicing to retrieve data. To retrieve records from the table
 or query, the standard NumPy slicing notation can be used:
 
     >>> # read all records
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    >>> array = adapter[:]
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     >>> # read first ten records
     >>> array = adapter[0:10]
 
     >>> # read last record
+<<<<<<< HEAD
  ***REMOVED***
 
     >>> # read every other record
 ***REMOVED***
+=======
+    >>> array = adapter[-1]
+
+    >>> # read every other record
+    >>> array = adapter[::2]
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 The PostgreSQL adapter has a few properties that we can use to find out
 more about our data. To get the number of records in our dataset:
@@ -131,7 +169,11 @@ more about our data. To get the number of records in our dataset:
     >>> adapter.num_records
     5
 
+<<<<<<< HEAD
 or the number of ***REMOVED***
+=======
+or the number of fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     >>> adapter.num_fields
     5
@@ -146,25 +188,41 @@ default for the field names in the NumPy array result. These names can be change
 by setting the field names property using a list of field names:
 
     >>> adapter.field_names = ['field1', 'field2', 'field3', 'field4', 'field5']
+<<<<<<< HEAD
 ***REMOVED***.dtype
+=======
+    >>> adapter[:].dtype
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     dtype([('field1', '<i4'), ('field2', '<f4'), ('field3', '<U10'), ('field4', '<f8', (2,)), ('field5', 'O')])
 
 Individual fields can also be set by using a dict, where the key is the field
 number and the value is the field name we want:
 
     >>> adapter.field_names = {1: 'AAA'}
+<<<<<<< HEAD
 ***REMOVED***.dtype
+=======
+    >>> adapter[:].dtype
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     dtype([('integer', '<i4'), ('AAA', '<f4'), ('string', '<U10'), ('point2d', '<f8', (2,)), ('multipoint3d', 'O')])
 
 To find out the NumPy dtype of each field:
 
+<<<<<<< HEAD
  ***REMOVED***
+=======
+    >>> adapter.field_types
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     ['i4', 'f4', 'U10', 'f8', 'O']
 
 Similar to the field names property, the types property can be set using a list
 or dict to force a field to be cast to a specific type:
 
+<<<<<<< HEAD
  ***REMOVED*** = {0: 'f4', 1: 'i4', 2: 'U3', 4: 'O'}
+=======
+    >>> adapter.field_types = {0: 'f4', 1: 'i4', 2: 'U3', 4: 'O'}
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 To filter the fields returned by passing a list of field names to the constructor:
 
@@ -184,7 +242,11 @@ will be stored in a 2x3 subarray of floats:
                                         table='data',
                                         field_filter=['multipoint3d'],
                                         field_shapes={'multipoint3d': 2})
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    >>> adapter[:]
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     array([([[0.0, 1.0, 2.0], [3.0, 4.0, 5.0]],),
            ([[6.0, 7.0, 8.0], [9.0, 10.0, 11.0]],),
            ([[12.0, 13.0, 14.0], [15.0, 16.0, 17.0]],),
@@ -198,7 +260,11 @@ both.
 
     >>> adapter = iopro.PostgresAdapter('host=localhost dbname=db_name user=user',
                                          query='select integer, string from data where data.integer > 2')
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    >>> adapter[:]
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 Data can also be returned as a pandas dataframe using the adapter constructor's
 dataframe' argument:

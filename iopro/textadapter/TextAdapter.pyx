@@ -433,14 +433,22 @@ cdef class TextAdapter(object):
         Set fields to read.
 
         Args:
+<<<<<<< HEAD
             ***REMOVED*** list of field names or indices to read
+=======
+            fields: list of field names or indices to read
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
         """
 
         if fields is None or len(fields) == 0:
             self._field_filter = range(self.field_count)
         else:
             field_filter = []
+<<<<<<< HEAD
             for field in ***REMOVED***
+=======
+            for field in fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
                 if isinstance(field, (int, long)):
                     field_filter.append(field)
                 elif isinstance(field, string_types):
@@ -618,7 +626,11 @@ cdef class TextAdapter(object):
                 field = key
                 if isinstance(key, string_types):
                     field = self._field_names.index(key)
+<<<<<<< HEAD
                 if field < 0 or field >= self.adapter.fields.num_***REMOVED***
+=======
+                if field < 0 or field >= self.adapter.fields.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
                     raise errors.NoSuchFieldError('invalid field number ' + str(field))
                 if isinstance(values, string_types):
                     values = [values]

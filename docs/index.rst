@@ -35,12 +35,20 @@ For more information about IOPro please contact `sales@continuum.io
 
 
 Getting started
+<<<<<<< HEAD
 ***REMOVED***----
+=======
+---------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 Some of the basic usage patterns look like these.  Create TextAdapter object
 for data source::
 
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    >>> import iopro
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     >>> adapter = iopro.text_adapter('data.csv', parser='csv')
 
 Define field dtypes (example: set field 0 to unsigned int and field 4 to
@@ -51,12 +59,17 @@ float)::
 Parse text and store records in NumPy array using slicing notation::
 
     >>> # read all records
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    >>> array = adapter[:]
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     >>> # read first ten records
     >>> array = adapter[0:10]
 
     >>> # read last record
+<<<<<<< HEAD
  ***REMOVED***
 
     >>> # read every other record
@@ -64,6 +77,15 @@ Parse text and store records in NumPy array using slicing notation::
 
 User guide
 ***REMOVED***
+=======
+    >>> array = adapter[-1]
+
+    >>> # read every other record
+    >>> array = adapter[::2]
+
+User guide
+----------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. toctree::
     :maxdepth: 1
@@ -75,7 +97,11 @@ User guide
     pyodbc_cancel
 
 Reference guide
+<<<<<<< HEAD
 ***REMOVED***----
+=======
+---------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. toctree::
     :maxdepth: 1
@@ -89,7 +115,11 @@ Reference guide
     genfromtxt
 
 Requirements
+<<<<<<< HEAD
 ***REMOVED***-
+=======
+------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 * python 2.7, or 3.4+
 * numpy 1.10+
@@ -100,7 +130,11 @@ Python modules (optional):
 * Pandas (to use DataFrames)
 
 What's new in version 1.9?
+<<<<<<< HEAD
 ***REMOVED***---
+=======
+--------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 The documentation has been substantially updated for version 1.9.0. 
 Numba has been removed and the code has been cleaned up, but no other 
@@ -109,7 +143,11 @@ change functionality. We recommend that users not use older versions.
 See Release notes for additional detail.
 
 Release notes
+<<<<<<< HEAD
 ***REMOVED***--
+=======
+-------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. toctree::
     :maxdepth: 1
@@ -117,7 +155,11 @@ Release notes
     release-notes
 
 License Agreement
+<<<<<<< HEAD
 ***REMOVED***------
+=======
+-----------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. toctree::
     :maxdepth: 1
@@ -125,7 +167,11 @@ License Agreement
     eula
 
 Previous Versions
+<<<<<<< HEAD
 ***REMOVED***------
+=======
+-----------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 This documentation is provided for the use of our customers who have not yet upgraded 
 to the current version. 

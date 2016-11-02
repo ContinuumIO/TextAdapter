@@ -44,7 +44,11 @@ tokenizer function. Tokenizer functions are also implemented for parsing lines
 and records as single string values (a record can be multiple lines).
 
 Key Low Level C Data Structures
+<<<<<<< HEAD
 ***REMOVED***--------
+=======
+-------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 TextAdapter (iopro/textadapter/text_adapter.h):
   Core struct for text parser. Contains attributes for input text such as
@@ -63,7 +67,11 @@ TextAdapterBuffer (iopro/textadapter/text_adapter.h):
   Main buffer for storing text data to be parsed.
 
 Ideas for Future Optimizations
+<<<<<<< HEAD
 ***REMOVED***-------
+=======
+------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 - The biggest performance gains could be had by incorporating some parallel
   processing goodness. The most natural way to split it up (this should work for

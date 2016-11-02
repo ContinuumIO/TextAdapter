@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ***REMOVED***-
 iopro.pyodbc
 ***REMOVED***-
 
 ***REMOVED***
+=======
+------------
+iopro.pyodbc
+------------
+
+.. raw:: html
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     <p>This project is an enhancement of the Python database module for ODBC
     that implements the Python DB API 2.0 specification.  You can see the
@@ -18,7 +26,11 @@ iopro.pyodbc
     <tr class="field-odd field"><th class="field-name">source:</th><td class="field-body"><a class="reference external" href="http://code.google.com/p/pyodbc/source/list">http://code.google.com/p/pyodbc/source/list</a></td>
     </tr>
     </tbody>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </table>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>The enhancements are documented in this file.  For general info about
     the pyodbc package, please refer to the original project
     documentation.</p>
@@ -48,7 +60,11 @@ iopro.pyodbc
     <ul class="simple">
     <li><cite>pyodbc.npversion</cite>  The version for the NumPy additions</li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="methods">
     <h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
     <p><strong>Cursor.fetchdictarray</strong> (size=cursor.arraysize)</p>
@@ -62,7 +78,11 @@ iopro.pyodbc
      <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="o">...</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int32</span><span class="p">),</span>
      <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="o">...</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">datetime64</span><span class="p">[</span><span class="n">us</span><span class="p">])}</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>Note that the <cite>varchar(10)</cite> type is translated automatically to a
     string type of 11 elements (&#8216;S11&#8217;).  This is because the ODBC driver
     needs one additional space to put the trailing &#8216;0&#8217; in strings, and
@@ -79,13 +99,22 @@ iopro.pyodbc
            <span class="p">(</span><span class="o">...</span><span class="p">)],</span>
           <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;|S11&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;i4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;&lt;M8[us]&#39;</span><span class="p">,</span> <span class="p">{}))])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>Note that, due to efficiency considerations, this method is calling the
     <cite>fetchdictarray()</cite> behind the scenes, and then doing a conversion to
     get an structured array.  So, in general, this is a bit slower than
     its <cite>fetchdictarray()</cite> counterpart.</p>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="data-types-supported">
     <h2>Data types supported<a class="headerlink" href="#data-types-supported" title="Permalink to this headline">¶</a></h2>
     <p>The new methods listed above have support for a subset of the standard
@@ -101,7 +130,11 @@ iopro.pyodbc
     <li>Binary data is not supported yet.</li>
     <li>Unicode strings are not supported yet.</li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="null-values">
     <h2>NULL values<a class="headerlink" href="#null-values" title="Permalink to this headline">¶</a></h2>
     <p>As there is not (yet) a definitive support for missing values (NA) in
@@ -122,8 +155,13 @@ iopro.pyodbc
     <span class="n">timedelta64</span><span class="p">:</span> <span class="n">NaT</span> <span class="p">(</span><span class="ow">or</span> <span class="o">-</span><span class="mi">2</span><span class="o">**</span><span class="mi">63</span><span class="p">)</span>
     <span class="n">string</span><span class="p">:</span> <span class="s1">&#39;NA&#39;</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="improvements-for-1-1-release">
     <h2>Improvements for 1.1 release<a class="headerlink" href="#improvements-for-1-1-release" title="Permalink to this headline">¶</a></h2>
     <ul class="simple">
@@ -134,4 +172,8 @@ iopro.pyodbc
     datatype not supported by NumPy.</li>
     <li>The docsctrings for <cite>fetchdict()</cite> and <cite>fetchsarray()</cite> have been improved.</li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1

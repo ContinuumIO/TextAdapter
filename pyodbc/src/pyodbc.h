@@ -13,7 +13,11 @@
 #define PYODBC_H
 
 
+<<<<<<< HEAD
 // Python definitions ***REMOVED******REMOVED***------
+=======
+// Python definitions ----------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 // first include Python.h to avoid warnings.
 #define PY_SSIZE_T_CLEAN 1
@@ -35,7 +39,11 @@ typedef int Py_ssize_t;
 #define ssizeobjargproc intobjargproc
 #endif
 
+<<<<<<< HEAD
 // System definitions ***REMOVED******REMOVED***------
+=======
+// System definitions ----------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 #ifdef _MSC_VER
 #  define _CRT_SECURE_NO_WARNINGS
@@ -93,13 +101,21 @@ inline void _strlwr(char* name)
 #endif
 
 
+<<<<<<< HEAD
 // ODBC definitions ***REMOVED******REMOVED***--------
+=======
+// ODBC definitions ------------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 #include <sql.h>
 #include <sqlext.h>
 
 
+<<<<<<< HEAD
 // Utility functions/definitions  ***REMOVED******REMOVED***------
+=======
+// Utility functions/definitions  ----------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 #ifndef _countof
 #define _countof(a) (sizeof(a) / sizeof(a[0]))
@@ -119,7 +135,11 @@ inline void UNUSED(...) { }
 #define TOSTRING(x) STRINGIFY(x)
 
 
+<<<<<<< HEAD
 // Debugging support ***REMOVED******REMOVED***-------
+=======
+// Debugging support -----------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 // Building an actual debug version of Python is so much of a pain that it never happens.  I'm providing release-build
 // versions of assertions.
@@ -180,7 +200,11 @@ void pyodbc_leak_check();
 void PrintBytes(void* p, size_t len);
 
 
+<<<<<<< HEAD
 // Python 3 compatibility definitions ***REMOVED******REMOVED***--
+=======
+// Python 3 compatibility definitions ------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 #include "pyodbccompat.h"
 
 

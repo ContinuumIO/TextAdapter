@@ -6314,7 +6314,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  *                 # need to call releasebuffer
  *                 info.obj = self             # <<<<<<<<<<<<<<
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  */
   /*else*/ {
     __Pyx_INCREF(((PyObject *)__pyx_v_self));
@@ -6328,7 +6332,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":255
  *                 info.obj = self
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if not hasfields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  */
@@ -6337,7 +6345,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
 
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":256
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num             # <<<<<<<<<<<<<<
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -6346,7 +6358,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_v_t = __pyx_t_4;
 
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -6383,7 +6399,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_L19_bool_binop_done:;
 
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -6405,7 +6425,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __PYX_ERR(1, 259, __pyx_L1_error)
 
       /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -6650,7 +6674,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":255
  *                 info.obj = self
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if not hasfields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  */

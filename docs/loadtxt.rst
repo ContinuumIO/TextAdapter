@@ -1,13 +1,23 @@
+<<<<<<< HEAD
 ***REMOVED***--
 TextAdapter.loadtxt
 ***REMOVED***--
+=======
+-------------
+TextAdapter.loadtxt
+-------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 Load data from a text file.
 
 Each row in the text file must have the same number of values.
 
 Parameters
+<<<<<<< HEAD
 ***REMOVED***
+=======
+----------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 fname : file or str
     File, filename, or generator to read.  If the filename extension is
     ``.gz`` or ``.bz2``, the file is first decompressed. Note that

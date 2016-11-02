@@ -2094,7 +2094,11 @@ static char fetchsarray_doc[] =
     "the nulls in nullable columns.\n" \
     "\n" \
     "Parameters\n" \
+<<<<<<< HEAD
     "***REMOVED***\n" \
+=======
+    "----------\n" \
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     "size : int, optional\n" \
     "    The number of rows to fetch. Use -1 (the default) to fetch all\n" \
     "    remaining rows.\n" \
@@ -2139,7 +2143,11 @@ static char fetchdictarray_doc[] =
     "nullable columns.\n" \
     "\n" \
     "Parameters\n" \
+<<<<<<< HEAD
     "***REMOVED***\n" \
+=======
+    "----------\n" \
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     "size : int, optional\n" \
     "    The number of rows to fetch. Use -1 (the default) to fetch all\n" \
     "    remaining rows.\n" \

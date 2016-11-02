@@ -932,7 +932,11 @@ specified.  Each row fetched has the following columns:</p>
 <p>The column metadata from Cursor.description is also accessible from Row objects as
 the <code>cursor_description</code> attribute.  This is convenient when Rows are used as ad-hoc
 data structures and are passed to other functions that need the metadata; now the Cursor does
+<<<<<<< HEAD
 not need to be passed with ***REMOVED***</p>
+=======
+not need to be passed with them.</p>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 <pre>
 row = cursor.execute("select name, account_id from persons").fetchone()

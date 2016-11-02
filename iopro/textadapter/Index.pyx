@@ -53,8 +53,13 @@ class ExactIndex(object):
                           |   |   |   |
               version ----+   |   |   |
               options --------+   |   |
+<<<<<<< HEAD
              checksum ***REMOVED***-+   |
              typesize ***REMOVED***-----+
+=======
+             checksum ------------+   |
+             typesize ----------------+
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
         |-0-|-1-|-2-|-3-|-4-|-5-|-6-|-7-|-8-|-9-|-A-|-B-|-C-|-D-|-E-|-F-|
         |          num_offsets          |    num_gzip_access_points     |

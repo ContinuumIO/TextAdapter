@@ -14,7 +14,11 @@ int main(int argc, char *argv[])
     exec_query(adapter, query);
 
     int num_fields = get_num_fields(adapter);
+<<<<<<< HEAD
     printf("num_***REMOVED*** %d\n", num_fields);
+=======
+    printf("num_fields: %d\n", num_fields);
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     char *output = calloc(get_num_records(adapter), get_record_size(adapter));
     int num_records_found = 0;

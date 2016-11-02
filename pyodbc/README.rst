@@ -57,7 +57,11 @@ Methods
 ~~~~~~~
 
 Cursor.fetchdictarray(size=cursor.arraysize)
+<<<<<<< HEAD
 ***REMOVED******REMOVED******REMOVED***
+=======
+--------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 This is similar to the original `Cursor.fetchmany(size)`, but the data
 is returned in a dictionary where the keys are the names of the
@@ -81,7 +85,11 @@ translated into a NumPy `datetime64` type with a resolution of
 microseconds by default.
 
 Cursor.fetchsarray(size=cursor.arraysize)
+<<<<<<< HEAD
 ***REMOVED******REMOVED***-------
+=======
+-----------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 This is similar to the original `Cursor.fetchmany(size)`, but the data
 is returned in a NumPy structured array, where the name and type of

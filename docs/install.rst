@@ -16,7 +16,11 @@ If you do not have Anaconda installed, you can `download it
 
 
 TextAdapter Update Instructions
+<<<<<<< HEAD
 ***REMOVED***--
+=======
+-------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 If you have Anaconda (free Python platform) installed, first update
 the conda package management tool to the latest version, then use conda

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ***REMOVED***-
 MongoAdapter
 ***REMOVED***-
+=======
+------------
+MongoAdapter
+------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. contents::
 
@@ -46,12 +52,21 @@ The MongoAdapter object contains the following properties:
 **size** (readonly)
     | Number of documents in the Mongo database + collection specified in constructor.
 
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
 
 1. Create MongoAdapter object for data source
 
 ***REMOVED***
+=======
+Basic Usage
+-----------
+
+1. Create MongoAdapter object for data source
+
+    >>> import iopro
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     >>> adapter = iopro.MongoAdapter('localhost', 27017, 'database_name', 'collection_name')
 
 2. Load Mongo collection documents into NumPy array using slicing notation

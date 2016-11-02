@@ -2,7 +2,11 @@
 IOPro
 -----
 
+<<<<<<< HEAD
 ***REMOVED***
+=======
+.. raw:: html
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     <p>IOPro loads NumPy arrays (and Pandas DataFrames) directly from files, SQL
     databases, and NoSQL stores, without creating millions of temporary,
@@ -17,7 +21,11 @@ IOPro
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="n">conda</span>
     <span class="n">conda</span> <span class="n">install</span> <span class="n">iopro</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>If you do not have Anaconda installed, you can download it
     <a class="reference external" href="http://continuum.io/downloads.html">here</a>.</p>
     <p>IOPro can also be installed into your own (non-Anaconda) Python environment. For more information about IOPro please contact <a class="reference external" href="mailto:sales&#37;&#52;&#48;continuum&#46;io">sales<span>&#64;</span>continuum<span>&#46;</span>io</a>.</p>
@@ -27,10 +35,17 @@ IOPro
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iopro</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span> <span class="o">=</span> <span class="n">iopro</span><span class="o">.</span><span class="n">text_adapter</span><span class="p">(</span><span class="s1">&#39;table.csv&#39;</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
     <p>We can specify the data types for values in the columns of the csv
     file being read though here we will instead rely upon the ability of
     IOPro&#8217;s TextAdapter to ***REMOVED***</p>
+=======
+    </div>
+    <p>We can specify the data types for values in the columns of the csv
+    file being read though here we will instead rely upon the ability of
+    IOPro&#8217;s TextAdapter to auto-discover the data types used.</p>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>We ask IOPro&#8217;s TextAdapter to parse text and return records in NumPy arrays
     from selected portions of the csv file using slicing notation:</p>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># read first ten records</span>
@@ -48,21 +63,36 @@ IOPro
     <span class="gp">&gt;&gt;&gt; </span><span class="c1"># read fields named &#39;f2&#39; and &#39;f4&#39; only</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">array</span> <span class="o">=</span> <span class="n">adapter</span><span class="p">[[</span><span class="s1">&#39;f2&#39;</span><span class="p">,</span><span class="s1">&#39;f4&#39;</span><span class="p">]][:]</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="user-guide">
     <h2>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h2>
     <div class="toctree-wrapper compound">
     <ul>
     <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<<<<<<< HEAD
     <li class="toctree-l1"><a class="reference internal" href="textadapter_firststeps.html">***REMOVED***</a></li>
     <li class="toctree-l1"><a class="reference internal" href="textadapter_advanced.html">***REMOVED***</a></li>
+=======
+    <li class="toctree-l1"><a class="reference internal" href="textadapter_firststeps.html">TextAdapter First Steps</a></li>
+    <li class="toctree-l1"><a class="reference internal" href="textadapter_advanced.html">Advanced TextAdapter</a></li>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <li class="toctree-l1"><a class="reference internal" href="pyodbc_firststeps.html">iopro.pyodbc First Steps</a></li>
     <li class="toctree-l1"><a class="reference internal" href="pyodbc_enhancedcapabilities.html">iopro.pyodbc Enhanced Capabilities</a></li>
     <li class="toctree-l1"><a class="reference internal" href="pyodbc_cancel.html">iopro.pyodbc Cancelling Queries</a></li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="reference-guide">
     <h2>Reference Guide<a class="headerlink" href="#reference-guide" title="Permalink to this headline">¶</a></h2>
     <div class="toctree-wrapper compound">
@@ -73,8 +103,13 @@ IOPro
     <li class="toctree-l1"><a class="reference internal" href="loadtxt.html">iopro.loadtxt</a></li>
     <li class="toctree-l1"><a class="reference internal" href="genfromtxt.html">iopro.genfromtxt</a></li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="requirements">
     <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
     <ul class="simple">
@@ -86,23 +121,37 @@ IOPro
     <li>boto (&gt;= 2.8)</li>
     <li>numba (&gt;= 0.8)</li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="release-notes">
     <h2>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h2>
     <div class="toctree-wrapper compound">
     <ul>
     <li class="toctree-l1"><a class="reference internal" href="release-notes.html">IOPro Release Notes</a></li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="license-agreement">
     <h2>License Agreement<a class="headerlink" href="#license-agreement" title="Permalink to this headline">¶</a></h2>
     <div class="toctree-wrapper compound">
     <ul>
     <li class="toctree-l1"><a class="reference internal" href="eula.html">IOPro END USER LICENSE AGREEMENT</a></li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
+=======
+    </div>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. toctree::
    :maxdepth: 1

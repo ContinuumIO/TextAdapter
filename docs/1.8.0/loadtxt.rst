@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ***REMOVED***--
 iopro.loadtxt
 ***REMOVED***--
 
 ***REMOVED***
+=======
+-------------
+iopro.loadtxt
+-------------
+
+.. raw:: html
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     <p>Load data from a text file.</p>
     <p>Each row in the text file must have the same number of values.</p>
@@ -47,18 +55,30 @@ iopro.loadtxt
     Legal values: 0 (default), 1 or 2.
     .. versionadded:: 1.6.0</dd>
     </dl>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="returns">
     <h2>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h2>
     <dl class="docutils">
     <dt>out</dt>
      <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span><dd>Data read from the text file.</dd>
     </dl>
+<<<<<<< HEAD
 ***REMOVED***
     <div class="section" id="see-also">
     <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
     <p>iopro.genfromtxt : Load data with missing values handled as specified.</p>
 ***REMOVED***
+=======
+    </div>
+    <div class="section" id="see-also">
+    <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+    <p>iopro.genfromtxt : Load data with missing values handled as specified.</p>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="examples">
     <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
     <dl class="docutils">
@@ -70,7 +90,11 @@ iopro.loadtxt
     <span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span>
     <span class="go">       [ 2.,  3.]])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     </dd>
     <dt>set dtype of output array</dt>
     <dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;M 21 72</span><span class="se">\\</span><span class="s2">nF 35 58&quot;</span><span class="p">)</span>
@@ -79,7 +103,11 @@ iopro.loadtxt
     <span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">([(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mf">72.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">58.0</span><span class="p">)],</span>
     <span class="go">      dtype=[(&#39;gender&#39;, &#39;|S1&#39;), (&#39;age&#39;, &#39;&lt;i4&#39;), (&#39;weight&#39;, &#39;&lt;f4&#39;)])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     </dd>
     <dt>set delimiter and columns to parse</dt>
     <dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;1,0,2</span><span class="se">\\</span><span class="s2">n3,0,4&quot;</span><span class="p">)</span>
@@ -89,7 +117,14 @@ iopro.loadtxt
     <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">([</span> <span class="mf">2.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
     </dd>
     </dl>
 ***REMOVED***
+=======
+    </div>
+    </dd>
+    </dl>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1

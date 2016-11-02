@@ -4864,7 +4864,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *         elif isinstance(names, dict):
  *             self._field_names = []             # <<<<<<<<<<<<<<
  *             for field_num in names.keys():
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***
+=======
+ *                 if field_num >= self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  */
     __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 448, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -4878,7 +4882,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *         elif isinstance(names, dict):
  *             self._field_names = []
  *             for field_num in names.keys():             # <<<<<<<<<<<<<<
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***
+=======
+ *                 if field_num >= self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                     raise ValueError('Invalid field number {0}'.format(field_num))
  */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_names, __pyx_n_s_keys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 449, __pyx_L1_error)
@@ -4947,7 +4955,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
       /* "iopro/postgresadapter/PostgresAdapter.pyx":450
  *             self._field_names = []
  *             for field_num in names.keys():
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *                 if field_num >= self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                     raise ValueError('Invalid field number {0}'.format(field_num))
  *             for i in range(self.num_fields):
  */
@@ -4961,7 +4973,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
 
         /* "iopro/postgresadapter/PostgresAdapter.pyx":451
  *             for field_num in names.keys():
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***
+=======
+ *                 if field_num >= self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                     raise ValueError('Invalid field number {0}'.format(field_num))             # <<<<<<<<<<<<<<
  *             for i in range(self.num_fields):
  *                 if i in names.keys():
@@ -5008,7 +5024,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
         /* "iopro/postgresadapter/PostgresAdapter.pyx":450
  *             self._field_names = []
  *             for field_num in names.keys():
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *                 if field_num >= self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                     raise ValueError('Invalid field number {0}'.format(field_num))
  *             for i in range(self.num_fields):
  */
@@ -5018,14 +5038,22 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *         elif isinstance(names, dict):
  *             self._field_names = []
  *             for field_num in names.keys():             # <<<<<<<<<<<<<<
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***
+=======
+ *                 if field_num >= self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                     raise ValueError('Invalid field number {0}'.format(field_num))
  */
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "iopro/postgresadapter/PostgresAdapter.pyx":452
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***
+=======
+ *                 if field_num >= self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                     raise ValueError('Invalid field number {0}'.format(field_num))
  *             for i in range(self.num_fields):             # <<<<<<<<<<<<<<
  *                 if i in names.keys():
@@ -5222,14 +5250,22 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *                         field_name = make_unique_name(field_name)
  *                     self._field_names.append(field_name)             # <<<<<<<<<<<<<<
  *         else:
+<<<<<<< HEAD
  *             if len(names) != self.num_***REMOVED***
+=======
+ *             if len(names) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  */
         __pyx_t_14 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_self->_field_names, __pyx_v_field_name); if (unlikely(__pyx_t_14 == -1)) __PYX_ERR(0, 462, __pyx_L1_error)
       }
       __pyx_L15:;
 
       /* "iopro/postgresadapter/PostgresAdapter.pyx":452
+<<<<<<< HEAD
  *                 if field_num >= self.num_***REMOVED***
+=======
+ *                 if field_num >= self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                     raise ValueError('Invalid field number {0}'.format(field_num))
  *             for i in range(self.num_fields):             # <<<<<<<<<<<<<<
  *                 if i in names.keys():
@@ -5251,7 +5287,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
   /* "iopro/postgresadapter/PostgresAdapter.pyx":464
  *                     self._field_names.append(field_name)
  *         else:
+<<<<<<< HEAD
  *             if len(names) != self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if len(names) != self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('Number of field names does not match number of fields')
  *             self._field_names = names
  */
@@ -5270,7 +5310,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
 
       /* "iopro/postgresadapter/PostgresAdapter.pyx":465
  *         else:
+<<<<<<< HEAD
  *             if len(names) != self.num_***REMOVED***
+=======
+ *             if len(names) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('Number of field names does not match number of fields')             # <<<<<<<<<<<<<<
  *             self._field_names = names
  * 
@@ -5284,14 +5328,22 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
       /* "iopro/postgresadapter/PostgresAdapter.pyx":464
  *                     self._field_names.append(field_name)
  *         else:
+<<<<<<< HEAD
  *             if len(names) != self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if len(names) != self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('Number of field names does not match number of fields')
  *             self._field_names = names
  */
     }
 
     /* "iopro/postgresadapter/PostgresAdapter.pyx":466
+<<<<<<< HEAD
  *             if len(names) != self.num_***REMOVED***
+=======
+ *             if len(names) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('Number of field names does not match number of fields')
  *             self._field_names = names             # <<<<<<<<<<<<<<
  * 
@@ -7019,7 +7071,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *                 else:
  *                     raise ValueError('Invalid field name "{0}"'.format(key))             # <<<<<<<<<<<<<<
  *         else:
+<<<<<<< HEAD
  *             if len(types) != self.num_***REMOVED***
+=======
+ *             if len(types) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  */
       /*else*/ {
         __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Invalid_field_name_0, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 578, __pyx_L1_error)
@@ -7086,7 +7142,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
   /* "iopro/postgresadapter/PostgresAdapter.pyx":580
  *                     raise ValueError('Invalid field name "{0}"'.format(key))
  *         else:
+<<<<<<< HEAD
  *             if len(types) != self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if len(types) != self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('length of types list does not match the number of fields')
  *             self._field_types = types
  */
@@ -7105,7 +7165,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
 
       /* "iopro/postgresadapter/PostgresAdapter.pyx":581
  *         else:
+<<<<<<< HEAD
  *             if len(types) != self.num_***REMOVED***
+=======
+ *             if len(types) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('length of types list does not match the number of fields')             # <<<<<<<<<<<<<<
  *             self._field_types = types
  * 
@@ -7119,14 +7183,22 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
       /* "iopro/postgresadapter/PostgresAdapter.pyx":580
  *                     raise ValueError('Invalid field name "{0}"'.format(key))
  *         else:
+<<<<<<< HEAD
  *             if len(types) != self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if len(types) != self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('length of types list does not match the number of fields')
  *             self._field_types = types
  */
     }
 
     /* "iopro/postgresadapter/PostgresAdapter.pyx":582
+<<<<<<< HEAD
  *             if len(types) != self.num_***REMOVED***
+=======
+ *             if len(types) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('length of types list does not match the number of fields')
  *             self._field_types = types             # <<<<<<<<<<<<<<
  * 
@@ -7648,7 +7720,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *         # Convert list of shapes to dict with field number to shape mapping
  *         new_shapes = {}             # <<<<<<<<<<<<<<
  *         if not isinstance(shapes, dict):
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***
+=======
+ *             if len(shapes) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  */
   __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7659,7 +7735,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *         # Convert list of shapes to dict with field number to shape mapping
  *         new_shapes = {}
  *         if not isinstance(shapes, dict):             # <<<<<<<<<<<<<<
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***
+=======
+ *             if len(shapes) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('number of shapes must equal number of fields')
  */
   __pyx_t_6 = PyDict_Check(__pyx_v_shapes); 
@@ -7669,7 +7749,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
     /* "iopro/postgresadapter/PostgresAdapter.pyx":624
  *         new_shapes = {}
  *         if not isinstance(shapes, dict):
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if len(shapes) != self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('number of shapes must equal number of fields')
  *             shapes = dict(zip(range(len(shapes)), shapes))
  */
@@ -7687,7 +7771,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
 
       /* "iopro/postgresadapter/PostgresAdapter.pyx":625
  *         if not isinstance(shapes, dict):
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***
+=======
+ *             if len(shapes) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('number of shapes must equal number of fields')             # <<<<<<<<<<<<<<
  *             shapes = dict(zip(range(len(shapes)), shapes))
  * 
@@ -7701,14 +7789,22 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
       /* "iopro/postgresadapter/PostgresAdapter.pyx":624
  *         new_shapes = {}
  *         if not isinstance(shapes, dict):
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if len(shapes) != self.num_fields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('number of shapes must equal number of fields')
  *             shapes = dict(zip(range(len(shapes)), shapes))
  */
     }
 
     /* "iopro/postgresadapter/PostgresAdapter.pyx":626
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***
+=======
+ *             if len(shapes) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('number of shapes must equal number of fields')
  *             shapes = dict(zip(range(len(shapes)), shapes))             # <<<<<<<<<<<<<<
  * 
@@ -7751,7 +7847,11 @@ static PyObject *__pyx_pf_5iopro_15postgresadapter_15PostgresAdapter_15PostgresA
  *         # Convert list of shapes to dict with field number to shape mapping
  *         new_shapes = {}
  *         if not isinstance(shapes, dict):             # <<<<<<<<<<<<<<
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***
+=======
+ *             if len(shapes) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('number of shapes must equal number of fields')
  */
   }
@@ -13883,7 +13983,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  *                 # need to call releasebuffer
  *                 info.obj = self             # <<<<<<<<<<<<<<
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  */
   /*else*/ {
     __Pyx_INCREF(((PyObject *)__pyx_v_self));
@@ -13897,7 +14001,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":255
  *                 info.obj = self
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if not hasfields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  */
@@ -13906,7 +14014,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
 
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":256
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num             # <<<<<<<<<<<<<<
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -13915,7 +14027,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_v_t = __pyx_t_4;
 
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -13952,7 +14068,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_L19_bool_binop_done:;
 
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -13974,7 +14094,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __PYX_ERR(1, 259, __pyx_L1_error)
 
       /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
+<<<<<<< HEAD
  *             if not has***REMOVED***
+=======
+ *             if not hasfields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -14219,7 +14343,11 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     /* "../../anaconda/envs/iopro/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":255
  *                 info.obj = self
  * 
+<<<<<<< HEAD
  *             if not has***REMOVED***             # <<<<<<<<<<<<<<
+=======
+ *             if not hasfields:             # <<<<<<<<<<<<<<
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  */
@@ -16126,7 +16254,11 @@ static int __Pyx_InitCachedConstants(void) {
 
   /* "iopro/postgresadapter/PostgresAdapter.pyx":465
  *         else:
+<<<<<<< HEAD
  *             if len(names) != self.num_***REMOVED***
+=======
+ *             if len(names) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('Number of field names does not match number of fields')             # <<<<<<<<<<<<<<
  *             self._field_names = names
  * 
@@ -16137,7 +16269,11 @@ static int __Pyx_InitCachedConstants(void) {
 
   /* "iopro/postgresadapter/PostgresAdapter.pyx":581
  *         else:
+<<<<<<< HEAD
  *             if len(types) != self.num_***REMOVED***
+=======
+ *             if len(types) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('length of types list does not match the number of fields')             # <<<<<<<<<<<<<<
  *             self._field_types = types
  * 
@@ -16159,7 +16295,11 @@ static int __Pyx_InitCachedConstants(void) {
 
   /* "iopro/postgresadapter/PostgresAdapter.pyx":625
  *         if not isinstance(shapes, dict):
+<<<<<<< HEAD
  *             if len(shapes) != self.num_***REMOVED***
+=======
+ *             if len(shapes) != self.num_fields:
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
  *                 raise ValueError('number of shapes must equal number of fields')             # <<<<<<<<<<<<<<
  *             shapes = dict(zip(range(len(shapes)), shapes))
  * 

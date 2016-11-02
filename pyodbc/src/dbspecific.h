@@ -4,11 +4,19 @@
 
 // Items specific to databases.
 //
+<<<<<<< HEAD
 // Obviously we'd like to minimize this, but if they are needed this file isolates ***REMOVED***  I'd like for there to be a
 // single build of pyodbc on each platform and not have a bunch of defines for supporting different databases.
 
 
 // ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
+=======
+// Obviously we'd like to minimize this, but if they are needed this file isolates them.  I'd like for there to be a
+// single build of pyodbc on each platform and not have a bunch of defines for supporting different databases.
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 // SQL Server
 
 

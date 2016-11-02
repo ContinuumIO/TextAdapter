@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ***REMOVED***-----
 iopro.genfromtxt
 ***REMOVED***-----
 
 ***REMOVED***
+=======
+----------------
+iopro.genfromtxt
+----------------
+
+.. raw:: html
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     <p>Load data from a text file, with missing values handled as specified.</p>
     <p>Each line past the first <cite>skip_header</cite> lines is split at the <cite>delimiter</cite>
@@ -34,7 +42,11 @@ iopro.genfromtxt
     The converters can also be used to provide a default value
     for missing data: <code class="docutils literal"><span class="pre">converters</span> <span class="pre">=</span> <span class="pre">{3:</span> <span class="pre">lambda</span> <span class="pre">s:</span> <span class="pre">float(s</span> <span class="pre">or</span> <span class="pre">0)}</span></code>.</dd>
     <dt>missing_values</dt>
+<<<<<<< HEAD
      <span class="classifier-delimiter">:</span> <span class="classifier">variable, optional</span><dd>The set of strings corresponding to ***REMOVED***</dd>
+=======
+     <span class="classifier-delimiter">:</span> <span class="classifier">variable, optional</span><dd>The set of strings corresponding to missing data.</dd>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <dt>filling_values</dt>
      <span class="classifier-delimiter">:</span> <span class="classifier">variable, optional</span><dd>The set of values to be used as default when the data are missing.</dd>
     <dt>usecols</dt>
@@ -75,7 +87,11 @@ iopro.genfromtxt
     number of columns.
     If False, a warning is emitted and the offending lines are skipped.</dd>
     </dl>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="returns">
     <h2>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h2>
     <dl class="docutils">
@@ -83,11 +99,19 @@ iopro.genfromtxt
      <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span><dd>Data read from the text file. If <cite>usemask</cite> is True, this is a
     masked array.</dd>
     </dl>
+<<<<<<< HEAD
 ***REMOVED***
     <div class="section" id="see-also">
     <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
     <p>iopro.loadtxt : equivalent function when no data is missing.</p>
 ***REMOVED***
+=======
+    </div>
+    <div class="section" id="see-also">
+    <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+    <p>iopro.loadtxt : equivalent function when no data is missing.</p>
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="notes">
     <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
     <ul class="simple">
@@ -99,13 +123,21 @@ iopro.genfromtxt
     <li>Individual values are not stripped of spaces by default.
     When using a custom converter, make sure the function does remove spaces.</li>
     </ul>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <div class="section" id="examples">
     <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iopro</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">StringIO</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>Comma delimited file with mixed dtype</p>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;1,1.3,abcde&quot;</span><span class="p">)</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">iopro</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;myint&#39;</span><span class="p">,</span><span class="s1">&#39;i8&#39;</span><span class="p">),(</span><span class="s1">&#39;myfloat&#39;</span><span class="p">,</span><span class="s1">&#39;f8&#39;</span><span class="p">),</span>
@@ -114,7 +146,11 @@ iopro.genfromtxt
     <span class="go">array((1, 1.3, &#39;abcde&#39;),</span>
     <span class="go">      dtype=[(&#39;myint&#39;, &#39;&lt;i8&#39;), (&#39;myfloat&#39;, &#39;&lt;f8&#39;), (&#39;mystring&#39;, &#39;|S5&#39;)])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>Using dtype = None</p>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># needed for StringIO example only</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">iopro</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -123,7 +159,11 @@ iopro.genfromtxt
     <span class="go">array((1, 1.3, &#39;abcde&#39;),</span>
     <span class="go">      dtype=[(&#39;myint&#39;, &#39;&lt;i8&#39;), (&#39;myfloat&#39;, &#39;&lt;f8&#39;), (&#39;mystring&#39;, &#39;|S5&#39;)])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>Specifying dtype and names</p>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">iopro</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;i8,f8,S5&quot;</span><span class="p">,</span>
@@ -132,7 +172,11 @@ iopro.genfromtxt
     <span class="go">array((1, 1.3, &#39;abcde&#39;),</span>
     <span class="go">      dtype=[(&#39;myint&#39;, &#39;&lt;i8&#39;), (&#39;myfloat&#39;, &#39;&lt;f8&#39;), (&#39;mystring&#39;, &#39;|S5&#39;)])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     <p>An example with fixed-width columns</p>
     <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;11.3abcde&quot;</span><span class="p">)</span>
     <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">iopro</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;intvar&#39;</span><span class="p">,</span><span class="s1">&#39;fltvar&#39;</span><span class="p">,</span><span class="s1">&#39;strvar&#39;</span><span class="p">],</span>
@@ -141,4 +185,8 @@ iopro.genfromtxt
     <span class="go">array((1, 1.3, &#39;abcde&#39;),</span>
     <span class="go">      dtype=[(&#39;intvar&#39;, &#39;&lt;i8&#39;), (&#39;fltvar&#39;, &#39;&lt;f8&#39;), (&#39;strvar&#39;, &#39;|S5&#39;)])</span>
     </pre></div>
+<<<<<<< HEAD
 ***REMOVED***
+=======
+    </div>
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1

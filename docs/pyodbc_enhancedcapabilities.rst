@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ***REMOVED******REMOVED***
 iopro.pyodbc Enhanced Capabilities
 ***REMOVED******REMOVED***
@@ -5,6 +6,15 @@ iopro.pyodbc Enhanced Capabilities
 
 Demo code showing the enhanced capabilities of iopro.pyodbc submodule
 ***REMOVED******REMOVED******REMOVED***
+=======
+----------------------------------
+iopro.pyodbc Enhanced Capabilities
+----------------------------------
+
+
+Demo code showing the enhanced capabilities of iopro.pyodbc submodule
+---------------------------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 This demo shows the basic capabilities for the iopro.pyodbc module.  It first will connect with the database of your choice by ODBC, create and fill a new table (market) and then retrieve data with different methods (fetchall(), fetchdictarray() and fetchsarray()).
@@ -14,7 +24,11 @@ Author: Francesc Alted, Continuum Analytics
 
 ::
 
+<<<<<<< HEAD
 ***REMOVED***.pyodbc as pyodbc
+=======
+    >>> import iopro.pyodbc as pyodbc
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     >>> # Open the database (use the most appropriate for you)
     >>> connect_string = 'DSN=odbcsqlite;DATABASE=market.sqlite'  # SQLite
     >>> #connect_string = 'Driver={SQL Server};SERVER=MyWinBox;DATABASE=Test;USER=Devel;PWD=XXX'  # SQL Server
@@ -30,7 +44,11 @@ Author: Francesc Alted, Continuum Analytics
 
 
 Create the test table (optional if already done)
+<<<<<<< HEAD
 ***REMOVED******REMOVED***--
+=======
+------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 ::
@@ -48,7 +66,11 @@ Create the test table (optional if already done)
 
 
 Fill the test table (optional if already done)
+<<<<<<< HEAD
 ***REMOVED******REMOVED***
+=======
+----------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 ::
@@ -72,7 +94,11 @@ Fill the test table (optional if already done)
 
 
 Do the query in the traditional way
+<<<<<<< HEAD
 ***REMOVED******REMOVED***-
+=======
+-----------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 ::
@@ -92,7 +118,11 @@ Do the query in the traditional way
 
 
 Do the query and get a dictionary of NumPy arrays
+<<<<<<< HEAD
 ***REMOVED******REMOVED***---
+=======
+-------------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 ::
@@ -111,7 +141,11 @@ Do the query and get a dictionary of NumPy arrays
 
 
 Peek into the retrieved data
+<<<<<<< HEAD
 ***REMOVED***-----
+=======
+----------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 ::
@@ -130,7 +164,11 @@ Peek into the retrieved data
 
 
 Do the query and get a NumPy structured array
+<<<<<<< HEAD
 ***REMOVED******REMOVED******REMOVED***
+=======
+---------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 ::
@@ -149,7 +187,11 @@ Do the query and get a NumPy structured array
 
 
 Peek into retrieved data
+<<<<<<< HEAD
 ***REMOVED***-
+=======
+------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 ::

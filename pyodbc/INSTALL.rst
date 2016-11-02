@@ -12,7 +12,11 @@ You will need a C++ compiler installed.
 
 
 Running the test suite
+<<<<<<< HEAD
 ***REMOVED******REMOVED***
+=======
+----------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 For testing the library, look into the original documentation in:
 
@@ -61,7 +65,11 @@ case you don't provide a backend, it defaults to `sqlite`.
 In case some test fails, please report this back.
 
 Installing
+<<<<<<< HEAD
 ***REMOVED***
+=======
+----------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 After you run the test suite, you are ready to install.  Just do it with::
 

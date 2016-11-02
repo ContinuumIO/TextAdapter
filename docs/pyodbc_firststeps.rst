@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ***REMOVED***--
 iopro.pyodbc First Steps
 ***REMOVED***--
+=======
+-------------------------
+iopro.pyodbc First Steps
+-------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 iopro.pyodbc extends pyodbc with methods that allow data to be fetched directly into numpy containers. These functions are faster than regular fetch calls in pyodbc, providing also the convenience of being returned in a container appropriate to fast analysis.
 
@@ -21,10 +27,17 @@ A connection is, as its name says, a connection to a datasource. A datasource is
 A cursor allows you to interface with statements. Interaction with queries and other commands is performed through a cursor. A cursor is associated to a connection and commands over a cursor are performed over that connection to the datasource.
 In order to use iopro.pyodbc you must import it::
 
+<<<<<<< HEAD
 ***REMOVED***.pyodbc as pyodbc
 
 Connection to a datasource
 ***REMOVED***---
+=======
+    >>> import iopro.pyodbc as pyodbc
+
+Connection to a datasource
+--------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 In order to operate with pyodbc you need to connect to a datasource. Typically this will be a database. This is done by creating a connection object.
@@ -49,7 +62,11 @@ Note that commit/rollback is always performed at the connection level. pyodbc pr
 
 
 Working with cursors
+<<<<<<< HEAD
 ***REMOVED***---------
+=======
+--------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 Command execution in pyodbc is handled through cursors. You can create a cursor from a connection using the cursor() method. The first step is creating a cursor::
@@ -61,7 +78,11 @@ With a cursor created, we can start issuing SQL commands using the execute metho
 
 
 Creating a sample table
+<<<<<<< HEAD
 ***REMOVED***
+=======
+-----------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 
@@ -81,7 +102,11 @@ First, create a sample table in the database. The following code will create a s
     >>> create_test_table(cursor)
 
 Filling the sample table with sample data
+<<<<<<< HEAD
 ***REMOVED******REMOVED***-------
+=======
+-----------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 
@@ -130,7 +155,11 @@ Remember that if autocommit is turned off the changes won't be visible to any ot
 
 
 Querying the sample data from the sample table
+<<<<<<< HEAD
 ***REMOVED******REMOVED***
+=======
+----------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 
@@ -205,7 +234,11 @@ execute returns the cursor object. This is handy to retrieve the full query by c
 
 
 iopro.pyodbc extensions
+<<<<<<< HEAD
 ***REMOVED***
+=======
+-----------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 
@@ -214,7 +247,11 @@ When using iopro.pyodbc it is possible to retrieve the results from queries dire
 
 
 fetchdictarray
+<<<<<<< HEAD
 ***REMOVED***---
+=======
+--------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 
@@ -325,7 +362,11 @@ fetchdictarray accepts an optional parameter that places an upper bound to the n
     (2L,)
 
 fetchsarray
+<<<<<<< HEAD
 ***REMOVED***
+=======
+-----------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 
@@ -426,7 +467,11 @@ It is also very easy and efficient to feed data into numpy functions:::
 
 
 fetchdictarray vs fetchsarray
+<<<<<<< HEAD
 ***REMOVED***------
+=======
+-----------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 
 

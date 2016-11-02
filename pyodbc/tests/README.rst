@@ -17,7 +17,11 @@ suite:
 
 
 IOPRO_PYODBC_TEST_CONNSTR <required>
+<<<<<<< HEAD
 ***REMOVED******REMOVED***--
+=======
+------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 The connection string to use when performing database connections.
 
@@ -25,7 +29,11 @@ For example:
 'DRIVER={FreeTDS};SERVER=192.168.1.135;DATABASE=test;Port=1433;Uid=test;Pwd=test'
 
 IOPRO_PYODBC_TEST_DBMS <recommended>
+<<<<<<< HEAD
 ***REMOVED******REMOVED***--
+=======
+------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 If set, specifies which DBMS is behind the ODBC connection. Some
 tests containing DBMS specific SQL will be skipped unless the
@@ -37,7 +45,11 @@ Supported values are:
 
 
 IOPRO_PYODBC_TEST_LOGGING <optional>
+<<<<<<< HEAD
 ***REMOVED******REMOVED***--
+=======
+------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 If set to a value that evaluates to True, enable tracing when
 executing the test suite. This results in very verbose actions on
@@ -48,7 +60,11 @@ tests.
 
 
 IOPRO_PYODBC_TEST_UNICODE_RESULTS <optional>
+<<<<<<< HEAD
 ***REMOVED******REMOVED******REMOVED***
+=======
+--------------------------------------------
+>>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 If set to a value that evaluates to True, tell pyodbc to use unicode
 results when connecting to the database. This means that connection to
