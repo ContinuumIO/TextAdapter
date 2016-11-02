@@ -7694,7 +7694,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  *                 # need to call releasebuffer
  *                 info.obj = self             # <<<<<<<<<<<<<<
  * 
- *             if not has***REMOVED***
+ *             if not hasfields:
  */
   /*else*/ {
     __Pyx_INCREF(((PyObject *)__pyx_v_self));
@@ -7708,7 +7708,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   /* "../../anaconda/envs/TextAdapter/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":255
  *                 info.obj = self
  * 
- *             if not has***REMOVED***             # <<<<<<<<<<<<<<
+ *             if not hasfields:             # <<<<<<<<<<<<<<
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  */
@@ -7717,7 +7717,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
 
     /* "../../anaconda/envs/TextAdapter/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":256
  * 
- *             if not has***REMOVED***
+ *             if not hasfields:
  *                 t = descr.type_num             # <<<<<<<<<<<<<<
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -7726,7 +7726,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_v_t = __pyx_t_4;
 
     /* "../../anaconda/envs/TextAdapter/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
- *             if not has***REMOVED***
+ *             if not hasfields:
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -7763,7 +7763,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_L19_bool_binop_done:;
 
     /* "../../anaconda/envs/TextAdapter/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
- *             if not has***REMOVED***
+ *             if not hasfields:
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -7785,7 +7785,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __PYX_ERR(1, 259, __pyx_L1_error)
 
       /* "../../anaconda/envs/TextAdapter/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":257
- *             if not has***REMOVED***
+ *             if not hasfields:
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
  *                     (descr.byteorder == c'<' and not little_endian)):
@@ -8030,7 +8030,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     /* "../../anaconda/envs/TextAdapter/lib/python3.5/site-packages/Cython/Includes/numpy/__init__.pxd":255
  *                 info.obj = self
  * 
- *             if not has***REMOVED***             # <<<<<<<<<<<<<<
+ *             if not hasfields:             # <<<<<<<<<<<<<<
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  */
@@ -11215,7 +11215,7 @@ static PyObject* __Pyx_PyFunction_FastCallNoKw(PyCodeObject *co, PyObject **args
     assert(globals != NULL);
     /* XXX Perhaps we should create a specialized
        PyFrame_New() that doesn't take locals, but does
-       take builtins without sanity checking ***REMOVED***
+       take builtins without sanity checking them.
        */
     assert(tstate != NULL);
     f = PyFrame_New(tstate, co, globals, NULL);

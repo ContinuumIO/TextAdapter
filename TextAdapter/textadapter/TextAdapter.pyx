@@ -433,14 +433,14 @@ cdef class TextAdapter(object):
         Set fields to read.
 
         Args:
-            ***REMOVED*** list of field names or indices to read
+            fields: list of field names or indices to read
         """
 
         if fields is None or len(fields) == 0:
             self._field_filter = range(self.field_count)
         else:
             field_filter = []
-            for field in ***REMOVED***
+            for field in fields:
                 if isinstance(field, (int, long)):
                     field_filter.append(field)
                 elif isinstance(field, string_types):
@@ -618,7 +618,7 @@ cdef class TextAdapter(object):
                 field = key
                 if isinstance(key, string_types):
                     field = self._field_names.index(key)
-                if field < 0 or field >= self.adapter.fields.num_***REMOVED***
+                if field < 0 or field >= self.adapter.fields.num_fields:
                     raise errors.NoSuchFieldError('invalid field number ' + str(field))
                 if isinstance(values, string_types):
                     values = [values]

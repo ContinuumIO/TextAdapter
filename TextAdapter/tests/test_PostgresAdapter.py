@@ -452,7 +452,7 @@ def test_missing_values(postgres):
     # actually is (and postgresql doesn't know about GIS types so doesn't
     # store that column metadata anywhere). In order to handle missing data
     # for PostGIS types, we'll probably need to come up with some sort of
-    # generic PostGIS object or dtype which can be set to NULL for ***REMOVED***
+    # generic PostGIS object or dtype which can be set to NULL for missing data.
     adapter = PostgresAdapter(postgres.url(), table='missing_values_test')
     adapter.field_shapes = {'path': 2}
     result = adapter[:]

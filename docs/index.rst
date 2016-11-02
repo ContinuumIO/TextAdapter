@@ -23,7 +23,7 @@ If you do not have Anaconda installed, you can `download it
 
 
 Getting started
-***REMOVED***--
+---------------
 
 Some of the basic usage patterns look like these.  Create TextAdapter object
 for data source::
@@ -39,19 +39,19 @@ float)::
 Parse text and store records in NumPy array using slicing notation::
 
     >>> # read all records
-***REMOVED***
+    >>> array = adapter[:]
 
     >>> # read first ten records
     >>> array = adapter[0:10]
 
     >>> # read last record
- ***REMOVED***
+    >>> array = adapter[-1]
 
     >>> # read every other record
-***REMOVED***
+    >>> array = adapter[::2]
 
 User guide
-***REMOVED***
+----------
 
 .. toctree::
     :maxdepth: 1
@@ -60,7 +60,7 @@ User guide
     textadapter_examples
 
 Reference guide
-***REMOVED***--
+---------------
 
 .. toctree::
     :maxdepth: 1
@@ -70,7 +70,7 @@ Reference guide
     genfromtxt
 
 Requirements
-***REMOVED***
+------------
 
 * python 2.7, or 3.5+
 * numpy 1.10+
@@ -81,7 +81,7 @@ Python modules (optional):
 * Pandas (to use DataFrames)
 
 What's new in version 2.0?
-***REMOVED***-
+--------------------------
 
 The documentation has been substantially updated for version IOPro
 1.9.0 and TextAdapter 2.0.
@@ -92,7 +92,7 @@ change functionality.  We recommend that users not use older versions.
 See Release notes for additional detail.
 
 Release notes
-***REMOVED***
+-------------
 
 .. toctree::
     :maxdepth: 1
@@ -100,7 +100,7 @@ Release notes
     release-notes
 
 License Agreement
-***REMOVED***----
+-----------------
 
 .. toctree::
     :maxdepth: 1

@@ -1,13 +1,13 @@
-***REMOVED***
+-------------
 iopro.loadtxt
-***REMOVED***
+-------------
 
 Load data from a text file.
 
 Each row in the text file must have the same number of values.
 
 Parameters
-***REMOVED***
+----------
 fname : file or str
     File, filename, or generator to read.  If the filename extension is
     ``.gz`` or ``.bz2``, the file is first decompressed. Note that
@@ -59,7 +59,7 @@ Examples
 --------
 
 simple parse of StringIO object data
-***REMOVED***
+    >>> import iopro
     >>> from io import StringIO   # StringIO behaves like a file object
     >>> c = StringIO("0 1\\n2 3")
     >>> iopro.loadtxt(c)

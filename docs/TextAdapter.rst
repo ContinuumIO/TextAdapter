@@ -1,6 +1,6 @@
-***REMOVED***
+-----------
 TextAdapter
-***REMOVED***
+-----------
 
 .. contents::
 
@@ -185,34 +185,34 @@ The TextAdapter object supports array slicing:
     | Read first and third fields in all records:
       adapter[[0, 2]][:]
 
-***REMOVED***
-***REMOVED***
+Basic Usage
+-----------
 
 Create TextAdapter object for data source::
 
-***REMOVED***
+    >>> import iopro
     >>> adapter = iopro.text_adapter('data.csv', parser='csv')
 
 Parse text and store records in NumPy array using slicing notation::
 
     >>> # read all records
-***REMOVED***
+    >>> array = adapter[:]
 
     >>> # read first ten records
     >>> array = adapter[0:10]
 
     >>> # read last record
- ***REMOVED***
+    >>> array = adapter[-1]
 
     >>> # read every other record
-***REMOVED***
+    >>> array = adapter[::2]
 
 Advanced Usage
-***REMOVED***-
+--------------
 
 user defined converter function for field 0::
 
-***REMOVED***
+    >>> import iopro
     >>> import io
 
     >>> data = '1, abc, 3.3\n2, xxx, 9.9'
@@ -220,40 +220,40 @@ user defined converter function for field 0::
 
     >>> # Override default converter for first field
     >>> adapter.set_converter(0, lambda x: int(x)*2)
-***REMOVED***
+    >>> adapter[:]
     array([(2L, ' abc', 3.3), (4L, ' xxx', 9.9)],
               dtype=[('f0', '<u8'), ('f1', 'S4'), ('f2', '<f8')])
 
 overriding default missing and fill values::
 
-***REMOVED***
+    >>> import iopro
     >>> import io
 
     >>> data = '1,abc,inf\n2,NA,9.9'
     >>> adapter = iopro.text_adapter(io.StringIO(data), parser='csv', field_names=False)
 
     >>> # Define field dtypes (example: set field 1 to string object and field 2 to float)
- ***REMOVED*** = {1:'O', 2:'f4'}
+    >>> adapter.field_types = {1:'O', 2:'f4'}
 
     >>> # Define list of strings for each field that represent missing values
     >>> adapter.set_missing_values({1:['NA'], 2:['inf']})
 
     >>> # Set fill value for missing values in each field
     >>> adapter.set_fill_values({1:'xxx', 2:999.999})
-***REMOVED***
+    >>> adapter[:]
     array([(' abc', 999.9990234375), ('xxx', 9.899999618530273)],
               dtype=[('f0', 'O'), ('f1', '<f4')])
 
 creating and saving tuple of index arrays for gzip file, and reloading indices::
 
-***REMOVED***
- ***REMOVED***
+    >>> import iopro
+    >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip')
 
     >>> # Build index of records and save index to disk.
     >>> adapter.create_index(index_name='index_file')
 
     >>> # Create new adapter object and load index from disk.
- ***REMOVED*** compression='gzip', indexing=True, index_name='index_file')
+    >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip', indexing=True, index_name='index_file')
 
     >>> # Read last record
     >>> adapter[-1]
@@ -261,7 +261,7 @@ creating and saving tuple of index arrays for gzip file, and reloading indices::
 
 Use regular expression for finer control of extracting data::
 
-***REMOVED***
+    >>> import iopro
     >>> import io
 
     >>> # Define regular expression to extract dollar amount, percentage, and month.
@@ -271,7 +271,7 @@ Use regular expression for finer control of extracting data::
     >>> adapter = iopro.text_adapter(io.StringIO(data), parser='regex', regex_string=regex_string, field_names=False, infer_types=False)
 
     >>> # set dtype of field to float
- ***REMOVED*** = {0:'f4', 1:'u4', 2:'S10'}
-***REMOVED***
+    >>> adapter.field_types = {0:'f4', 1:'u4', 2:'S10'}
+    >>> adapter[:]
     array([(2.56, 50L, 'September'), (1.23, 23L, 'April')],
         dtype=[('f0', '<f8'), ('f1', '<u8'), ('f2', 'S9')])

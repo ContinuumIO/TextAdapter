@@ -29,7 +29,7 @@ def genfromtxt(fname, dtype=float, comments='#', delimiter=None,
     character, and characters following the `comments` character are discarded.
 
     Parameters
-    ***REMOVED***
+    ----------
     fname : file or str
         File, filename, or generator to read.  If the filename extension is
         `.gz` or `.bz2`, the file is first decompressed. Note that
@@ -54,7 +54,7 @@ def genfromtxt(fname, dtype=float, comments='#', delimiter=None,
         The converters can also be used to provide a default value
         for missing data: ``converters = {3: lambda s: float(s or 0)}``.
     missing_values : variable, optional
-        The set of strings corresponding to ***REMOVED***
+        The set of strings corresponding to missing data.
     filling_values : variable, optional
         The set of values to be used as default when the data are missing.
     usecols : sequence, optional
@@ -116,7 +116,7 @@ def genfromtxt(fname, dtype=float, comments='#', delimiter=None,
       When using a custom converter, make sure the function does remove spaces.
 
     References
-    ***REMOVED***
+    ----------
     .. [1] Numpy User Guide, section `I/O with Numpy
            <http://docs.scipy.org/doc/numpy/user/basics.io.genfromtxt.html>`_.
 

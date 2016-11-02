@@ -16,7 +16,7 @@ def loadtxt(fname, dtype=float, comments='#', delimiter=None,
     Each row in the text file must have the same number of values.
 
     Parameters
-    ***REMOVED***
+    ----------
     fname : file or str
         File, filename, or generator to read.  If the filename extension is
         ``.gz`` or ``.bz2``, the file is first decompressed. Note that

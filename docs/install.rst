@@ -24,7 +24,7 @@ For more information about IOPro please contact `sales@continuum.io
 <mailto:sales@continuum.io>`_.
 
 IOPro Update Instructions
-***REMOVED***
+-------------------------
 
 If you have Anaconda (free Python platform) installed, first update
 the conda package management tool to the latest version, then use conda
@@ -42,7 +42,7 @@ To uninstall using conda::
 
 
 Installing license
-***REMOVED***
+------------------
 
 The IOPro license can be installed with the graphical Anaconda Navigator license 
 manager or manually with your operating system. In your organization this may be 

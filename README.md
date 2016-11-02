@@ -10,7 +10,7 @@ accessing any relational database that supports the ODBC interface (SQL
 Server, PostgreSQL, MySQL, etc).
 
 Build Requirements
-***REMOVED***
+------------------
 
 Building IOPro requires a number of dependencies. In addition to a C/C++ dev
 environment, the following modules are needed, which can be installed via conda
@@ -29,7 +29,7 @@ described below):
 * unixodbc 2.3.4 (C lib, Linux/OSX, needed for pyodbc)
 
 Building Conda Package
-***REMOVED******REMOVED***
+----------------------
 
 Note: If building under Windows, make sure the following commands are issued
 within the Visual Studio command prompt for version of Visual Studio that
@@ -51,7 +51,7 @@ Visual Studio 2008, Python 3.3 and 3.4 needs Visual Studio 2010, and Python
    `conda install iopro --use-local`
 
 Building By Hand
-***REMOVED***---
+----------------
 
 Note: If building under Windows, make sure the following commands are issued
 within the Visual Studio command prompt for version of Visual Studio that
