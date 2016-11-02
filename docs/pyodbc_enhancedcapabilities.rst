@@ -4,7 +4,7 @@ iopro.pyodbc Enhanced Capabilities
 
 
 Demo code showing the enhanced capabilities of iopro.pyodbc submodule
-***REMOVED***
+***REMOVED******REMOVED******REMOVED***
 
 
 This demo shows the basic capabilities for the iopro.pyodbc module.  It first will connect with the database of your choice by ODBC, create and fill a new table (market) and then retrieve data with different methods (fetchall(), fetchdictarray() and fetchsarray()).
@@ -30,7 +30,7 @@ Author: Francesc Alted, Continuum Analytics
 
 
 Create the test table (optional if already done)
-***REMOVED******REMOVED***
+***REMOVED******REMOVED***--
 
 
 ::
@@ -72,7 +72,7 @@ Fill the test table (optional if already done)
 
 
 Do the query in the traditional way
-***REMOVED******REMOVED***
+***REMOVED******REMOVED***-
 
 
 ::
@@ -92,7 +92,7 @@ Do the query in the traditional way
 
 
 Do the query and get a dictionary of NumPy arrays
-***REMOVED******REMOVED***-
+***REMOVED******REMOVED***---
 
 
 ::
@@ -111,7 +111,7 @@ Do the query and get a dictionary of NumPy arrays
 
 
 Peek into the retrieved data
-***REMOVED***---
+***REMOVED***-----
 
 
 ::
@@ -130,7 +130,7 @@ Peek into the retrieved data
 
 
 Do the query and get a NumPy structured array
-***REMOVED***
+***REMOVED******REMOVED******REMOVED***
 
 
 ::
@@ -149,7 +149,7 @@ Do the query and get a NumPy structured array
 
 
 Peek into retrieved data
-***REMOVED***
+***REMOVED***-
 
 
 ::

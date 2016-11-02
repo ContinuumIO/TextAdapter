@@ -1,6 +1,6 @@
-***REMOVED***
+***REMOVED***--
 TextAdapter.loadtxt
-***REMOVED***
+***REMOVED***--
 
 Load data from a text file.
 
@@ -59,7 +59,7 @@ Examples
 --------
 
 simple parse of StringIO object data
-***REMOVED***
+    >>> import TextAdapter
     >>> from io import StringIO   # StringIO behaves like a file object
     >>> c = StringIO("0 1\\n2 3")
     >>> TextAdapter.loadtxt(c)

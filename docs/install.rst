@@ -16,7 +16,7 @@ If you do not have Anaconda installed, you can `download it
 
 
 TextAdapter Update Instructions
-***REMOVED***
+***REMOVED***--
 
 If you have Anaconda (free Python platform) installed, first update
 the conda package management tool to the latest version, then use conda

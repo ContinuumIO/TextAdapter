@@ -1,6 +1,6 @@
-***REMOVED***---
+***REMOVED***-----
 Accumulo Adapter
-***REMOVED***---
+***REMOVED***-----
 
 .. contents::
 
@@ -15,7 +15,7 @@ a NumPy array containing the parsed values.
   read from the data source.
 
 Adapter Methods
-***REMOVED***--
+***REMOVED***----
 Accumulo Adapter Constructor:
 
 **AccumuloAdapter** (server='localhost', port=42424, username='', password='', table=None, field_type='f8', start_key=None, stop_key=None, start_key_inclusive=True, stop_key_inclusive=False, missing_values=None, fill_value=None):
@@ -55,7 +55,7 @@ The AccumuloAdapter object supports array slicing:
 
 
 Adapter Properties
-***REMOVED***
+***REMOVED***-------
 **field_type** (readonly)
     | Get dtype of output NumPy array
 

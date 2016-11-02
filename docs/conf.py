@@ -18,7 +18,7 @@ import sys, os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
 
-# -- General configuration ***REMOVED******REMOVED***
+# -- General configuration ***REMOVED******REMOVED***-------
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
@@ -87,7 +87,7 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 
-# -- Options for HTML output ***REMOVED***
+# -- Options for HTML output ***REMOVED******REMOVED***-----
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -167,7 +167,7 @@ html_static_path = ['_static']
 htmlhelp_basename = 'TextAdapterdoc'
 
 
-# -- Options for LaTeX output ***REMOVED******REMOVED***--
+# -- Options for LaTeX output ***REMOVED******REMOVED***----
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
@@ -208,7 +208,7 @@ latex_documents = [
 #latex_domain_indices = True
 
 
-# -- Options for manual page output ***REMOVED***
+# -- Options for manual page output ***REMOVED******REMOVED******REMOVED***
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
@@ -221,7 +221,7 @@ man_pages = [
 #man_show_urls = False
 
 
-# -- Options for Texinfo output ***REMOVED******REMOVED***
+# -- Options for Texinfo output ***REMOVED******REMOVED***--
 
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,

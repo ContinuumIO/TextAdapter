@@ -1,6 +1,6 @@
-***REMOVED***
+***REMOVED***--
 iopro.pyodbc First Steps
-***REMOVED***
+***REMOVED***--
 
 iopro.pyodbc extends pyodbc with methods that allow data to be fetched directly into numpy containers. These functions are faster than regular fetch calls in pyodbc, providing also the convenience of being returned in a container appropriate to fast analysis.
 
@@ -24,7 +24,7 @@ In order to use iopro.pyodbc you must import it::
 ***REMOVED***.pyodbc as pyodbc
 
 Connection to a datasource
-***REMOVED***-
+***REMOVED***---
 
 
 In order to operate with pyodbc you need to connect to a datasource. Typically this will be a database. This is done by creating a connection object.
@@ -49,7 +49,7 @@ Note that commit/rollback is always performed at the connection level. pyodbc pr
 
 
 Working with cursors
-***REMOVED***-
+***REMOVED***---------
 
 
 Command execution in pyodbc is handled through cursors. You can create a cursor from a connection using the cursor() method. The first step is creating a cursor::
@@ -81,7 +81,7 @@ First, create a sample table in the database. The following code will create a s
     >>> create_test_table(cursor)
 
 Filling the sample table with sample data
-***REMOVED******REMOVED***
+***REMOVED******REMOVED***-------
 
 
 
@@ -214,7 +214,7 @@ When using iopro.pyodbc it is possible to retrieve the results from queries dire
 
 
 fetchdictarray
-***REMOVED***-
+***REMOVED***---
 
 
 
@@ -426,7 +426,7 @@ It is also very easy and efficient to feed data into numpy functions:::
 
 
 fetchdictarray vs fetchsarray
-***REMOVED***----
+***REMOVED***------
 
 
 

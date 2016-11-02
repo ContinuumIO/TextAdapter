@@ -68,7 +68,7 @@
     <p>([A-Za-z]+) defines the third (company name),</p>
     <p>([0-9]+.[0-9]{2}) defines the fourth field (low price), and</p>
     <p>([0-9]+.[0-9]{2}) defines the fifth field (high price)</p>
-    <p>***REMOVED*** ***REMOVED***</p>
+    <p>The output array contains five ***REMOVED*** three string fields and two float ***REMOVED***</p>
 ***REMOVED***
     <div class="section" id="numba-integration">
     <h2>Numba Integration<a class="headerlink" href="#numba-integration" title="Permalink to this headline">¶</a></h2>

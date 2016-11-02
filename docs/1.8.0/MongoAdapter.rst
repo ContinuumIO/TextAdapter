@@ -1,6 +1,6 @@
-***REMOVED***
+***REMOVED***-
 MongoAdapter
-***REMOVED***
+***REMOVED***-
 
 ***REMOVED***
 

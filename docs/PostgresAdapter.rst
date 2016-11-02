@@ -21,7 +21,7 @@ following features are currently implemented:
   columns for the records.
 
 Adapter Methods
-***REMOVED***--
+***REMOVED***----
 PostgreSQL Adapter Constructor:
 
 **PostgresAdapter** (connection_uri, table=None, query=None, field_filter=None, dataframe=False, field_names=None, field_types=None, field_shapes=None):
@@ -70,7 +70,7 @@ The PostgresAdapter object supports array slicing:
       adapter[::2]
 
 Adapter Properties
-***REMOVED***
+***REMOVED***-------
 **num_records** (readonly)
     | Get number of records that will be returned from table or custom query.
 

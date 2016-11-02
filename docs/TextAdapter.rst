@@ -190,7 +190,7 @@ The TextAdapter object supports array slicing:
 
 Create TextAdapter object for data source::
 
-***REMOVED***
+    >>> import TextAdapter
     >>> adapter = TextAdapter.text_adapter('data.csv', parser='csv')
 
 Parse text and store records in NumPy array using slicing notation::
@@ -208,11 +208,11 @@ Parse text and store records in NumPy array using slicing notation::
 ***REMOVED***
 
 Advanced Usage
-***REMOVED***-
+***REMOVED***---
 
 user defined converter function for field 0::
 
-***REMOVED***
+    >>> import TextAdapter
     >>> import io
 
     >>> data = '1, abc, 3.3\n2, xxx, 9.9'
@@ -226,7 +226,7 @@ user defined converter function for field 0::
 
 overriding default missing and fill values::
 
-***REMOVED***
+    >>> import TextAdapter
     >>> import io
 
     >>> data = '1,abc,inf\n2,NA,9.9'
@@ -246,14 +246,14 @@ overriding default missing and fill values::
 
 creating and saving tuple of index arrays for gzip file, and reloading indices::
 
-***REMOVED***
- ***REMOVED***
+    >>> import TextAdapter
+    >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip')
 
     >>> # Build index of records and save index to disk.
     >>> adapter.create_index(index_name='index_file')
 
     >>> # Create new adapter object and load index from disk.
- ***REMOVED*** compression='gzip', indexing=True, index_name='index_file')
+    >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip', indexing=True, index_name='index_file')
 
     >>> # Read last record
     >>> adapter[-1]
@@ -261,7 +261,7 @@ creating and saving tuple of index arrays for gzip file, and reloading indices::
 
 Use regular expression for finer control of extracting data::
 
-***REMOVED***
+    >>> import TextAdapter
     >>> import io
 
     >>> # Define regular expression to extract dollar amount, percentage, and month.

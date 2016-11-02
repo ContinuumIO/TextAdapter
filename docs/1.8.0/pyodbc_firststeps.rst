@@ -1,6 +1,6 @@
-***REMOVED***
+***REMOVED***--
 iopro.pyodbc First Steps
-***REMOVED***
+***REMOVED***--
 
 ***REMOVED***
 

@@ -25,7 +25,7 @@ export IOPRO_PYODBC_TEST_CONNSTR='DRIVER={{FreeTDS}};SERVER=192.168.1.135;DATABA
 """.format(_conn_string_key)
 
 
-# Configure pyodbc for execution ***REMOVED******REMOVED***
+# Configure pyodbc for execution ***REMOVED******REMOVED***-
 
 class IOProPyodbcTest(TestCase):
     """

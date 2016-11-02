@@ -35,7 +35,7 @@ For more information about IOPro please contact `sales@continuum.io
 
 
 Getting started
-***REMOVED***--
+***REMOVED***----
 
 Some of the basic usage patterns look like these.  Create TextAdapter object
 for data source::
@@ -75,7 +75,7 @@ User guide
     pyodbc_cancel
 
 Reference guide
-***REMOVED***--
+***REMOVED***----
 
 .. toctree::
     :maxdepth: 1
@@ -89,7 +89,7 @@ Reference guide
     genfromtxt
 
 Requirements
-***REMOVED***
+***REMOVED***-
 
 * python 2.7, or 3.4+
 * numpy 1.10+
@@ -100,7 +100,7 @@ Python modules (optional):
 * Pandas (to use DataFrames)
 
 What's new in version 1.9?
-***REMOVED***-
+***REMOVED***---
 
 The documentation has been substantially updated for version 1.9.0. 
 Numba has been removed and the code has been cleaned up, but no other 
@@ -109,7 +109,7 @@ change functionality. We recommend that users not use older versions.
 See Release notes for additional detail.
 
 Release notes
-***REMOVED***
+***REMOVED***--
 
 .. toctree::
     :maxdepth: 1
@@ -117,7 +117,7 @@ Release notes
     release-notes
 
 License Agreement
-***REMOVED***----
+***REMOVED***------
 
 .. toctree::
     :maxdepth: 1
@@ -125,7 +125,7 @@ License Agreement
     eula
 
 Previous Versions
-***REMOVED***----
+***REMOVED***------
 
 This documentation is provided for the use of our customers who have not yet upgraded 
 to the current version. 

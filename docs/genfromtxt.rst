@@ -1,6 +1,6 @@
-***REMOVED***---
+***REMOVED***-----
 TextAdapter.genfromtxt
-***REMOVED***---
+***REMOVED***-----
 
 Load data from a text file, with missing values handled as specified.
 
@@ -96,7 +96,7 @@ Notes
 
 Examples
 ---------
-***REMOVED***
+    >>> import TextAdapter
     >>> from io import StringIO
 
 Comma delimited file with mixed dtype

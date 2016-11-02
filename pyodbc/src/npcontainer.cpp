@@ -20,12 +20,12 @@
 #include <vector>
 #include <stdio.h>
 
-// exported variables ***REMOVED***
+// exported variables ***REMOVED******REMOVED******REMOVED***-
 
 /* controls the maximum text field width */
 Py_ssize_t iopro_text_limit = 1024;
 
-// ***REMOVED***
+// ***REMOVED******REMOVED******REMOVED***--------
 
 namespace {
     inline size_t
@@ -708,7 +708,7 @@ namespace
 
         switch (cd.sql_type_)
         {
-            // string types ***REMOVED******REMOVED***
+            // string types ***REMOVED******REMOVED***--
         case SQL_CHAR:
         case SQL_VARCHAR:
         case SQL_LONGVARCHAR:
@@ -736,7 +736,7 @@ namespace
             }
             break;
 
-            // real types ***REMOVED******REMOVED***--
+            // real types ***REMOVED******REMOVED***----
         case SQL_REAL:
             dtype = PyArray_DescrFromType(NPY_FLOAT);
             if (dtype) {
@@ -752,7 +752,7 @@ namespace
             }
             break;
 
-            // integer types ***REMOVED******REMOVED***
+            // integer types ***REMOVED******REMOVED***-
         case SQL_BIT:
             dtype = PyArray_DescrFromType(NPY_BOOL);
             if (dtype) {
@@ -788,7 +788,7 @@ namespace
             }
             break;
 
-            // time related types ***REMOVED******REMOVED***
+            // time related types ***REMOVED******REMOVED***--------
         case SQL_TYPE_DATE:
             if (CAN_USE_DATETIME) {
                 dtype = dtype_from_string("M8[D]");
@@ -817,7 +817,7 @@ namespace
             }
             break;
 
-            // decimal ***REMOVED******REMOVED***
+            // decimal ***REMOVED******REMOVED***-------
             // Note: these are mapped as double as per a request
             //       this means precision may be lost.
         case SQL_DECIMAL:
@@ -828,7 +828,7 @@ namespace
             }
             break;
 
-            // unsupported types ***REMOVED******REMOVED***-
+            // unsupported types ***REMOVED******REMOVED***---------
             // this includes:
             // blobs:
             // SQL_BINARY, SQL_VARBINARY, SQL_LONGVARBINARY
@@ -1237,7 +1237,7 @@ namespace
     {
         const char* fmt_str_head = "%-20.20s %-15.15s %-10.10s %-8.8s %-20.20s\n";
         const char* fmt_str = "%-20.20s %-15.15s %-10u %-8.8s %-20.20s\n";
-        const char* dashes = "***REMOVED***";
+        const char* dashes = "***REMOVED******REMOVED***------";
         TRACE_NOLOC(fmt_str_head, "name", "sql type", "size", "null?", "c type");
         TRACE_NOLOC(fmt_str_head, dashes, dashes, dashes, dashes, dashes);
         for (std::vector<column_desc>::const_iterator it = columns_.begin();
@@ -1733,9 +1733,9 @@ create_fill_sarray(Cursor* cursor, npy_intp nrows, const char* null_suffix)
 }
 
 
-// ***REMOVED***
+// ***REMOVED******REMOVED******REMOVED***--------
 // Method implementation
-// ***REMOVED***
+// ***REMOVED******REMOVED******REMOVED***--------
 static char *Cursor_npfetch_kwnames[] = {
     "size", // keyword to read the maximum number of rows. Defaults to all.
     "return_nulls", // keyword to make a given fetch to add boolean columns for nulls

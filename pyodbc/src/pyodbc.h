@@ -13,7 +13,7 @@
 #define PYODBC_H
 
 
-// Python definitions ***REMOVED***
+// Python definitions ***REMOVED******REMOVED***------
 
 // first include Python.h to avoid warnings.
 #define PY_SSIZE_T_CLEAN 1
@@ -35,7 +35,7 @@ typedef int Py_ssize_t;
 #define ssizeobjargproc intobjargproc
 #endif
 
-// System definitions ***REMOVED***
+// System definitions ***REMOVED******REMOVED***------
 
 #ifdef _MSC_VER
 #  define _CRT_SECURE_NO_WARNINGS
@@ -93,13 +93,13 @@ inline void _strlwr(char* name)
 #endif
 
 
-// ODBC definitions ***REMOVED******REMOVED***
+// ODBC definitions ***REMOVED******REMOVED***--------
 
 #include <sql.h>
 #include <sqlext.h>
 
 
-// Utility functions/definitions  ***REMOVED***
+// Utility functions/definitions  ***REMOVED******REMOVED***------
 
 #ifndef _countof
 #define _countof(a) (sizeof(a) / sizeof(a[0]))
@@ -119,7 +119,7 @@ inline void UNUSED(...) { }
 #define TOSTRING(x) STRINGIFY(x)
 
 
-// Debugging support ***REMOVED******REMOVED***
+// Debugging support ***REMOVED******REMOVED***-------
 
 // Building an actual debug version of Python is so much of a pain that it never happens.  I'm providing release-build
 // versions of assertions.
@@ -180,7 +180,7 @@ void pyodbc_leak_check();
 void PrintBytes(void* p, size_t len);
 
 
-// Python 3 compatibility definitions ***REMOVED******REMOVED***
+// Python 3 compatibility definitions ***REMOVED******REMOVED***--
 #include "pyodbccompat.h"
 
 

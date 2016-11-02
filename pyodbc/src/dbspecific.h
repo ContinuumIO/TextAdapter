@@ -8,7 +8,7 @@
 // single build of pyodbc on each platform and not have a bunch of defines for supporting different databases.
 
 
-// ***REMOVED******REMOVED******REMOVED***
+// ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
 // SQL Server
 
 

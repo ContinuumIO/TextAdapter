@@ -1,6 +1,6 @@
-***REMOVED***
+***REMOVED***-
 iopro.pyodbc
-***REMOVED***
+***REMOVED***-
 
 This project is an enhancement of the Python database module for ODBC
 that implements the Python DB API 2.0 specification.  You can see the
