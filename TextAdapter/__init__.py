@@ -53,7 +53,7 @@ meta_attr = {
 
 class module(ModuleType):
     """
-    The actual IOPro module. It provides lazy-loading of submodules.
+    The actual TextAdapter module. It provides lazy-loading of submodules.
     Import time is only paid for those submodules used
     """
 

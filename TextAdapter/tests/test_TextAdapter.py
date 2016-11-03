@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-import iopro
+import TextAdapter
 import unittest
 from .generate import (generate_dataset, IntIter,
                        MissingValuesIter, FixedWidthIter)
@@ -27,17 +27,17 @@ class TestTextAdapter(unittest.TestCase):
     # Basic parsing tests
     def test_string_parsing(self):
         data = StringIO('1,2,3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S5', 1:'S5', 2:'S5'})
         assert_array_equal(adapter[:], np.array([('1', '2', '3')], dtype='S5,S5,S5'))
 
         data = io.StringIO(u'1,2,3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S5', 1:'S5', 2:'S5'})
         assert_array_equal(adapter[:], np.array([('1', '2', '3')], dtype='S5,S5,S5'))
 
         data = io.BytesIO(b'1,2,3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S5', 1:'S5', 2:'S5'})
         assert_array_equal(adapter[:], np.array([('1', '2', '3')], dtype='S5,S5,S5'))
 
@@ -45,45 +45,45 @@ class TestTextAdapter(unittest.TestCase):
     def test_utf8_parsing(self):
         # test single byte character
         data = io.BytesIO(u'1,2,\u0033'.encode('utf_8'))
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         expected = np.array([('1', '2', '3')], dtype='u8,u8,u8')
         assert_array_equal(adapter[:], expected)
 
         # test multibyte character
         data = io.BytesIO(u'1,2,\u2092'.encode('utf_8'))
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         expected = np.array([('1', '2', u'\u2092')], dtype='u8,u8,O')
         assert_array_equal(adapter[:], expected)
 
     def test_no_whitespace_stripping(self):
         data = StringIO('1  ,2  ,3  \n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S3', 1:'S3', 2:'S3'})
         assert_array_equal(adapter[:], np.array([('1  ', '2  ', '3  ')], dtype='S3,S3,S3'))
 
         data = StringIO('  1,  2,  3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S3', 1:'S3', 2:'S3'})
         assert_array_equal(adapter[:], np.array([('  1', '  2', '  3')], dtype='S3,S3,S3'))
 
         data = StringIO('  1  ,  2  ,  3  \n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S5', 1:'S5', 2:'S5'})
         assert_array_equal(adapter[:], np.array([('  1  ', '  2  ', '  3  ')], dtype='S5,S5,S5'))
 
         data = StringIO('\t1\t,\t2\t,\t3\t\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S3', 1:'S3', 2:'S3'})
         assert_array_equal(adapter[:], np.array([('\t1\t', '\t2\t', '\t3\t')], dtype='S3,S3,S3'))
 
     def test_quoted_whitespace(self):
         data = StringIO('"1  ","2  ","3  "\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'S3', 1:'S3', 2:'S3'})
         assert_array_equal(adapter[:], np.array([('1  ', '2  ', '3  ')], dtype='S3,S3,S3'))
 
         data = StringIO('"\t1\t"\t"\t2\t"\t"\t3\t"\n')
-        adapter = iopro.text_adapter(data, field_names=False, delimiter='\t')
+        adapter = TextAdapter.text_adapter(data, field_names=False, delimiter='\t')
         adapter.set_field_types({0:'S3', 1:'S3', 2:'S3'})
         assert_array_equal(adapter[:], np.array([('\t1\t', '\t2\t', '\t3\t')], dtype='S3,S3,S3'))
 
@@ -96,7 +96,7 @@ class TestTextAdapter(unittest.TestCase):
             # This test does not work on Windows
             return
         data = StringIO("  1  2  3\n  4  5 67\n890123  4")
-        adapter = iopro.FixedWidthTextAdapter(data, 3, infer_types=False, field_names=False)
+        adapter = TextAdapter.FixedWidthTextAdapter(data, 3, infer_types=False, field_names=False)
         adapter.set_field_types({0:'i', 1:'i', 2:'i'})
 
         control = np.array([(1, 2, 3), (4, 5, 67), (890, 123, 4)], dtype='i,i,i')
@@ -104,7 +104,7 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_spaces_around_numeric_values(self):
         data = StringIO(' 1 , -2 , 3.3 , -4.4 \n  5  ,  -6  ,  7.7 , -8.8 ')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'u4', 1:'i8', 2:'f4', 3:'f8'})
         array = adapter[:]
 
@@ -114,7 +114,7 @@ class TestTextAdapter(unittest.TestCase):
     def test_slicing(self):
         data = StringIO()
         generate_dataset(data, IntIter(), ',', self.num_records)
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
 
         assert_array_equal(adapter[0], np.array([(0, 1, 2, 3, 4)], dtype='u4,u4,u4,u4,u4'))
@@ -188,14 +188,14 @@ class TestTextAdapter(unittest.TestCase):
 
         try:
             adapter[self.num_records]
-        except iopro.AdapterIndexError:
+        except TextAdapter.AdapterIndexError:
             pass
         else:
             self.fail('AdaperIndexError not thrown')
 
         try:
             adapter[0:self.num_records+1]
-        except iopro.AdapterIndexError:
+        except TextAdapter.AdapterIndexError:
             pass
         else:
             self.fail('AdaperIndexError not thrown')
@@ -204,7 +204,7 @@ class TestTextAdapter(unittest.TestCase):
     def test_converters(self):
         data = StringIO()
         generate_dataset(data, IntIter(), ',', self.num_records)
-        adapter = iopro.text_adapter(data, delimiter=',', field_names=False)
+        adapter = TextAdapter.text_adapter(data, delimiter=',', field_names=False)
         #adapter.set_field_types({0:'u4', 1:'u4', 2:'u4', 3:'u4', 4:'u4'})
 
         def increment(input_str):
@@ -238,7 +238,7 @@ class TestTextAdapter(unittest.TestCase):
         data = StringIO()
         generate_dataset(data, MissingValuesIter(), ',', self.num_records)
 
-        adapter = iopro.text_adapter(data, delimiter=',', field_names=False, infer_types=False)
+        adapter = TextAdapter.text_adapter(data, delimiter=',', field_names=False, infer_types=False)
         adapter.set_field_types({'f0':'u4', 1:'u4', 2:'u4', 3:'u4', 'f4':'u4'})
         adapter.set_missing_values({0:['NA', 'NaN'], 'f4':['xx','inf']})
         adapter.set_fill_values({0:99, 4:999})
@@ -261,7 +261,7 @@ class TestTextAdapter(unittest.TestCase):
             record[3] += 5
 
         data.seek(0)
-        adapter = iopro.text_adapter(data, delimiter=',', field_names=False, infer_types=True)
+        adapter = TextAdapter.text_adapter(data, delimiter=',', field_names=False, infer_types=True)
         adapter.set_missing_values({0:['NA', 'NaN'], 4:['xx','inf']})
 
         array = adapter[:]
@@ -283,7 +283,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test missing field
         data = StringIO('1,2,3\n4,5\n7,8,9')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.field_types = {0:'O', 1:'O', 2:'O'}
         adapter.set_fill_values({0:np.nan, 1:np.nan, 2:np.nan})
         array = adapter[:]
@@ -295,7 +295,7 @@ class TestTextAdapter(unittest.TestCase):
     def test_fixed_width(self):
         data = StringIO()
         generate_dataset(data, FixedWidthIter(), '', self.num_records)
-        adapter = iopro.FixedWidthTextAdapter(data, [2,3,4,5,6], field_names=False, infer_types=False)
+        adapter = TextAdapter.FixedWidthTextAdapter(data, [2,3,4,5,6], field_names=False, infer_types=False)
         adapter.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
 
         array = adapter[:]
@@ -319,7 +319,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test skipping blank lines
         data = StringIO(' 1 2 3\n\n 4 5 6')
-        adapter = iopro.text_adapter(data, parser='fixed_width',
+        adapter = TextAdapter.text_adapter(data, parser='fixed_width',
             field_widths=[2,2,2], field_names=False)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3), (4,5,6)],
@@ -327,7 +327,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test comment lines
         data = StringIO('# 1 2 3\n 1 2 3\n# foo\n 4 5 6')
-        adapter = iopro.text_adapter(data, parser='fixed_width',
+        adapter = TextAdapter.text_adapter(data, parser='fixed_width',
             field_widths=[2,2,2], field_names=False)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3), (4,5,6)],
@@ -335,7 +335,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test field names line
         data = StringIO(' a b c\n 1 2 3')
-        adapter = iopro.text_adapter(data, parser='fixed_width',
+        adapter = TextAdapter.text_adapter(data, parser='fixed_width',
             field_widths=[2,2,2], field_names=True)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3)],
@@ -343,7 +343,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test field names line as comment line
         data = StringIO('# a b c\n 1 2 3')
-        adapter = iopro.text_adapter(data, parser='fixed_width',
+        adapter = TextAdapter.text_adapter(data, parser='fixed_width',
             field_widths=[2,2,2], field_names=True)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3)],
@@ -351,7 +351,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test incomplete field names line
         data = StringIO(' a\n 1 2 3')
-        adapter = iopro.text_adapter(data, parser='fixed_width',
+        adapter = TextAdapter.text_adapter(data, parser='fixed_width',
             field_widths=[2,2,2], field_names=True)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3)],
@@ -360,7 +360,7 @@ class TestTextAdapter(unittest.TestCase):
     def test_regex(self):
         data = StringIO()
         generate_dataset(data, IntIter(), ',', self.num_records)
-        adapter = iopro.RegexTextAdapter(data, '([0-9]*),([0-9]*),([0-9]*),([0-9]*),([0-9]*)\n', field_names=False, infer_types=False)
+        adapter = TextAdapter.RegexTextAdapter(data, '([0-9]*),([0-9]*),([0-9]*),([0-9]*),([0-9]*)\n', field_names=False, infer_types=False)
         adapter.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
 
         array = adapter[:]
@@ -374,7 +374,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test skipping blank lines
         data = StringIO('1 2 3\n\n4 5 6')
-        adapter = iopro.text_adapter(data, parser='regex',
+        adapter = TextAdapter.text_adapter(data, parser='regex',
             regex_string='([0-9]) ([0-9]) ([0-9])', field_names=False)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3), (4,5,6)],
@@ -382,7 +382,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test comment lines
         data = StringIO('#1 2 3\n1 2 3\n# foo\n4 5 6')
-        adapter = iopro.text_adapter(data, parser='regex',
+        adapter = TextAdapter.text_adapter(data, parser='regex',
             regex_string='([0-9]) ([0-9]) ([0-9])', field_names=False)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3), (4,5,6)],
@@ -390,7 +390,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test field names line
         data = StringIO('a b c\n4 5 6')
-        adapter = iopro.text_adapter(data, parser='regex',
+        adapter = TextAdapter.text_adapter(data, parser='regex',
             regex_string='([0-9]) ([0-9]) ([0-9])', field_names=True)
         array = adapter[:]
         assert_array_equal(array, np.array([(4,5,6)],
@@ -398,7 +398,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test field names line as comment line
         data = StringIO('#a b c\n4 5 6')
-        adapter = iopro.text_adapter(data, parser='regex',
+        adapter = TextAdapter.text_adapter(data, parser='regex',
             regex_string='([0-9]) ([0-9]) ([0-9])', field_names=True)
         array = adapter[:]
         assert_array_equal(array, np.array([(4,5,6)],
@@ -406,7 +406,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test incomplete field names line
         data = StringIO('a b\n4 5 6')
-        adapter = iopro.text_adapter(data, parser='regex',
+        adapter = TextAdapter.text_adapter(data, parser='regex',
             regex_string='([0-9]) ([0-9]) ([0-9])', field_names=True)
         array = adapter[:]
         assert_array_equal(array, np.array([(4,5,6)],
@@ -414,7 +414,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test field names line that doesn't match regex
         data = StringIO('a b c\n1 2  3 4  5 6')
-        adapter = iopro.text_adapter(data, parser='regex',
+        adapter = TextAdapter.text_adapter(data, parser='regex',
             regex_string='([0-9\s]+)  ([0-9\s]+)  ([0-9\s]+)', field_names=True)
         array = adapter[:]
         assert_array_equal(array, np.array([('1 2', '3 4', '5 6')],
@@ -432,7 +432,7 @@ class TestTextAdapter(unittest.TestCase):
         generate_dataset(data, IntIter(), ',', num_records)
 
         # test explicit index building
-        adapter = iopro.text_adapter(data, delimiter=',', field_names=False, infer_types=False)
+        adapter = TextAdapter.text_adapter(data, delimiter=',', field_names=False, infer_types=False)
         adapter.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
         adapter.create_index()
 
@@ -448,7 +448,7 @@ class TestTextAdapter(unittest.TestCase):
         if os.path.exists('test.idx'):
             os.remove('test.idx')
         data.seek(0)
-        adapter = iopro.text_adapter(data, delimiter=',', field_names=False, infer_types=False, index_name='test.idx')
+        adapter = TextAdapter.text_adapter(data, delimiter=',', field_names=False, infer_types=False, index_name='test.idx')
         adapter.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
         adapter.to_array()
 
@@ -464,7 +464,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # test loading disk index
         data.seek(0)
-        adapter2 = iopro.text_adapter(data, delimiter=',', field_names=False, infer_types=False, index_name='test.idx')
+        adapter2 = TextAdapter.text_adapter(data, delimiter=',', field_names=False, infer_types=False, index_name='test.idx')
         adapter2.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
 
         self.assert_equality(adapter2[0].item(), tuple([(0*5) + x for x in range(5)]))
@@ -500,7 +500,7 @@ class TestTextAdapter(unittest.TestCase):
         dataz.seek(0)
 
         # test explicit index building
-        adapter = iopro.text_adapter(dataz, compression='gzip', delimiter=',', field_names=False, infer_types=False)
+        adapter = TextAdapter.text_adapter(dataz, compression='gzip', delimiter=',', field_names=False, infer_types=False)
         adapter.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
         adapter.create_index()
 
@@ -519,7 +519,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # test implicitly creating disk index on the fly
         # JNB: not implemented yet
-        '''adapter = iopro.text_adapter(dataz, compression='gzip', delimiter=',', field_names=False, infer_types=False, indexing=True, index_filename='test.idx')
+        '''adapter = TextAdapter.text_adapter(dataz, compression='gzip', delimiter=',', field_names=False, infer_types=False, indexing=True, index_filename='test.idx')
         adapter.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
         adapter.to_array()
 
@@ -537,7 +537,7 @@ class TestTextAdapter(unittest.TestCase):
         self.assert_equality(adapter[818000].item(), tuple([(818000*5) + x for x in range(5)]))
 
         # test loading disk index
-        adapter2 = iopro.text_adapter(dataz, compression='gzip', delimiter=',', field_names=False, infer_types=False, indexing=True, index_filename='test.idx')
+        adapter2 = TextAdapter.text_adapter(dataz, compression='gzip', delimiter=',', field_names=False, infer_types=False, indexing=True, index_filename='test.idx')
         adapter2.set_field_types({0:'u4',1:'u4',2:'u4',3:'u4',4:'u4'})
 
         self.assert_equality(adapter2[0].item(), tuple([(0*5) + x for x in range(5)]))
@@ -558,19 +558,19 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_header_footer(self):
         data = StringIO('0,1,2,3,4\n5,6,7,8,9\n10,11,12,13,14')
-        adapter = iopro.text_adapter(data, header=1, field_names=False)
+        adapter = TextAdapter.text_adapter(data, header=1, field_names=False)
         adapter.field_types = dict(zip(range(5), ['u4']*5))
         assert_array_equal(adapter[:], np.array([(5,6,7,8,9), (10,11,12,13,14)],
             dtype='u4,u4,u4,u4,u4'))
 
         data.seek(0)
-        adapter = iopro.text_adapter(data, header=2, field_names=False)
+        adapter = TextAdapter.text_adapter(data, header=2, field_names=False)
         adapter.field_types = dict(zip(range(5), ['u4']*5))
         assert_array_equal(adapter[:], np.array([(10,11,12,13,14)],
             dtype='u4,u4,u4,u4,u4'))
 
         data.seek(0)
-        adapter = iopro.text_adapter(data, header=1, field_names=True)
+        adapter = TextAdapter.text_adapter(data, header=1, field_names=True)
         adapter.field_types = dict(zip(range(5), ['u4']*5))
         assert_array_equal(adapter[:], np.array([(10,11,12,13,14)],
             dtype=[('5','u4'),('6','u4'),('7','u4'),('8','u4'),('9','u4')]))
@@ -578,29 +578,29 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_delimiter(self):
         data = StringIO('1,2,3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         self.assert_equality(adapter[0].item(), (1,2,3))
 
         data = StringIO('1 2 3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         self.assert_equality(adapter[0].item(), (1,2,3))
 
         data = StringIO('1\t2\t3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         self.assert_equality(adapter[0].item(), (1,2,3))
 
         data = StringIO('1x2x3\n')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         self.assert_equality(adapter[0].item(), (1,2,3))
 
         # Test no delimiter in single field csv data
         data = StringIO('aaa\nbbb\nccc')
-        array = iopro.text_adapter(data, field_names=False, delimiter=None)[:]
+        array = TextAdapter.text_adapter(data, field_names=False, delimiter=None)[:]
         assert_array_equal(array, np.array([('aaa',), ('bbb',), ('ccc',)], dtype=[('f0', 'O')]))
 
     def test_auto_type_inference(self):
         data = StringIO('0,1,2,3,4\n5.5,6,7,8,9\n10,11,12,13,14a\n15,16,xxx,18,19')
-        adapter = iopro.text_adapter(data, field_names=False, infer_types=True)
+        adapter = TextAdapter.text_adapter(data, field_names=False, infer_types=True)
         array = adapter.to_array()
         self.assert_equality(array.dtype.fields['f0'][0], np.dtype('float64'))
         self.assert_equality(array.dtype.fields['f1'][0], np.dtype('uint64'))
@@ -609,7 +609,7 @@ class TestTextAdapter(unittest.TestCase):
         self.assert_equality(array.dtype.fields['f4'][0], np.dtype('O'))
 
         data = StringIO('0,1,2,3,4\n5.5,6,7,8,9\n10,11,12,13,14a\n15,16,xxx,18,19')
-        adapter = iopro.text_adapter(data, field_names=False, infer_types=True)
+        adapter = TextAdapter.text_adapter(data, field_names=False, infer_types=True)
         self.assert_equality(adapter[0].dtype.fields['f0'][0], np.dtype('uint64'))
         self.assert_equality(adapter[1:3].dtype.fields['f0'][0], np.dtype('float64'))
         self.assert_equality(adapter[3].dtype.fields['f4'][0], np.dtype('uint64'))
@@ -619,22 +619,22 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_64bit_ints(self):
         data = StringIO(str((2**63)-1) + ',' + str(((2**63)-1)*-1) + ',' + str((2**64)-1))
-        adapter = iopro.text_adapter(data, delimiter=',', field_names=False, infer_types=False)
+        adapter = TextAdapter.text_adapter(data, delimiter=',', field_names=False, infer_types=False)
         adapter.set_field_types({0:'i8', 1:'i8', 2:'u8'})
         array = adapter.to_array()
         self.assert_equality(array[0].item(), ((2**63)-1, ((2**63)-1)*-1, (2**64)-1))
 
     def test_adapter_factory(self):
         data = StringIO("1,2,3")
-        adapter = iopro.text_adapter(data, "csv", delimiter=',', field_names=False, infer_types=False)
-        self.assertTrue(isinstance(adapter, iopro.CSVTextAdapter))
+        adapter = TextAdapter.text_adapter(data, "csv", delimiter=',', field_names=False, infer_types=False)
+        self.assertTrue(isinstance(adapter, TextAdapter.CSVTextAdapter))
 
-        self.assertRaises(iopro.AdapterException, iopro.text_adapter, data, "foobar")
+        self.assertRaises(TextAdapter.AdapterException, TextAdapter.text_adapter, data, "foobar")
 
     def test_field_names(self):
         # Test for ignoring of extra fields
         data = StringIO('f0,f1\n0,1,2\n3,4,5')
-        adapter = iopro.text_adapter(data, 'csv', delimiter=',', field_names=True)
+        adapter = TextAdapter.text_adapter(data, 'csv', delimiter=',', field_names=True)
         array = adapter.to_array()
         self.assert_equality(array.dtype.names, ('f0', 'f1'))
         self.assert_equality(array[0].item(), (0,1))
@@ -642,14 +642,14 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test for duplicate field names
         data = StringIO('f0,field,field\n0,1,2\n3,4,5')
-        adapter = iopro.text_adapter(data, 'csv', delimiter=',', field_names=True, infer_types=False)
+        adapter = TextAdapter.text_adapter(data, 'csv', delimiter=',', field_names=True, infer_types=False)
         adapter.set_field_types({0:'u4', 1:'u4', 2:'u4'})
         array = adapter.to_array()
         self.assert_equality(array.dtype.names, ('f0', 'field', 'field1'))
 
         # Test for field names list
         data = StringIO('0,1,2\n3,4,5')
-        adapter = iopro.text_adapter(data, field_names=['a', 'b', 'c'], infer_types=False)
+        adapter = TextAdapter.text_adapter(data, field_names=['a', 'b', 'c'], infer_types=False)
         adapter.field_types = {0:'u4', 1:'u4', 2:'u4'}
         array = adapter[:]
         self.assertTrue(array.dtype.names == ('a', 'b', 'c'))
@@ -657,7 +657,7 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_float_conversion(self):
         data = StringIO('10,1.333,-1.23,10.0E+2,999.9e-2')
-        adapter = iopro.text_adapter(data, field_names=False, infer_types=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False, infer_types=False)
         adapter.set_field_types(dict(zip(range(5), ['f8']*5)))
         array = adapter[0]
         #self.assert_equality(array[0].item(), (10.0,1.333,-1.23,1000.0,9.999))
@@ -672,7 +672,7 @@ class TestTextAdapter(unittest.TestCase):
             for i in range(num_recs):
                 yield ','.join([str(i*5), str(i*5+1), str(i*5+2), str(i*5+3), str(i*5+4)])
 
-        adapter = iopro.text_adapter(int_generator(self.num_records), field_names=False)
+        adapter = TextAdapter.text_adapter(int_generator(self.num_records), field_names=False)
         array = adapter[:]
 
         self.assert_equality(array.size, self.num_records)
@@ -688,13 +688,13 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_comments(self):
         data = StringIO('1,2,3\n#4,5,6')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         array = adapter[:]
         self.assert_equality(array.size, 1)
         self.assert_equality(array[0].item(), (1,2,3))
 
         data = StringIO('1,2,3\n#4,5,6')
-        adapter = iopro.text_adapter(data, field_names=False, comment=None)
+        adapter = TextAdapter.text_adapter(data, field_names=False, comment=None)
         array = adapter[:]
         self.assert_equality(array.size, 2)
         self.assert_equality(array[0].item(), ('1',2,3))
@@ -702,22 +702,22 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_escapechar(self):
         data = StringIO('1,2\\2,3\n4,5\\5\\5,6')
-        array = iopro.text_adapter(data, field_names=False)[:]
+        array = TextAdapter.text_adapter(data, field_names=False)[:]
         assert_array_equal(array,
             np.array([(1,22,3), (4,555,6)], dtype='u8,u8,u8'))
 
         data = StringIO('\\1,2,3\n4,5,6\\')
-        array = iopro.text_adapter(data, field_names=False)[:]
+        array = TextAdapter.text_adapter(data, field_names=False)[:]
         assert_array_equal(array,
             np.array([(1,2,3), (4,5,6)], dtype='u8,u8,u8'))
 
         data = StringIO('a,b\\,b,c\na,b\\,b\\,b,c')
-        array = iopro.text_adapter(data, field_names=False)[:]
+        array = TextAdapter.text_adapter(data, field_names=False)[:]
         assert_array_equal(array,
             np.array([('a', 'b,b', 'c'), ('a', 'b,b,b', 'c')], dtype='O,O,O'))
 
         data = StringIO('a,bx,b,c\na,bx,bx,b,c')
-        array = iopro.text_adapter(data, field_names=False, escape='x')[:]
+        array = TextAdapter.text_adapter(data, field_names=False, escape='x')[:]
         assert_array_equal(array,
             np.array([('a', 'b,b', 'c'), ('a', 'b,b,b', 'c')], dtype='O,O,O'))
 
@@ -730,7 +730,7 @@ class TestTextAdapter(unittest.TestCase):
 
         # Test filling blank lines with fill values if output is dataframe
         data = StringIO('1,2,3\n\n4,5,6')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         adapter.field_types = {0:'O', 1:'O', 2:'O'}
         adapter.set_fill_values({0:np.nan, 1:np.nan, 2:np.nan})
         df = adapter.to_dataframe()'''
@@ -738,7 +738,7 @@ class TestTextAdapter(unittest.TestCase):
     def test_csv(self):
         # Test skipping blank lines
         data = StringIO('1,2,3\n\n4,5,6')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         array = adapter[:]
         assert_array_equal(array, np.array([(1,2,3), (4,5,6)],
             dtype=[('f0','<u8'),('f1','<u8'),('f2','<u8')]))
@@ -746,36 +746,36 @@ class TestTextAdapter(unittest.TestCase):
     def test_json(self):
         # Test json number
         data = StringIO('{"id":123}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(123,)], dtype=[('id', 'u8')]))
 
         # Test json number
         data = StringIO('{"id":"xxx"}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([('xxx',)], dtype=[('id', 'O')]))
 
         # Test multiple values
         data = StringIO('{"id":123, "name":"xxx"}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(123, 'xxx',)], dtype=[('id', 'u8'), ('name', 'O')]))
 
         # Test multiple records
         data = StringIO('[{"id":123, "name":"xxx"}, {"id":456, "name":"yyy"}]')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(123, 'xxx',), (456, 'yyy')], dtype=[('id', 'u8'), ('name', 'O')]))
 
         # Test multiple objects separated by newlines
         data = StringIO('{"id":123, "name":"xxx"}\n{"id":456, "name":"yyy"}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(123, 'xxx',), (456, 'yyy')], dtype=[('id', 'u8'), ('name', 'O')]))
 
         data = StringIO('{"id":123, "name":"xxx"}\n')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(123, 'xxx',)], dtype=[('id', 'u8'), ('name', 'O')]))
 
@@ -783,14 +783,14 @@ class TestTextAdapter(unittest.TestCase):
         '''
         # Test subarrays
         data = StringIO('{"id":123, "names":["xxx","yyy","zzz"]}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(123, 'xxx', 'yyy', 'zzz',)],
             dtype=[('f0', 'u8'), ('f1', 'O'), ('f2', 'O'), ('f3', 'O')]))
 
         # Test subobjects
         data = StringIO('{"id":123, "names":{"a":"xxx", "b":"yyy", "c":"zzz"}}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(123, 'xxx', 'yyy', 'zzz',)],
             dtype=[('f0', 'u8'), ('f1', 'O'), ('f2', 'O'), ('f3', 'O')]))
@@ -801,14 +801,14 @@ class TestTextAdapter(unittest.TestCase):
                                  '{"id": 2, "name": "xxx"}\n'
                                  '{"id": 3, "name": "yyy"}\n'
                                  '{"id": 4, "name": "zzz"}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[2:4]
         assert_array_equal(array, np.array([(3, 'yyy'), (4, 'zzz')],
             dtype=[('id', 'u8'), ('name', 'O')]))
 
         # Test column order
         data = StringIO('{"xxx": 1, "aaa": 2}\n')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         array = adapter[:]
         assert_array_equal(array, np.array([(1, 2)],
             dtype=[('xxx', 'u8'), ('aaa', 'u8')]))
@@ -818,7 +818,7 @@ class TestTextAdapter(unittest.TestCase):
                                  '{"id": 2, "name": "xxx"}\n'
                                  '{"id": 3, "name": "yyy"}\n'
                                  '{"id": 4, "name": "zzz"}')
-        adapter = iopro.text_adapter(data, parser='json')
+        adapter = TextAdapter.text_adapter(data, parser='json')
         adapter.field_filter = ['name']
         array = adapter[:]
         assert_array_equal(array, np.array([('www',), ('xxx',), ('yyy',), ('zzz',)],
@@ -826,13 +826,13 @@ class TestTextAdapter(unittest.TestCase):
 
     def test_stepping(self):
         data = StringIO('0,1\n2,3\n4,5\n6,7\n8,9\n10,11\n12,13\n14,15\n16,17\n18,19')
-        adapter = iopro.text_adapter(data, field_names=False)
+        adapter = TextAdapter.text_adapter(data, field_names=False)
         assert_array_equal(adapter[::2], np.array([(0,1), (4,5), (8,9), (12,13), (16,17)], dtype='u8,u8'))
         assert_array_equal(adapter[::3], np.array([(0,1), (6,7), (12,13), (18,19)], dtype='u8,u8'))
 
     def test_num_records(self):
         data = StringIO('0,1\n2,3\n4,5\n6,7\n8,9\n10,11\n12,13\n14,15\n16,17\n18,19')
-        adapter = iopro.text_adapter(data, field_names=False, num_records=2)
+        adapter = TextAdapter.text_adapter(data, field_names=False, num_records=2)
         assert_array_equal(adapter[:], np.array([(0, 1), (2, 3)], dtype='u8,u8'))
 
 

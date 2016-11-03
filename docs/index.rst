@@ -99,15 +99,3 @@ Release notes
 
     release-notes
 
-License Agreement
------------------
-
-.. toctree::
-    :maxdepth: 1
-
-    eula
-
-
-.. toctree::
-   :maxdepth: 1
-

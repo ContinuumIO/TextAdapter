@@ -19,7 +19,7 @@ from nose import SkipTest
 from numpy.ma.testutils import (TestCase, assert_equal, assert_array_equal,
                                 assert_raises, run_module_suite)
 from numpy.testing import assert_warns, assert_
-import iopro
+import TextAdapter
 import unittest
 from six import StringIO
 from io import BytesIO
@@ -53,7 +53,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('1 2\n3 4')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=[('x', np.int32), ('y', np.int32)])
+        x = TextAdapter.loadtxt(c, dtype=[('x', np.int32), ('y', np.int32)])
         a = np.array([(1, 2), (3, 4)], dtype=[('x', 'i4'), ('y', 'i4')])
         assert_array_equal(x, a)
 
@@ -65,7 +65,7 @@ class TestLoadTxt(TestCase):
                                     'i4', 'f4')}
         b = np.array([('M', 64.0, 75.0),
                       ('F', 25.0, 60.0)], dtype=mydescriptor)
-        y = iopro.loadtxt(d, dtype=mydescriptor)
+        y = TextAdapter.loadtxt(d, dtype=mydescriptor)
         assert_array_equal(y, b)
 
     def test_array(self):
@@ -73,12 +73,12 @@ class TestLoadTxt(TestCase):
         c.write('1 2\n3 4')
 
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int)
+        x = TextAdapter.loadtxt(c, dtype=int)
         a = np.array([[1, 2], [3, 4]], int)
         assert_array_equal(x, a)
 
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=float)
+        x = TextAdapter.loadtxt(c, dtype=float)
         a = np.array([[1, 2], [3, 4]], float)
         assert_array_equal(x, a)
 
@@ -86,14 +86,14 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('1\n2\n3\n4\n')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int)
+        x = TextAdapter.loadtxt(c, dtype=int)
         a = np.array([1, 2, 3, 4], int)
         assert_array_equal(x, a)
 
         c = StringIO()
         c.write('1,2,3,4\n')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int, delimiter=',')
+        x = TextAdapter.loadtxt(c, dtype=int, delimiter=',')
         a = np.array([1, 2, 3, 4], int)
         assert_array_equal(x, a)
 
@@ -102,7 +102,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('1,2,3,,5\n')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int, delimiter=',', \
+        x = TextAdapter.loadtxt(c, dtype=int, delimiter=',', \
             converters={3:lambda s: int(s or - 999)})
         a = np.array([1, 2, 3, -999, 5], int)
         assert_array_equal(x, a)
@@ -112,7 +112,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('1,2,3,,5\n6,7,8,9,10\n')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int, delimiter=',', \
+        x = TextAdapter.loadtxt(c, dtype=int, delimiter=',', \
             converters={3:lambda s: int(s or - 999)}, \
             usecols=(1, 3,))
         a = np.array([[2, -999], [7, 9]], int)
@@ -122,7 +122,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('# comment\n1,2,3,5\n')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int, delimiter=',', \
+        x = TextAdapter.loadtxt(c, dtype=int, delimiter=',', \
             comments='#')
         a = np.array([1, 2, 3, 5], int)
         assert_array_equal(x, a)
@@ -131,7 +131,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('comment\n1,2,3,5\n')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int, delimiter=',', \
+        x = TextAdapter.loadtxt(c, dtype=int, delimiter=',', \
             skiprows=1)
         a = np.array([1, 2, 3, 5], int)
         assert_array_equal(x, a)
@@ -139,7 +139,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('# comment\n1,2,3,5\n')
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int, delimiter=',', \
+        x = TextAdapter.loadtxt(c, dtype=int, delimiter=',', \
             skiprows=1)
         a = np.array([1, 2, 3, 5], int)
         assert_array_equal(x, a)
@@ -149,19 +149,19 @@ class TestLoadTxt(TestCase):
         c = BytesIO()
         np.savetxt(c, a)
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=float, usecols=(1,))
+        x = TextAdapter.loadtxt(c, dtype=float, usecols=(1,))
         assert_array_equal(x, a[:, 1])
 
         a = np.array([[1, 2, 3], [3, 4, 5]], float)
         c = BytesIO()
         np.savetxt(c, a)
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=float, usecols=(1, 2))
+        x = TextAdapter.loadtxt(c, dtype=float, usecols=(1, 2))
         assert_array_equal(x, a[:, 1:])
 
         # Testing with arrays instead of tuples.
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=float, usecols=np.array([1, 2]))
+        x = TextAdapter.loadtxt(c, dtype=float, usecols=np.array([1, 2]))
         assert_array_equal(x, a[:, 1:])
 
         # Checking with dtypes defined converters.
@@ -169,7 +169,7 @@ class TestLoadTxt(TestCase):
         c = StringIO(data)
         names = ['stid', 'temp']
         dtypes = ['S3', 'f8']
-        arr = iopro.loadtxt(c, usecols=(0, 2), dtype=list(zip(names, dtypes)))
+        arr = TextAdapter.loadtxt(c, usecols=(0, 2), dtype=list(zip(names, dtypes)))
         assert_equal(arr['stid'], asbytes_nested(["JOE", "BOB"]))
         assert_equal(arr['temp'], [25.3, 27.9])
 
@@ -178,7 +178,7 @@ class TestLoadTxt(TestCase):
         c.write('1,2,3.0\n4,5,6.0\n')
         c.seek(0)
         dt = np.dtype([('x', int), ('y', [('t', int), ('s', float)])])
-        x = iopro.loadtxt(c, dtype=dt, delimiter=',')
+        x = TextAdapter.loadtxt(c, dtype=dt, delimiter=',')
         a = np.array([(1, (2, 3.0)), (4, (5, 6.0))], dt)
         assert_array_equal(x, a)
 
@@ -186,7 +186,7 @@ class TestLoadTxt(TestCase):
         c = StringIO("aaaa  1.0  8.0  1 2 3 4 5 6")
         dt = np.dtype([('name', 'S4'), ('x', float), ('y', float),
                        ('block', int, (2, 3))])
-        x = iopro.loadtxt(c, dtype=dt)
+        x = TextAdapter.loadtxt(c, dtype=dt)
         a = np.array([('aaaa', 1.0, 8.0, [[1, 2, 3], [4, 5, 6]])],
                      dtype=dt)
         assert_array_equal(x, a)
@@ -195,7 +195,7 @@ class TestLoadTxt(TestCase):
         c = StringIO("aaaa  1.0  8.0  1 2 3 4 5 6 7 8 9 10 11 12")
         dt = np.dtype([('name', 'S4'), ('x', float), ('y', float),
                        ('block', int, (2, 2, 3))])
-        x = iopro.loadtxt(c, dtype=dt)
+        x = TextAdapter.loadtxt(c, dtype=dt)
         a = np.array([('aaaa', 1.0, 8.0, [[[1, 2, 3], [4, 5, 6]],[[7, 8, 9], [10, 11, 12]]])],
                      dtype=dt)
         assert_array_equal(x, a)
@@ -207,9 +207,9 @@ class TestLoadTxt(TestCase):
             warnings.filterwarnings("ignore",
                     message="loadtxt: Empty input file:")
             c = StringIO()
-            x = iopro.loadtxt(c)
+            x = TextAdapter.loadtxt(c)
             assert_equal(x.shape, (0,))
-            x = iopro.loadtxt(c, dtype=np.int64)
+            x = TextAdapter.loadtxt(c, dtype=np.int64)
             assert_equal(x.shape, (0,))
             assert_(x.dtype == np.int64)
         finally:
@@ -221,12 +221,12 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.writelines(['1 21\n', '3 42\n'])
         c.seek(0)
-        data = iopro.loadtxt(c, usecols=(1,),
+        data = TextAdapter.loadtxt(c, usecols=(1,),
                           converters={0: lambda s: int(s, 16)})
         assert_array_equal(data, [21, 42])
 
         c.seek(0)
-        data = iopro.loadtxt(c, usecols=(1,),
+        data = TextAdapter.loadtxt(c, usecols=(1,),
                           converters={1: lambda s: int(s, 16)})
         assert_array_equal(data, [33, 66])
 
@@ -241,7 +241,7 @@ class TestLoadTxt(TestCase):
         ndtype = [('idx', int), ('code', np.object)]
         func = lambda s: strptime(s.strip(), "%Y-%m-%d")
         converters = {1: func}
-        test = iopro.loadtxt(StringIO(data), delimiter=";", dtype=ndtype,
+        test = TextAdapter.loadtxt(StringIO(data), delimiter=";", dtype=ndtype,
                              converters=converters)
         control = np.array([(1, datetime(2001, 1, 1)), (2, datetime(2002, 1, 31))],
                            dtype=ndtype)
@@ -252,7 +252,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write("%s %s" % tgt)
         c.seek(0)
-        res = iopro.loadtxt(c, dtype=np.uint64)
+        res = TextAdapter.loadtxt(c, dtype=np.uint64)
         assert_equal(res, tgt)
 
     def test_int64_type(self):
@@ -260,7 +260,7 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write("%s %s" % tgt)
         c.seek(0)
-        res = iopro.loadtxt(c, dtype=np.int64)
+        res = TextAdapter.loadtxt(c, dtype=np.int64)
         assert_equal(res, tgt)
 
     def test_universal_newline(self):
@@ -269,7 +269,7 @@ class TestLoadTxt(TestCase):
         os.close(f)
 
         try:
-            data = iopro.loadtxt(name)
+            data = TextAdapter.loadtxt(name)
             assert_array_equal(data, [[1, 21], [3, 42]])
         finally:
             os.unlink(name)
@@ -280,14 +280,14 @@ class TestLoadTxt(TestCase):
         c.seek(0)
         dt = { 'names': ('x', 'y', 'z', 'comment'),
                'formats': ('<i4', '<i4', '<f4', '|S8')}
-        x = iopro.loadtxt(c, dtype=dt, delimiter='\t')
+        x = TextAdapter.loadtxt(c, dtype=dt, delimiter='\t')
         a = np.array(['start ', '  ', ''], dtype='|S8')
         assert_array_equal(x['comment'], a)
 
     def test_structure_unpack(self):
         txt = StringIO("M 21 72\nF 35 58")
         dt = { 'names': ('a', 'b', 'c'), 'formats': ('|S1', '<i4', '<f4')}
-        a, b, c = iopro.loadtxt(txt, dtype=dt, unpack=True)
+        a, b, c = TextAdapter.loadtxt(txt, dtype=dt, unpack=True)
         assert_(a.dtype.str == '|S1')
         assert_(b.dtype.str == '<i4')
         assert_(c.dtype.str == '<f4')
@@ -299,34 +299,34 @@ class TestLoadTxt(TestCase):
         c = StringIO()
         c.write('1,2,3\n4,5,6')
         c.seek(0)
-        assert_raises(iopro.DataTypeError, iopro.loadtxt, c, ndmin=3)
+        assert_raises(TextAdapter.DataTypeError, TextAdapter.loadtxt, c, ndmin=3)
         c.seek(0)
-        assert_raises(iopro.DataTypeError, iopro.loadtxt, c, ndmin=1.5)
+        assert_raises(TextAdapter.DataTypeError, TextAdapter.loadtxt, c, ndmin=1.5)
         c.seek(0)
-        x = iopro.loadtxt(c, dtype=int, delimiter=',', ndmin=1)
+        x = TextAdapter.loadtxt(c, dtype=int, delimiter=',', ndmin=1)
         a = np.array([[1, 2, 3], [4, 5, 6]])
         assert_array_equal(x, a)
         d = StringIO()
         d.write('0,1,2')
         d.seek(0)
-        x = iopro.loadtxt(d, dtype=int, delimiter=',', ndmin=2)
+        x = TextAdapter.loadtxt(d, dtype=int, delimiter=',', ndmin=2)
         assert_(x.shape == (1, 3))
         d.seek(0)
-        x = iopro.loadtxt(d, dtype=int, delimiter=',', ndmin=1)
+        x = TextAdapter.loadtxt(d, dtype=int, delimiter=',', ndmin=1)
         assert_(x.shape == (3,))
         d.seek(0)
-        x = iopro.loadtxt(d, dtype=int, delimiter=',', ndmin=0)
+        x = TextAdapter.loadtxt(d, dtype=int, delimiter=',', ndmin=0)
         assert_(x.shape == (3,))
         e = StringIO()
         e.write('0\n1\n2')
         e.seek(0)
-        x = iopro.loadtxt(e, dtype=int, delimiter=',', ndmin=2)
+        x = TextAdapter.loadtxt(e, dtype=int, delimiter=',', ndmin=2)
         assert_(x.shape == (3, 1))
         e.seek(0)
-        x = iopro.loadtxt(e, dtype=int, delimiter=',', ndmin=1)
+        x = TextAdapter.loadtxt(e, dtype=int, delimiter=',', ndmin=1)
         assert_(x.shape == (3,))
         e.seek(0)
-        x = iopro.loadtxt(e, dtype=int, delimiter=',', ndmin=0)
+        x = TextAdapter.loadtxt(e, dtype=int, delimiter=',', ndmin=0)
         assert_(x.shape == (3,))
 
         # Test ndmin kw with empty file.
@@ -336,8 +336,8 @@ class TestLoadTxt(TestCase):
             warnings.filterwarnings("ignore",
                     message="loadtxt: Empty input file:")
             f = StringIO()
-            assert_(iopro.loadtxt(f, ndmin=2).shape == (0, 1,))
-            assert_(iopro.loadtxt(f, ndmin=1).shape == (0,))
+            assert_(TextAdapter.loadtxt(f, ndmin=2).shape == (0, 1,))
+            assert_(TextAdapter.loadtxt(f, ndmin=1).shape == (0,))
         finally:
             warn_ctx.__exit__()
 
@@ -346,7 +346,7 @@ class TestLoadTxt(TestCase):
             for i in range(10):
                 yield "%d" % i
 
-        res = iopro.loadtxt(count())
+        res = TextAdapter.loadtxt(count())
         assert_array_equal(res, np.arange(10))
 
 
@@ -364,7 +364,7 @@ class TestFromTxt(TestCase):
         #
         data.seek(0)
         control = np.array([[1, 2], [3, 4]], dtype=float)
-        test = iopro.loadtxt(data, dtype=float)
+        test = TextAdapter.loadtxt(data, dtype=float)
         assert_array_equal(test, control)
 
     def test_skiprows(self):
@@ -373,7 +373,7 @@ class TestFromTxt(TestCase):
         kwargs = dict(dtype=int, delimiter=',')
         #
         data = StringIO('# comment\n1,2,3,5\n')
-        test = iopro.loadtxt(data, skiprows=1, **kwargs)
+        test = TextAdapter.loadtxt(data, skiprows=1, **kwargs)
         assert_equal(test, control)
 
     @unittest.expectedFailure
@@ -383,7 +383,7 @@ class TestFromTxt(TestCase):
         data.extend(["%i,%3.1f,%03s" % (i, i, i) for i in range(51)])
         data[-1] = "99,99"
         kwargs = dict(delimiter=",", names=True, skip_header=5, skip_footer=10)
-        test = iopro.genfromtxt(StringIO("\n".join(data)), **kwargs)
+        test = TextAdapter.genfromtxt(StringIO("\n".join(data)), **kwargs)
         ctrl = np.array([("%f" % i, "%f" % i, "%f" % i) for i in range(41)],
                         dtype=[(_, float) for _ in "ABC"])
         assert_equal(test, ctrl)
@@ -396,18 +396,18 @@ class TestFromTxt(TestCase):
             basestr = '1 1\n2 2\n3 3\n4 4\n5  \n6  \n7  \n'
             warnings.filterwarnings("ignore")
             # Footer too small to get rid of all invalid values
-            assert_raises(ValueError, iopro.genfromtxt,
+            assert_raises(ValueError, TextAdapter.genfromtxt,
                           StringIO(basestr), skip_footer=1)
-            a = iopro.genfromtxt(StringIO(basestr), skip_footer=1, invalid_raise=False)
+            a = TextAdapter.genfromtxt(StringIO(basestr), skip_footer=1, invalid_raise=False)
             assert_equal(a, np.array([[1., 1.], [2., 2.], [3., 3.], [4., 4.]]))
             #
-            a = iopro.genfromtxt(StringIO(basestr), skip_footer=3)
+            a = TextAdapter.genfromtxt(StringIO(basestr), skip_footer=3)
             assert_equal(a, np.array([[1., 1.], [2., 2.], [3., 3.], [4., 4.]]))
             #
             basestr = '1 1\n2  \n3 3\n4 4\n5  \n6 6\n7 7\n'
-            a = iopro.genfromtxt(StringIO(basestr), skip_footer=1, invalid_raise=False)
+            a = TextAdapter.genfromtxt(StringIO(basestr), skip_footer=1, invalid_raise=False)
             assert_equal(a, np.array([[1., 1.], [3., 3.], [4., 4.], [6., 6.]]))
-            a = iopro.genfromtxt(StringIO(basestr), skip_footer=3, invalid_raise=False)
+            a = TextAdapter.genfromtxt(StringIO(basestr), skip_footer=3, invalid_raise=False)
             assert_equal(a, np.array([[1., 1.], [3., 3.], [4., 4.]]))
         finally:
             warn_ctx.__exit__()
@@ -421,9 +421,9 @@ F   35  58.330000
 M   33  21.99
         """)
         # The # is part of the first name and should be deleted automatically.
-        test = iopro.genfromtxt(data, names=True, dtype=None)
+        test = TextAdapter.genfromtxt(data, names=True, dtype=None)
         ctrl = np.array([('M', 21, 72.1), ('F', 35, 58.33), ('M', 33, 21.99)],
-                  # JNB: changed test because iopro defaults to object string
+                  # JNB: changed test because TextAdapter defaults to object string
                   # instead of fixed length string, and unsigned long int
                   # instead of int.
                   dtype=[('gender', 'O'), ('age', 'u8'), ('weight', 'f8')])
@@ -436,7 +436,7 @@ M   21  72.100000
 F   35  58.330000
 M   33  21.99
         """)
-        test = iopro.genfromtxt(data, names=True, dtype=None)
+        test = TextAdapter.genfromtxt(data, names=True, dtype=None)
         assert_equal(test, ctrl)
 
     @unittest.expectedFailure
@@ -451,7 +451,7 @@ M   33  21.99
                               "D02N03,10/10/2004,R 1,,7,145.55")
         kwargs = dict(converters={2 : strip_per, 3 : strip_rand}, delimiter=",",
                       dtype=None)
-        assert_raises(ConverterError, iopro.genfromtxt, s, **kwargs)
+        assert_raises(ConverterError, TextAdapter.genfromtxt, s, **kwargs)
 
     @unittest.expectedFailure
     def test_tricky_converter_bug1666(self):
@@ -459,7 +459,7 @@ M   33  21.99
         assert_equal(True, False)
         s = StringIO('q1,2\nq3,4')
         cnv = lambda s:float(s[1:])
-        test = iopro.genfromtxt(s, delimiter=',', converters={0:cnv})
+        test = TextAdapter.genfromtxt(s, delimiter=',', converters={0:cnv})
         control = np.array([[1., 2.], [3., 4.]])
         assert_equal(test, control)
 
@@ -474,7 +474,7 @@ M   33  21.99
         ndtype = [('idx', int), ('code', np.object)]
         func = lambda s: strptime(s.strip(), "%Y-%m-%d")
         converters = {1: func}
-        test = iopro.genfromtxt(StringIO(data), delimiter=";", dtype=ndtype,
+        test = TextAdapter.genfromtxt(StringIO(data), delimiter=";", dtype=ndtype,
                              converters=converters)
         control = np.array([(1, datetime(2001, 1, 1)), (2, datetime(2002, 1, 31))],
                            dtype=ndtype)
@@ -482,7 +482,7 @@ M   33  21.99
         #
         ndtype = [('nest', [('idx', int), ('code', np.object)])]
         try:
-            test = iopro.genfromtxt(StringIO(data), delimiter=";",
+            test = TextAdapter.genfromtxt(StringIO(data), delimiter=";",
                                  dtype=ndtype, converters=converters)
         except NotImplementedError:
             errmsg = "Nested dtype involving objects should be supported."
@@ -492,7 +492,7 @@ M   33  21.99
     def test_userconverters_with_explicit_dtype(self):
         "Test user_converters w/ explicit (standard) dtype"
         data = StringIO('skip,skip,2001-01-01,1.0,skip')
-        test = iopro.genfromtxt(data, delimiter=",", names=None, dtype=float,
+        test = TextAdapter.genfromtxt(data, delimiter=",", names=None, dtype=float,
                              usecols=(2, 3), converters={2: bytes})
         control = np.array([('2001-01-01', 1.)],
                            dtype=[('', '|S10'), ('', float)])
@@ -502,7 +502,7 @@ M   33  21.99
     def test_integer_delimiter(self):
         "Test using an integer for delimiter"
         data = "  1  2  3\n  4  5 67\n890123  4"
-        test = iopro.genfromtxt(StringIO(data), delimiter=3, dtype=int)
+        test = TextAdapter.genfromtxt(StringIO(data), delimiter=3, dtype=int)
         control = np.array([[1, 2, 3], [4, 5, 67], [890, 123, 4]])
         assert_equal(test, control)
 
@@ -512,7 +512,7 @@ M   33  21.99
     def test_missing_with_tabs(self):
         "Test w/ a delimiter tab"
         txt = "1\t2\t3\n\t2\t\n1\t\t3"
-        test = iopro.genfromtxt(StringIO(txt), delimiter="\t",
+        test = TextAdapter.genfromtxt(StringIO(txt), delimiter="\t",
                              usemask=True,)
         ctrl_d = np.array([(1, 2, 3), (np.nan, 2, np.nan), (1, np.nan, 3)],)
         ctrl_m = np.array([(0, 0, 0), (1, 0, 1), (0, 1, 0)], dtype=bool)
@@ -522,14 +522,14 @@ M   33  21.99
     def test_usecols_as_css(self):
         "Test giving usecols with a comma-separated string"
         data = "1 2 3\n4 5 6"
-        test = iopro.genfromtxt(StringIO(data),
+        test = TextAdapter.genfromtxt(StringIO(data),
                              names="a, b, c", usecols="a, c")
         ctrl = np.array([(1, 3), (4, 6)], dtype=[(_, float) for _ in "ac"])
         assert_equal(test, ctrl)
 
     def test_usecols_with_integer(self):
         "Test usecols with an integer"
-        test = iopro.genfromtxt(StringIO("1 2 3\n4 5 6"), usecols=0)
+        test = TextAdapter.genfromtxt(StringIO("1 2 3\n4 5 6"), usecols=0)
         assert_equal(test, np.array([1., 4.]))
 
     def test_usecols_with_named_columns(self):
@@ -537,9 +537,9 @@ M   33  21.99
         ctrl = np.array([(1, 3), (4, 6)], dtype=[('a', float), ('c', float)])
         data = "1 2 3\n4 5 6"
         kwargs = dict(names="a, b, c")
-        test = iopro.genfromtxt(StringIO(data), usecols=(0, -1), **kwargs)
+        test = TextAdapter.genfromtxt(StringIO(data), usecols=(0, -1), **kwargs)
         assert_equal(test, ctrl)
-        test = iopro.genfromtxt(StringIO(data),
+        test = TextAdapter.genfromtxt(StringIO(data),
                              usecols=('a', 'c'), **kwargs)
         assert_equal(test, ctrl)
 
@@ -550,7 +550,7 @@ M   33  21.99
         try:
             warnings.filterwarnings("ignore", message="genfromtxt: Empty input file:")
             data = StringIO()
-            test = iopro.genfromtxt(data)
+            test = TextAdapter.genfromtxt(data)
             assert_equal(test, np.array([]))
         finally:
             warn_ctx.__exit__()
@@ -564,11 +564,11 @@ M   33  21.99
                       names="a,b,c",
                       missing_values={0:"N/A", 'b':" ", 2:"???"},
                       filling_values={0:0, 'b':0, 2:-999})
-        test = iopro.genfromtxt(StringIO(data), **kwargs)
+        test = TextAdapter.genfromtxt(StringIO(data), **kwargs)
         ctrl = np.array([(0, 2, 3), (4, 0, -999)],
                         dtype=[(_, int) for _ in "abc"])
         assert_equal(test, ctrl)
-        test = iopro.genfromtxt(StringIO(data), usecols=(0, -1), **kwargs)
+        test = TextAdapter.genfromtxt(StringIO(data), usecols=(0, -1), **kwargs)
         ctrl = np.array([(0, 3), (4, -999)], dtype=[(_, int) for _ in "ac"])
         assert_equal(test, ctrl)
 
@@ -577,7 +577,7 @@ M   33  21.99
     def test_with_masked_column_uniform(self):
         "Test masked column"
         data = StringIO('1 2 3\n4 5 6\n')
-        test = iopro.genfromtxt(data, dtype=None,
+        test = TextAdapter.genfromtxt(data, dtype=None,
                              missing_values='2,5', usemask=True)
         control = ma.array([[1, 2, 3], [4, 5, 6]], mask=[[0, 1, 0], [0, 1, 0]])
         assert_equal(test, control)
@@ -587,7 +587,7 @@ M   33  21.99
     def test_with_masked_column_various(self):
         "Test masked column"
         data = StringIO('True 2 3\nFalse 5 6\n')
-        test = iopro.genfromtxt(data, dtype=None,
+        test = TextAdapter.genfromtxt(data, dtype=None,
                              missing_values='2,5', usemask=True)
         control = ma.array([(1, 2, 3), (0, 5, 6)],
                            mask=[(0, 1, 0), (0, 1, 0)],
@@ -601,20 +601,20 @@ M   33  21.99
         "Test the 'replace_space' option"
         txt = "A.A, B (B), C:C\n1, 2, 3.14"
         # Test default: replace ' ' by '_' and delete non-alphanum chars
-        test = iopro.genfromtxt(StringIO(txt),
+        test = TextAdapter.genfromtxt(StringIO(txt),
                              delimiter=",", names=True, dtype=None)
         ctrl_dtype = [("AA", int), ("B_B", int), ("CC", float)]
         ctrl = np.array((1, 2, 3.14), dtype=ctrl_dtype)
         assert_equal(test, ctrl)
         # Test: no replace, no delete
-        test = iopro.genfromtxt(StringIO(txt),
+        test = TextAdapter.genfromtxt(StringIO(txt),
                              delimiter=",", names=True, dtype=None,
                              replace_space='', deletechars='')
         ctrl_dtype = [("A.A", int), ("B (B)", int), ("C:C", float)]
         ctrl = np.array((1, 2, 3.14), dtype=ctrl_dtype)
         assert_equal(test, ctrl)
         # Test: no delete (spaces are replaced by _)
-        test = iopro.genfromtxt(StringIO(txt),
+        test = TextAdapter.genfromtxt(StringIO(txt),
                              delimiter=",", names=True, dtype=None,
                              deletechars='')
         ctrl_dtype = [("A.A", int), ("B_(B)", int), ("C:C", float)]
@@ -624,7 +624,7 @@ M   33  21.99
     def test_names_auto_completion(self):
         "Make sure that names are properly completed"
         data = "1 2 3\n 4 5 6"
-        test = iopro.genfromtxt(StringIO(data),
+        test = TextAdapter.genfromtxt(StringIO(data),
                              dtype=(int, float, int), names="a")
         ctrl = np.array([(1, 2, 3), (4, 5, 6)],
                         dtype=[('a', int), ('f1', float), ('f2', int)])
@@ -634,17 +634,17 @@ M   33  21.99
         "Make sure we pick up the right names w/ usecols"
         data = "A,B,C,D,E\n0,1,2,3,4\n0,1,2,3,4\n0,1,2,3,4"
         ctrl_names = ("A", "C", "E")
-        test = iopro.genfromtxt(StringIO(data),
+        test = TextAdapter.genfromtxt(StringIO(data),
                              dtype=(int, int, int), delimiter=",",
                              usecols=(0, 2, 4), names=True)
         assert_equal(test.dtype.names, ctrl_names)
         #
-        test = iopro.genfromtxt(StringIO(data),
+        test = TextAdapter.genfromtxt(StringIO(data),
                              dtype=(int, int, int), delimiter=",",
                              usecols=("A", "C", "E"), names=True)
         assert_equal(test.dtype.names, ctrl_names)
         #
-        test = iopro.genfromtxt(StringIO(data),
+        test = TextAdapter.genfromtxt(StringIO(data),
                              dtype=int, delimiter=",",
                              usecols=("A", "C", "E"), names=True)
         assert_equal(test.dtype.names, ctrl_names)
@@ -665,7 +665,7 @@ M   33  21.99
             # reopen the file.
             try:
                 os.write(f, asbytes(data))
-                assert_array_equal(iopro.genfromtxt(name), wanted)
+                assert_array_equal(TextAdapter.genfromtxt(name), wanted)
             finally:
                 os.close(f)
                 os.unlink(name)
@@ -675,7 +675,7 @@ M   33  21.99
             for i in range(10):
                 yield "%d" % i
 
-        res = iopro.genfromtxt(count())
+        res = TextAdapter.genfromtxt(count())
         assert_array_equal(res, np.arange(10))
 
 
@@ -695,7 +695,7 @@ def test_gzip_loadtxt():
     try:
         os.write(f, s.read())
         s.close()
-        assert_array_equal(iopro.loadtxt(name), [1, 2, 3])
+        assert_array_equal(TextAdapter.loadtxt(name), [1, 2, 3])
     finally:
         os.close(f)
         os.unlink(name)
@@ -708,7 +708,7 @@ def test_gzip_loadtxt_from_string():
     s.seek(0)
 
     f = gzip.GzipFile(fileobj=s, mode="r")
-    assert_array_equal(iopro.loadtxt(f), [1, 2, 3])
+    assert_array_equal(TextAdapter.loadtxt(f), [1, 2, 3])
 
 def run(verbosity=1):
     suite= unittest.TestSuite()

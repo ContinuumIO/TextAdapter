@@ -50,7 +50,7 @@ class ParserError(AdapterException):
 		self.token = token
 
 class ArgumentError(AdapterException):
-	"""Invalid arguments used in calling iopro functions/methods"""
+	"""Invalid arguments used in calling TextAdapter functions/methods"""
 	pass
 
 class InternalInconsistencyError(AdapterException):

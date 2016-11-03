@@ -5,7 +5,6 @@ from distutils.core import setup, Command
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 import numpy
-import pyodbc_setup
 import versioneer
 
 class CleanInplace(Command):
@@ -19,12 +18,7 @@ class CleanInplace(Command):
 
     def run(self):
         files = ['./TextAdapter/textadapter/TextAdapter.c',
-                 './TextAdapter/textadapter/TextAdapter.so',
-                 './TextAdapter/mongoadapter/MongoAdapter.so',
-                 './TextAdapter/mongoadapter/MongoAdapter.so',
-                 './TextAdapter/pyodbc.so',
-                 './TextAdapter/postgresadapter/PostgresAdapter.so',
-                 './TextAdapter/pyodbc.cpython-35m-darwin.so']
+                 './TextAdapter/textadapter/TextAdapter.so']
 
         dirs = ['./TextAdapter/build/*',
                 './__pycache__/*',

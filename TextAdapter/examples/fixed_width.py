@@ -1,6 +1,6 @@
-import iopro
+import TextAdapter
 
-adapter = iopro.FixedWidthTextAdapter('../tests/data/fixedwidths', [2,3,4,5,6])
+adapter = TextAdapter.FixedWidthTextAdapter('../tests/data/fixedwidths', [2,3,4,5,6])
 
 # Set dtype for each field in record
 adapter.set_field_types(dict(zip(range(5), ['u4']*5)))

@@ -3,7 +3,7 @@ from numpy.compat import asbytes, asbytes_nested
 from numpy.lib._iotools import LineSplitter, NameValidator, easy_dtype, _is_string_like
 import warnings
 import operator
-import iopro
+import TextAdapter
 import sys
 
 from numpy.compat import (
@@ -225,12 +225,12 @@ def genfromtxt(fname, dtype=float, comments='#', delimiter=None,
 
     try:
         if isinstance(delimiter, basestring):
-            adapter = iopro.text_adapter(fname, parser='csv', delimiter=delimiter,
+            adapter = TextAdapter.text_adapter(fname, parser='csv', delimiter=delimiter,
                 comment=comments, header=skip_header, footer=skip_footer,
                 compression=compression, field_names=set_names, infer_types=True,
                 whitespace_delims=whitespace_delims)
         elif isinstance(delimiter, int) or isinstance(delimiter, (list, tuple)):
-            adapter = iopro.text_adapter(fname, parser='fixed_width',
+            adapter = TextAdapter.text_adapter(fname, parser='fixed_width',
             field_widths=delimiter, comment=comments, header=skip_header,
             footer=skip_footer, field_names=set_names, infer_types=True)
     except EOFError:

@@ -12,7 +12,7 @@
 #include "index.h"
 #include "field_info.h"
 #include "json_tokenizer.h"
-
+#include "numpy_types.h"
 
 /* Buffer size for reading in compressed gzip data before uncompressing */
 #define COMPRESSED_BUFFER_SIZE 1024*1024

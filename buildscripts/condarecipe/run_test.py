@@ -1,5 +1,5 @@
-import iopro
+import TextAdapter
 
-assert iopro.test()
+assert TextAdapter.test()
 
-print('iopro.__version__: %s' % iopro.__version__)
+print('TextAdapter.__version__: %s' % TextAdapter.__version__)

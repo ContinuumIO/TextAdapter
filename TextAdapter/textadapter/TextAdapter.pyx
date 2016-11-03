@@ -9,7 +9,7 @@ import logging
 import csv
 import encodings
 import math
-from iopro.lib import errors
+from TextAdapter.lib import errors
 from six import string_types, StringIO
 from cpython.ref cimport Py_INCREF
 

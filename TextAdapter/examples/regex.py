@@ -1,6 +1,6 @@
-import iopro
+import TextAdapter
 
-adapter = iopro.RegexTextAdapter('../tests/data/ints', '([0-9]*),([0-9]*),([0-9]*),([0-9]*),([0-9]*)')
+adapter = TextAdapter.RegexTextAdapter('../tests/data/ints', '([0-9]*),([0-9]*),([0-9]*),([0-9]*),([0-9]*)')
 
 # Set dtype for each group in regular expression.
 # Any groups without a dtype defined for it will not be

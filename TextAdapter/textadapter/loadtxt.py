@@ -1,6 +1,6 @@
 import numpy
 import operator
-import iopro
+import TextAdapter
 
 from numpy.compat import (
     asstr, bytes, basestring, unicode
@@ -106,7 +106,7 @@ def loadtxt(fname, dtype=float, comments='#', delimiter=None,
         compression = 'gzip'
 
     try:
-        adapter = iopro.text_adapter(fname, parser='csv', delimiter=delimiter,
+        adapter = TextAdapter.text_adapter(fname, parser='csv', delimiter=delimiter,
             comment=comments, header=skiprows, compression=compression, whitespace_delims=whitespace_delims,
             field_names=False, infer_types=False)
     except EOFError:

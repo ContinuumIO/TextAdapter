@@ -21,8 +21,8 @@ rm -rf ${PYENV_PREFIX}
 ~/anaconda/bin/conda create --yes -p ${PYENV_PREFIX} anaconda python=${PYTHON_VERSION} numpy=1.7 || exit 1
 export PATH=${PYENV_PREFIX}/bin:${PATH}
 
-# JNB: Get rid of any iopro that conda may have installed
-rm -rf ${PYENV_PREFIX}/lib/python2.7/site-packages/iopro*
+# JNB: Get rid of any TextAdapter that conda may have installed
+rm -rf ${PYENV_PREFIX}/lib/python2.7/site-packages/TextAdapter*
 
 # Get and build mongo c driver
 if [ ! -d mongo-c-driver ]; then
@@ -97,4 +97,4 @@ export LD_LIBRARY_PATH=${WORKSPACE}/build/unixODBC-2.3.1/DriverManager/.libs:$LD
 
 cd ..
 python setup.py build_ext --inplace --include-dirs=$IOPRO_INCLUDE_PATH --library-dirs=$IOPRO_LIBRARY_PATH || exit 1
-python -c 'import iopro; import sys; sys.exit(1 - iopro.test(num_records=1000))'
+python -c 'import TextAdapter; import sys; sys.exit(1 - TextAdapter.test(num_records=1000))'
