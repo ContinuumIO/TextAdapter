@@ -1,6 +1,6 @@
 package:
-  name: iopro
-  version: "1.9.0"
+  name: textadapter
+  version: "2.0.0"
 
 source:
   path: ../../
@@ -10,41 +10,31 @@ build:
 
 requirements:
   build:
-    - python 
+    - python
     - numpy
     - cython
-    - unixodbc [linux]
-    - zlib
-    - pcre
-    - mongo-driver
-    - postgresql 9.1.4
-    - boost
-    - thrift 0.9.3
+
+    # zlib and pcre versions pinned to fix shared library issues
+    - zlib 1.2.8
+    - pcre 8.31
+
   run:
-    - python 
+    - python
     - numpy
     - pandas
     - six
     - ordereddict     [py26]
-    - unixodbc [linux]
-    - mongo-driver
-    - postgresql 9.1.4
-    - boost
-    - thrift 0.9.3
 
 test:
   requires:
     - nose
     - pytest
+
   imports:
-    - iopro.accumuloadapter.AccumuloAdapter
-    - iopro.postgresadapter.PostgresAdapter
-    - iopro.mongoadapter.MongoAdapter
-    - iopro.textadapter.TextAdapter
-    - iopro.pyodbc
+    - textadapter
+    - textadapter.core.TextAdapter
 
 about:
-  home: http://www.continuum.io/
-  license: proprietary - Continuum Analytics, Inc.
-  license_family: Proprietary
-  summary: python interface for databases, NoSQL stores, Amazon S3, and large data files
+  home: https://github.com/ContinuumIO/TextAdapter
+  license: BSD
+  summary: python interface Amazon S3, and large data files

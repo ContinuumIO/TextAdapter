@@ -57,12 +57,11 @@ Thumbs.db
 
 # Specific cython generated c files
 ######################
-iopro/textadapter/TextAdapter.c
-iopro/mongoadapter/MongoAdapter.c
+textadapter/core/TextAdapter.c
 
 # Generated data files for /tests and /examples
-iopro/tests/data/fixedwidths
-iopro/tests/data/floats
-iopro/tests/data/ints
-iopro/tests/data/ints.gz
-iopro/tests/data/missingvalues
+textadapter/tests/data/fixedwidths
+textadapter/tests/data/floats
+textadapter/tests/data/ints
+textadapter/tests/data/ints.gz
+textadapter/tests/data/missingvalues

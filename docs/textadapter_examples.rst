@@ -5,7 +5,7 @@ TextAdapter First Steps
 Basic Usage
 -----------
 
-TextAdapter works by attaching to a data source, such as a local CSV file. Before we
+IOPro works by attaching to a data source, such as a local CSV file. Before we
 get started, let's create a sample CSV file to work with::
 
     from random import random, randint, shuffle
@@ -31,16 +31,16 @@ easily fits in memory it would work to use the :code:`csv` or :code:`pandas`
 modules, but we will demonstrate the interfaces and capabilities that will
 apply to much larger data.
 
-    >>> import TextAdapter
-    >>> adapter = TextAdapter.text_adapter('data/table.csv', parser='csv')
+    >>> import iopro
+    >>> adapter = iopro.text_adapter('data/table.csv', parser='csv')
     >>> adapter.get_field_names()
     ['f1', 'f2', 'f3', 'f4', 'comment']
 
 We can specify the data types for values in the columns of the CSV file being
-read;  but first we look at the ability of TextAdapter's TextAdapter to
+read;  but first we look at the ability of IOPro's TextAdapter to
 auto-discover the data types used.
 
-We can ask TextAdapter's TextAdapter to parse text and return records in NumPy
+We can ask IOPro's TextAdapter to parse text and return records in NumPy
 arrays from selected portions of the CSV file using slicing notation:
 
     >>> # the inferred datatypes
@@ -135,14 +135,14 @@ Content of file :code:`data/one.json`:
 
 Single JSON object:
 
-    >>> adapter = TextAdapter.text_adapter('data/one.json', parser='json')
+    >>> adapter = iopro.text_adapter('data/one.json', parser='json')
     >>> adapter[:]
     array([(123, 'xxx')],
           dtype=[('id', '<u8'), ('name', 'O')])
 
 Currently, each JSON object at the root level is interpreted as a single
 NumPy record. Each JSON object can be part of an array, or separated by
-a newline. Examples of valid JSON documents that can be parsed by TextAdapter,
+a newline. Examples of valid JSON documents that can be parsed by IOPro,
 with the NumPy array result:
 
 Content of file :code:`data/two.json`:
@@ -153,7 +153,7 @@ Content of file :code:`data/two.json`:
 
 Array of two JSON objects:
 
-    >>> TextAdapter.text_adapter('data/two.json', parser='json')[:]
+    >>> iopro.text_adapter('data/two.json', parser='json')[:]
     array([(123, 'xxx'), (456, 'yyy')],
           dtype=[('id', '<u8'), ('name', 'O')])
 
@@ -166,7 +166,7 @@ Content of file :code:`data/three.json`:
 
 Two JSON objects separated by newline:
 
-    >>> TextAdapter.text_adapter('data/three.json', parser='json')[:]
+    >>> iopro.text_adapter('data/three.json', parser='json')[:]
     array([(123, 'xxx'), (456, 'yyy')],
           dtype=[('id', '<u8'), ('name', 'O')])
 
@@ -176,9 +176,9 @@ Massaging data in the adapter
 
 A custom function can be used to modify values as they are read.
 
-    >>> import TextAdapter, io, math
+    >>> import iopro, io, math
     >>> stream = io.StringIO('3,abc,3.3\n7,xxx,9.9\n4,,')
-    >>> adapter = TextAdapter.text_adapter(stream, parser='csv', field_names=False)
+    >>> adapter = iopro.text_adapter(stream, parser='csv', field_names=False)
 
 Override default converter for first field:
 
@@ -192,7 +192,7 @@ We can also force data types and set fill values for missing data.
 Apply data types to columns:
 
     >>> stream = io.StringIO('3,abc,3.3\n7,xxx,9.9\n4,,')
-    >>> adapter = TextAdapter.text_adapter(stream, parser='csv', field_names=False)
+    >>> adapter = iopro.text_adapter(stream, parser='csv', field_names=False)
     >>> adapter.set_field_types({1:'S3', 2:'f4'})
     >>> adapter[:]
     array([(3, b'abc', 3.299999952316284), (7, b'xxx', 9.899999618530273),
@@ -212,7 +212,7 @@ Combining regular expressions and typecasting
 ---------------------------------------------
 
 A later section discusses regular expressions in more detail.  This example
-is a quick peek into using them with TextAdapter.
+is a quick peek into using them with IOPro.
 
 Content of the file :code:`data/transactions.csv`:
 
@@ -223,9 +223,9 @@ Content of the file :code:`data/transactions.csv`:
 
 Combining features:
 
-    >>> import TextAdapter
+    >>> import iopro
     >>> regex_string = '\$(\d)\.(\d{2}),\s*([0-9]+)\%,\s*([A-Za-z]+)'
-    >>> adapter = TextAdapter.text_adapter('data/transactions.csv',
+    >>> adapter = iopro.text_adapter('data/transactions.csv',
     ...                              parser='regex',
     ...                              regex_string=regex_string,
     ...                              field_names=False,
@@ -245,10 +245,10 @@ Set dtype of fields and their names:
 Advanced TextAdapter
 --------------------
 
-``TextAdapter.loadtext()`` versus ``TextAdapter.genfromtxt()``
+``iopro.loadtext()`` versus ``iopro.genfromtxt()``
 --------------------------------------------------
 
-Within TextAdapter there are two closely related functions. ``loadtext()``,
+Within IOPro there are two closely related functions. ``loadtext()``,
 which we have been looking at, makes a more optimistic assumption that
 your data is well-formatted. ``genfromtxt()`` has a number of arguments
 for handling messier data, and special behaviors for dealing with
@@ -262,10 +262,10 @@ a superset of these arguments.
 Gzip Support
 ------------
 
-TextAdapter can decompress gzip'd data on the fly, simply by indicating a
+IOPro can decompress gzip'd data on the fly, simply by indicating a
 ``compression`` keyword argument.
 
-   >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip')
+   >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip')
    >>> array = adapter[:]
 
 As well as being able to store and work with your compressed data without
@@ -280,7 +280,7 @@ machines, especially between machines with HDD and SSD architecture.::
 -  gzip compressed: 14.54 sec
 
 In the test, the compressed file takes slightly longer, but consider having to
-uncompress the file to disk before loading with TextAdapter:
+uncompress the file to disk before loading with IOPro:
 
 -  uncompressed: 13.38 sec
 -  gzip compressed: 14.54 sec
@@ -290,13 +290,13 @@ uncompress the file to disk before loading with TextAdapter:
 Indexing CSV Data
 -----------------
 
-One of the most useful features of TextAdapter is the ability to index data to
+One of the most useful features of IOPro is the ability to index data to
 allow for fast random lookup.
 
 For example, to retrieve the last record of the compressed 109 MB
 dataset we used above::
 
-   >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip')
+   >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip')
    >>> array = adapter[-1]
 
 Retrieving the last record into a NumPy array takes 14.82 sec. This is
@@ -315,14 +315,14 @@ Reloading the index only takes 0.18 sec. If you build an index once, you get
 near instant random access to your data forever (assuming the data remains
 static)::
 
-   >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv',
+   >>> adapter = iopro.text_adapter('data.gz', parser='csv',
    ...                              compression='gzip',
    ...                              index_name='index_file')
 
 Let's try it with a moderate sized example.  You can download this data from
 the `Exoplanets Data Explorer <http://exoplanets.org/csv>`_ site.
 
-   >>> adapter = TextAdapter.text_adapter('data/exoplanets.csv.gz',
+   >>> adapter = iopro.text_adapter('data/exoplanets.csv.gz',
    ...                              parser='csv', compression='gzip')
    >>> print(len(adapter[:]), "rows")
    >>> print(', '.join(adapter.field_names[:3]),
@@ -369,7 +369,7 @@ Do some timing (using an IPython magic):
    CPU times: user 18.3 ms, sys: 1.96 ms, total: 20.3 ms
    Wall time: 20.1 ms
 
-   >>> new_adapter = TextAdapter.text_adapter('data/exoplanets.csv.gz', parser='csv',
+   >>> new_adapter = iopro.text_adapter('data/exoplanets.csv.gz', parser='csv',
    ...                                  compression='gzip',
    ...                                  index_name='data/exoplanets.index')
 
@@ -384,7 +384,7 @@ Regular Expressions
    Some people, when confronted with a problem, think "I know, I'll use
    regular expressions." Now they have two problems. --Jamie Zawinski
 
-TextAdapter supports using regular expressions to help parse messy data. Take
+IOPro supports using regular expressions to help parse messy data. Take
 for example the following snippet of actual NASDAQ stock data found on
 the Internet:
 
@@ -398,12 +398,12 @@ The content of the file :code:`data/stocks.csv`:
    Microsoft,MSFT,NasdaqNM,24.30 - 32.95
 
 The first three fields are easy enough: name, symbol, and exchange. The
-fourth field presents a bit of a problem. Let's try TextAdapter's regular
+fourth field presents a bit of a problem. Let's try IOPro's regular
 expression based parser:
 
     >>> regex_string = '([A-Za-z]+),([A-Z]{1,4}),([A-Za-z]+),'\
     ...                '(\d+.\.\d{2})\s*\-\s*(\d+.\.\d{2})'
-    >>> adapter = TextAdapter.text_adapter('data/stocks.csv', parser='regex',
+    >>> adapter = iopro.text_adapter('data/stocks.csv', parser='regex',
     ...                              regex_string=regex_string)
 
     >>> # Notice that header does not now match the regex
@@ -441,7 +441,7 @@ fields. Exactly what we want.
 S3 Support
 ----------
 
-TextAdapter can parse CSV data stored in Amazon's S3 cloud storage service. In
+IOPro can parse CSV data stored in Amazon's S3 cloud storage service. In
 order to access S3 files, you need to specify some credentials along
 with the resource you are accessing.
 
@@ -499,14 +499,16 @@ raw XML query results.
     </ListBucketResult>
 
 In simple form, we see details about some S3 resources.  Let's access one of
-them.
+them. Note that you will need to fill in your actual AWS access key and secret key.
 
-    >>> from secrets import user_name, aws_access_key, aws_secret_key
-    >>> bucket = 'testing'
+    >>> user_name = "class1"
+    >>> aws_access_key = "ABCD"
+    >>> aws_secret_key = "EFGH/IJK"
+    >>> bucket = 'product-training'
     >>> key_name = 'BusinessRules.csv' # 21k lines, 8MB
     >>> # key_name = 'PlanAttributes.csv' # 77k lines, 95MB
     >>> # key_name = 'Rate.csv.gzip' # 13M lines, 2GB raw, 110MB compressed
-    >>> adapter = TextAdapter.s3_text_adapter(aws_access_key, aws_secret_key,
+    >>> adapter = iopro.s3_text_adapter(aws_access_key, aws_secret_key,
     ...                                 bucket, key_name)
     >>> # Don't try with the really large datasets, works with the default one
     >>> df = adapter.to_dataframe()
@@ -586,10 +588,10 @@ them.
     </table>
     </div>
 
-TextAdapter can also build an index for S3 data just as with disk based CSV
-data, and use the index for fast random access lookup.  If an index file is
-created with TextAdapter and stored with the S3 dataset in the cloud,
-TextAdapter can use this remote index to download and parse just the subset
-of records requested.  This allows you to generate an index file once and
-share it on the cloud along with the data set, and does not require others
-to download the entire index file to use it.
+IOPro can also build an index for S3 data just as with disk based CSV
+data, and use the index for fast random access lookup. If an index file
+is created with IOPro and stored with the S3 dataset in the cloud, IOPro
+can use this remote index to download and parse just the subset of
+records requested. This allows you to generate an index file once and
+share it on the cloud along with the data set, and does not require
+others to download the entire index file to use it.

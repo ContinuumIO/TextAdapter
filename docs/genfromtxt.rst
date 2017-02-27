@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-***REMOVED***-----
-TextAdapter.genfromtxt
-***REMOVED***-----
-=======
 ----------------
-TextAdapter.genfromtxt
+iopro.genfromtxt
 ----------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 Load data from a text file, with missing values handled as specified.
 
@@ -14,11 +8,7 @@ Each line past the first `skip_header` lines is split at the `delimiter`
 character, and characters following the `comments` character are discarded.
 
 Parameters
-<<<<<<< HEAD
-***REMOVED***
-=======
 ----------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 fname : file or str
     File, filename, or generator to read.  If the filename extension is
     `.gz` or `.bz2`, the file is first decompressed. Note that
@@ -43,11 +33,7 @@ converters : variable, optional
     The converters can also be used to provide a default value
     for missing data: ``converters = {3: lambda s: float(s or 0)}``.
 missing_values : variable, optional
-<<<<<<< HEAD
-    The set of strings corresponding to ***REMOVED***
-=======
     The set of strings corresponding to missing data.
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 filling_values : variable, optional
     The set of values to be used as default when the data are missing.
 usecols : sequence, optional
@@ -96,7 +82,7 @@ out : ndarray
 
 See Also
 --------
-TextAdapter.loadtxt : equivalent function when no data is missing.
+iopro.loadtxt : equivalent function when no data is missing.
 
 Notes
 -----
@@ -110,13 +96,13 @@ Notes
 
 Examples
 ---------
-    >>> import TextAdapter
+    >>> import iopro
     >>> from io import StringIO
 
 Comma delimited file with mixed dtype
 
     >>> s = StringIO("1,1.3,abcde")
-    >>> data = TextAdapter.genfromtxt(s, dtype=[('myint','i8'),('myfloat','f8'),
+    >>> data = iopro.genfromtxt(s, dtype=[('myint','i8'),('myfloat','f8'),
     ... ('mystring','S5')], delimiter=",")
     >>> data
     array((1, 1.3, 'abcde'),
@@ -125,7 +111,7 @@ Comma delimited file with mixed dtype
 Using dtype = None
 
     >>> s.seek(0) # needed for StringIO example only
-    >>> data = TextAdapter.genfromtxt(s, dtype=None,
+    >>> data = iopro.genfromtxt(s, dtype=None,
     ... names = ['myint','myfloat','mystring'], delimiter=",")
     >>> data
     array((1, 1.3, 'abcde'),
@@ -134,7 +120,7 @@ Using dtype = None
 Specifying dtype and names
 
     >>> s.seek(0)
-    >>> data = TextAdapter.genfromtxt(s, dtype="i8,f8,S5",
+    >>> data = iopro.genfromtxt(s, dtype="i8,f8,S5",
     ... names=['myint','myfloat','mystring'], delimiter=",")
     >>> data
     array((1, 1.3, 'abcde'),
@@ -143,7 +129,7 @@ Specifying dtype and names
 An example with fixed-width columns
 
     >>> s = StringIO("11.3abcde")
-    >>> data = TextAdapter.genfromtxt(s, dtype=None, names=['intvar','fltvar','strvar'],
+    >>> data = iopro.genfromtxt(s, dtype=None, names=['intvar','fltvar','strvar'],
     ...     delimiter=[1,3,5])
     >>> data
     array((1, 1.3, 'abcde'),

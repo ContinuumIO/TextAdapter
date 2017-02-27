@@ -1,6 +1,3 @@
-.. IOPro documentation master file, created by
-   sphinx-quickstart on Thu Aug  9 10:20:31 2012.
-
 -----
 IOPro
 -----
@@ -13,6 +10,11 @@ expensive array resizing operations.
 IOPro provides a drop-in replacement for the 
 NumPy functions :code:`loadtxt()` and :code:`genfromtxt()`, but dramatically
 improves performance and reduces memory overhead.
+
+The current version of IOPro 1.9 was released on July 30, 2016. 
+
+How to get IOPro
+----------------
 
 IOPro is included with `Anaconda Workgroup and Anaconda Enterprise
 subscriptions <https://www.continuum.io/content/anaconda-subscriptions>`_.
@@ -29,26 +31,37 @@ installed::
 If you do not have Anaconda installed, you can `download it
 <http://continuum.io/downloads.html>`_.
 
-IOPro can also be installed into your own (non-Anaconda) Python environment.
 For more information about IOPro please contact `sales@continuum.io
 <mailto:sales@continuum.io>`_.
 
+Requirements
+------------
+
+* Python 2.7 or 3.4+
+* NumPy 1.10+
+
+Optional Python modules:
+
+* Boto (for S3 support)
+* Pandas (to use DataFrames)
+
+What's new in version 1.9?
+--------------------------
+
+The documentation has been substantially updated for version 1.9.0. 
+Numba has been removed and the code has been cleaned up, but no other 
+features were added or removed. Some refactoring was done that didn't 
+change functionality. We recommend that users not use older versions.
+See :doc:`Release notes <release-notes>` for additional detail.
+
 
 Getting started
-<<<<<<< HEAD
-***REMOVED***----
-=======
 ---------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 Some of the basic usage patterns look like these.  Create TextAdapter object
 for data source::
 
-<<<<<<< HEAD
-***REMOVED***
-=======
     >>> import iopro
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
     >>> adapter = iopro.text_adapter('data.csv', parser='csv')
 
 Define field dtypes (example: set field 0 to unsigned int and field 4 to
@@ -59,25 +72,12 @@ float)::
 Parse text and store records in NumPy array using slicing notation::
 
     >>> # read all records
-<<<<<<< HEAD
-***REMOVED***
-=======
     >>> array = adapter[:]
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
     >>> # read first ten records
     >>> array = adapter[0:10]
 
     >>> # read last record
-<<<<<<< HEAD
- ***REMOVED***
-
-    >>> # read every other record
-***REMOVED***
-
-User guide
-***REMOVED***
-=======
     >>> array = adapter[-1]
 
     >>> # read every other record
@@ -85,93 +85,28 @@ User guide
 
 User guide
 ----------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. toctree::
     :maxdepth: 1
 
     install
     textadapter_examples
-    pyodbc_firststeps
-    pyodbc_enhancedcapabilities
-    pyodbc_cancel
+    eula
+    release-notes
 
 Reference guide
-<<<<<<< HEAD
-***REMOVED***----
-=======
 ---------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 .. toctree::
     :maxdepth: 1
 
     TextAdapter
-    pyodbc
-    MongoAdapter
-    AccumuloAdapter
-    PostgresAdapter
     loadtxt
     genfromtxt
 
-Requirements
-<<<<<<< HEAD
-***REMOVED***-
-=======
-------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-
-* python 2.7, or 3.4+
-* numpy 1.10+
-
-Python modules (optional):
-
-* boto (for S3 support)
-* Pandas (to use DataFrames)
-
-What's new in version 1.9?
-<<<<<<< HEAD
-***REMOVED***---
-=======
---------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-
-The documentation has been substantially updated for version 1.9.0. 
-Numba has been removed and the code has been cleaned up, but no other 
-features were added or removed. Some refactoring was done that didn't 
-change functionality. We recommend that users not use older versions.
-See Release notes for additional detail.
-
-Release notes
-<<<<<<< HEAD
-***REMOVED***--
-=======
--------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-
-.. toctree::
-    :maxdepth: 1
-
-    release-notes
-
-License Agreement
-<<<<<<< HEAD
-***REMOVED***------
-=======
------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-
-.. toctree::
-    :maxdepth: 1
-
-    eula
 
 Previous Versions
-<<<<<<< HEAD
-***REMOVED***------
-=======
 -----------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
 
 This documentation is provided for the use of our customers who have not yet upgraded 
 to the current version. 
