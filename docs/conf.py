@@ -19,10 +19,14 @@ import sys, os
 #sys.path.insert(0, os.path.abspath('.'))
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # -- General configuration ***REMOVED******REMOVED***-------
 =======
 # -- General configuration -----------------------------------------------------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+# -- General configuration -----------------------------------------------------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
@@ -92,10 +96,14 @@ pygments_style = 'sphinx'
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # -- Options for HTML output ***REMOVED******REMOVED***-----
 =======
 # -- Options for HTML output ---------------------------------------------------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+# -- Options for HTML output ---------------------------------------------------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -176,10 +184,14 @@ htmlhelp_basename = 'TextAdapterdoc'
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # -- Options for LaTeX output ***REMOVED******REMOVED***----
 =======
 # -- Options for LaTeX output --------------------------------------------------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+# -- Options for LaTeX output --------------------------------------------------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
@@ -221,10 +233,14 @@ latex_documents = [
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # -- Options for manual page output ***REMOVED******REMOVED******REMOVED***
 =======
 # -- Options for manual page output --------------------------------------------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+# -- Options for manual page output --------------------------------------------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
@@ -238,10 +254,14 @@ man_pages = [
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # -- Options for Texinfo output ***REMOVED******REMOVED***--
 =======
 # -- Options for Texinfo output ------------------------------------------------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+# -- Options for Texinfo output ------------------------------------------------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,

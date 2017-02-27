@@ -76,10 +76,14 @@ extern "C" {
 // Visual Studio 6 and Embedded Visual C++ 4 doesn't
 // realize that, e.g. char has the same size as __int8
 <<<<<<< HEAD
+<<<<<<< HEAD
 // so we give up on __intX for ***REMOVED***
 =======
 // so we give up on __intX for them.
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+// so we give up on __intX for them.
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 #if (_MSC_VER < 1300)
    typedef signed char       int8_t;
    typedef signed short      int16_t;

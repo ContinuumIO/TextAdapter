@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ***REMOVED***-----
 TextAdapter.genfromtxt
 ***REMOVED***-----
@@ -7,6 +8,11 @@ TextAdapter.genfromtxt
 TextAdapter.genfromtxt
 ----------------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+----------------
+TextAdapter.genfromtxt
+----------------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 Load data from a text file, with missing values handled as specified.
 
@@ -15,10 +21,14 @@ character, and characters following the `comments` character are discarded.
 
 Parameters
 <<<<<<< HEAD
+<<<<<<< HEAD
 ***REMOVED***
 =======
 ----------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+----------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 fname : file or str
     File, filename, or generator to read.  If the filename extension is
     `.gz` or `.bz2`, the file is first decompressed. Note that
@@ -44,10 +54,14 @@ converters : variable, optional
     for missing data: ``converters = {3: lambda s: float(s or 0)}``.
 missing_values : variable, optional
 <<<<<<< HEAD
+<<<<<<< HEAD
     The set of strings corresponding to ***REMOVED***
 =======
     The set of strings corresponding to missing data.
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+    The set of strings corresponding to missing data.
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 filling_values : variable, optional
     The set of values to be used as default when the data are missing.
 usecols : sequence, optional

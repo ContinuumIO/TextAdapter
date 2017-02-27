@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ***REMOVED***
 TextAdapter
 ***REMOVED***
@@ -7,6 +8,11 @@ TextAdapter
 TextAdapter
 -----------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+-----------
+TextAdapter
+-----------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 .. contents::
 
@@ -192,12 +198,17 @@ The TextAdapter object supports array slicing:
       adapter[[0, 2]][:]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ***REMOVED***
 ***REMOVED***
 =======
 Basic Usage
 -----------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+Basic Usage
+-----------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 Create TextAdapter object for data source::
 
@@ -208,22 +219,31 @@ Parse text and store records in NumPy array using slicing notation::
 
     >>> # read all records
 <<<<<<< HEAD
+<<<<<<< HEAD
 ***REMOVED***
 =======
     >>> array = adapter[:]
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+    >>> array = adapter[:]
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
     >>> # read first ten records
     >>> array = adapter[0:10]
 
     >>> # read last record
 <<<<<<< HEAD
+<<<<<<< HEAD
  ***REMOVED***
+=======
+    >>> array = adapter[-1]
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
     >>> # read every other record
-***REMOVED***
+    >>> array = adapter[::2]
 
 Advanced Usage
+<<<<<<< HEAD
 ***REMOVED***---
 =======
     >>> array = adapter[-1]
@@ -234,6 +254,9 @@ Advanced Usage
 Advanced Usage
 --------------
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+--------------
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 user defined converter function for field 0::
 
@@ -246,10 +269,14 @@ user defined converter function for field 0::
     >>> # Override default converter for first field
     >>> adapter.set_converter(0, lambda x: int(x)*2)
 <<<<<<< HEAD
+<<<<<<< HEAD
 ***REMOVED***
 =======
     >>> adapter[:]
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+    >>> adapter[:]
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
     array([(2L, ' abc', 3.3), (4L, ' xxx', 9.9)],
               dtype=[('f0', '<u8'), ('f1', 'S4'), ('f2', '<f8')])
 
@@ -263,10 +290,14 @@ overriding default missing and fill values::
 
     >>> # Define field dtypes (example: set field 1 to string object and field 2 to float)
 <<<<<<< HEAD
+<<<<<<< HEAD
  ***REMOVED*** = {1:'O', 2:'f4'}
 =======
     >>> adapter.field_types = {1:'O', 2:'f4'}
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+    >>> adapter.field_types = {1:'O', 2:'f4'}
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
     >>> # Define list of strings for each field that represent missing values
     >>> adapter.set_missing_values({1:['NA'], 2:['inf']})
@@ -274,10 +305,14 @@ overriding default missing and fill values::
     >>> # Set fill value for missing values in each field
     >>> adapter.set_fill_values({1:'xxx', 2:999.999})
 <<<<<<< HEAD
+<<<<<<< HEAD
 ***REMOVED***
 =======
     >>> adapter[:]
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+    >>> adapter[:]
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
     array([(' abc', 999.9990234375), ('xxx', 9.899999618530273)],
               dtype=[('f0', 'O'), ('f1', '<f4')])
 
@@ -309,11 +344,16 @@ Use regular expression for finer control of extracting data::
 
     >>> # set dtype of field to float
 <<<<<<< HEAD
+<<<<<<< HEAD
  ***REMOVED*** = {0:'f4', 1:'u4', 2:'S10'}
 ***REMOVED***
 =======
     >>> adapter.field_types = {0:'f4', 1:'u4', 2:'S10'}
     >>> adapter[:]
 >>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
+=======
+    >>> adapter.field_types = {0:'f4', 1:'u4', 2:'S10'}
+    >>> adapter[:]
+>>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
     array([(2.56, 50L, 'September'), (1.23, 23L, 'April')],
         dtype=[('f0', '<f8'), ('f1', '<u8'), ('f2', 'S9')])
