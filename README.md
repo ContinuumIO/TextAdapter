@@ -62,10 +62,16 @@ Visual Studio 2008, Python 3.3 and 3.4 needs Visual Studio 2010, and Python
 3.5 needs Visual Studio 2015.
 
 1. Build TextAdapter using the following command:
-  `conda build buildscripts/condarecipe --python 3.5`
+
+  ```
+  conda build buildscripts/condarecipe --python 3.5
+  ```
 
 1. TextAdapter can now be installed from the built conda package:
-  `conda install textadapter --use-local`
+
+  ```
+  conda install textadapter --use-local
+  ```
 
 ## Building By Hand
 
@@ -78,13 +84,20 @@ Visual Studio 2008, Python 3.3 and 3.4 needs Visual Studio 2010, and Python
 For building TextAdapter for local development/testing:
 
 1. Install most of the above dependencies into environment called
-   'textadapter': `conda env create -f environment.yml`
+   'textadapter':
+
+  ```
+  conda env create -f environment.yml
+  ```
 
    Be sure to activate new TextAdapter environment before proceeding.
 
 
 1. Build TextAdapter using Cython/distutils:
-   `python setup.py build_ext --inplace`
+
+  ```
+  python setup.py build_ext --inplace
+  ```
 
 ## Testing
 
