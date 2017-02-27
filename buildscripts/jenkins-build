@@ -21,23 +21,8 @@ rm -rf ${PYENV_PREFIX}
 ~/anaconda/bin/conda create --yes -p ${PYENV_PREFIX} anaconda python=${PYTHON_VERSION} numpy=1.7 || exit 1
 export PATH=${PYENV_PREFIX}/bin:${PATH}
 
-# JNB: Get rid of any TextAdapter that conda may have installed
-rm -rf ${PYENV_PREFIX}/lib/python2.7/site-packages/TextAdapter*
-
-# Get and build mongo c driver
-if [ ! -d mongo-c-driver ]; then
-    git clone git://github.com/mongodb/mongo-c-driver.git
-    cd mongo-c-driver
-    git checkout v0.7.1
-    cd ..
-fi
-
-export MONGO_PATH=${WORKSPACE}/build/mongo-c-driver
-cd mongo-c-driver
-make
-mkdir temp
-make install PREFIX=${WORKSPACE}/build/mongo-c-driver/temp
-cd ..
+# JNB: Get rid of any iopro that conda may have installed
+rm -rf ${PYENV_PREFIX}/lib/python2.7/site-packages/iopro*
 
 # Get and build pcre lib
 if [ ! -f ${WORKSPACE}/pcre-8.30.tar.gz ]; then
@@ -65,36 +50,18 @@ cd zlib-1.2.7
 make
 cd ..
 
-# Get and build unix odbc lib
-if [ ! -f ${WORKSPACE}/unixODBC-2.3.1.tar.gz ]; then
-    cd ..
-    wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.1.tar.gz
-    cd build
-fi
-
-tar -zxvf ../unixODBC-2.3.1.tar.gz
-cd unixODBC-2.3.1
-./configure
-make
-cd ..
 
 # Set up include and lib paths since we're not installing in default system paths
-export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/mongo-c-driver/src:$IOPRO_INCLUDE_PATH
-export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/mongo-c-driver:$IOPRO_LIBRARY_PATH
 export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/pcre-8.30:$IOPRO_INCLUDE_PATH
 export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/pcre-8.30/.libs:$IOPRO_LIBRARY_PATH
 export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/zlib-1.2.7:$IOPRO_INCLUDE_PATH
 export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/zlib-1.2.7:$IOPRO_LIBRARY_PATH
-export IOPRO_INCLUDE_PATH=${WORKSPACE}/build/unixODBC-2.3.1:${WORKSPACE}/build/unixODBC-2.3.1/include:$IOPRO_INCLUDE_PATH
-export IOPRO_LIBRARY_PATH=${WORKSPACE}/build/unixODBC-2.3.1/DriverManager/.libs:$IOPRO_LIBRARY_PATH
 export IOPRO_INCLUDE_PATH=~/anaconda/include/python${PYTHON_VERSION}:$IOPRO_INCLUDE_PATH
 export IOPRO_LIBRARY_PATH=~/anaconda/lib:$IOPRO_LIBRARY_PATH
 
-export LD_LIBRARY_PATH=${WORKSPACE}/build/mongo-c-driver/temp/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=${WORKSPACE}/build/pcre-8.30/.libs:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=${WORKSPACE}/build/zlib-1.2.7:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=${WORKSPACE}/build/unixODBC-2.3.1/DriverManager/.libs:$LD_LIBRARY_PATH
 
 cd ..
 python setup.py build_ext --inplace --include-dirs=$IOPRO_INCLUDE_PATH --library-dirs=$IOPRO_LIBRARY_PATH || exit 1
-python -c 'import TextAdapter; import sys; sys.exit(1 - TextAdapter.test(num_records=1000))'
+python -c 'import textadapter; import sys; sys.exit(1 - textadapter.test(num_records=1000))'

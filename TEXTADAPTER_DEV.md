@@ -47,17 +47,9 @@ functions are also implemented for parsing lines and records as single
 string values (a record can be multiple lines).
 
 Key Low Level C Data Structures
-<<<<<<< HEAD
-<<<<<<< HEAD
-***REMOVED***--------
 =======
--------------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
--------------------------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
-TextAdapter (iopro/textadapter/text_adapter.h):
+TextAdapter (textadapter/core/text_adapter.h):
 
   Core struct for text parser.  Contains attributes for input text such as
   delimiter character, comment character, etc.  tokenize field is a function
@@ -65,27 +57,19 @@ TextAdapter (iopro/textadapter/text_adapter.h):
   delimited, fixed width, etc).  Also contains pointers to InputDatastruct
   and TextAdapterBuffer described below.
 
-InputData (iopro/textadapter/text_adapter.h):
+InputData (textadapter/core/text_adapter.h):
 
   Contains function pointers for IO functions (open, read, seek, close) and
   for compressed data read and seek functions.  Also contains a void *input
   field for storing a data structure specific to each data source (C FILE
   pointer, S3 bucket info, etc).
 
-TextAdapterBuffer (iopro/textadapter/text_adapter.h):
+TextAdapterBuffer (textadapter/core/text_adapter.h):
 
   Main buffer for storing text data to be parsed.
 
 Ideas for Future Optimizations
-<<<<<<< HEAD
-<<<<<<< HEAD
-***REMOVED***-------
 =======
-------------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-------------------------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 - The biggest performance gains could be had by incorporating some parallel
   processing goodness.  The most natural way to split it up (this should

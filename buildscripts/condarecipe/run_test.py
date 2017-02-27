@@ -1,5 +1,5 @@
-import TextAdapter
+import textadapter
 
-assert TextAdapter.test()
+assert textadapter.test()
 
-print('TextAdapter.__version__: %s' % TextAdapter.__version__)
+print('textadapter.__version__: %s' % textadapter.__version__)

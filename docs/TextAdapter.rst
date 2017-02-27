@@ -1,18 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-***REMOVED***
-TextAdapter
-***REMOVED***
-=======
 -----------
 TextAdapter
 -----------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
------------
-TextAdapter
------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 .. contents::
 
@@ -197,55 +185,23 @@ The TextAdapter object supports array slicing:
     | Read first and third fields in all records:
       adapter[[0, 2]][:]
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-***REMOVED***
-***REMOVED***
-=======
 Basic Usage
 -----------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-Basic Usage
------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 Create TextAdapter object for data source::
 
-    >>> import TextAdapter
-    >>> adapter = TextAdapter.text_adapter('data.csv', parser='csv')
+    >>> import iopro
+    >>> adapter = iopro.text_adapter('data.csv', parser='csv')
 
 Parse text and store records in NumPy array using slicing notation::
 
     >>> # read all records
-<<<<<<< HEAD
-<<<<<<< HEAD
-***REMOVED***
-=======
     >>> array = adapter[:]
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-    >>> array = adapter[:]
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
     >>> # read first ten records
     >>> array = adapter[0:10]
 
     >>> # read last record
-<<<<<<< HEAD
-<<<<<<< HEAD
- ***REMOVED***
-=======
-    >>> array = adapter[-1]
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
-
-    >>> # read every other record
-    >>> array = adapter[::2]
-
-Advanced Usage
-<<<<<<< HEAD
-***REMOVED***---
-=======
     >>> array = adapter[-1]
 
     >>> # read every other record
@@ -253,79 +209,51 @@ Advanced Usage
 
 Advanced Usage
 --------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
---------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 user defined converter function for field 0::
 
-    >>> import TextAdapter
+    >>> import iopro
     >>> import io
 
     >>> data = '1, abc, 3.3\n2, xxx, 9.9'
-    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='csv', field_names=False)
+    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='csv', field_names=False)
 
     >>> # Override default converter for first field
     >>> adapter.set_converter(0, lambda x: int(x)*2)
-<<<<<<< HEAD
-<<<<<<< HEAD
-***REMOVED***
-=======
     >>> adapter[:]
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-    >>> adapter[:]
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
     array([(2L, ' abc', 3.3), (4L, ' xxx', 9.9)],
               dtype=[('f0', '<u8'), ('f1', 'S4'), ('f2', '<f8')])
 
 overriding default missing and fill values::
 
-    >>> import TextAdapter
+    >>> import iopro
     >>> import io
 
     >>> data = '1,abc,inf\n2,NA,9.9'
-    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='csv', field_names=False)
+    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='csv', field_names=False)
 
     >>> # Define field dtypes (example: set field 1 to string object and field 2 to float)
-<<<<<<< HEAD
-<<<<<<< HEAD
- ***REMOVED*** = {1:'O', 2:'f4'}
-=======
     >>> adapter.field_types = {1:'O', 2:'f4'}
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-    >>> adapter.field_types = {1:'O', 2:'f4'}
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
     >>> # Define list of strings for each field that represent missing values
     >>> adapter.set_missing_values({1:['NA'], 2:['inf']})
 
     >>> # Set fill value for missing values in each field
     >>> adapter.set_fill_values({1:'xxx', 2:999.999})
-<<<<<<< HEAD
-<<<<<<< HEAD
-***REMOVED***
-=======
     >>> adapter[:]
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-    >>> adapter[:]
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
     array([(' abc', 999.9990234375), ('xxx', 9.899999618530273)],
               dtype=[('f0', 'O'), ('f1', '<f4')])
 
 creating and saving tuple of index arrays for gzip file, and reloading indices::
 
-    >>> import TextAdapter
-    >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip')
+    >>> import iopro
+    >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip')
 
     >>> # Build index of records and save index to disk.
     >>> adapter.create_index(index_name='index_file')
 
     >>> # Create new adapter object and load index from disk.
-    >>> adapter = TextAdapter.text_adapter('data.gz', parser='csv', compression='gzip', indexing=True, index_name='index_file')
+    >>> adapter = iopro.text_adapter('data.gz', parser='csv', compression='gzip', indexing=True, index_name='index_file')
 
     >>> # Read last record
     >>> adapter[-1]
@@ -333,27 +261,17 @@ creating and saving tuple of index arrays for gzip file, and reloading indices::
 
 Use regular expression for finer control of extracting data::
 
-    >>> import TextAdapter
+    >>> import iopro
     >>> import io
 
     >>> # Define regular expression to extract dollar amount, percentage, and month.
     >>> # Each set of parentheses defines a field.
     >>> data = '$2.56, 50%, September 20 1978\n$1.23, 23%, April 5 1981'
     >>> regex_string = '([0-9]\.[0-9][0-9]+)\,\s ([0-9]+)\%\,\s ([A-Za-z]+)'
-    >>> adapter = TextAdapter.text_adapter(io.StringIO(data), parser='regex', regex_string=regex_string, field_names=False, infer_types=False)
+    >>> adapter = iopro.text_adapter(io.StringIO(data), parser='regex', regex_string=regex_string, field_names=False, infer_types=False)
 
     >>> # set dtype of field to float
-<<<<<<< HEAD
-<<<<<<< HEAD
- ***REMOVED*** = {0:'f4', 1:'u4', 2:'S10'}
-***REMOVED***
-=======
     >>> adapter.field_types = {0:'f4', 1:'u4', 2:'S10'}
     >>> adapter[:]
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-    >>> adapter.field_types = {0:'f4', 1:'u4', 2:'S10'}
-    >>> adapter[:]
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
     array([(2.56, 50L, 'September'), (1.23, 23L, 'April')],
         dtype=[('f0', '<f8'), ('f1', '<u8'), ('f2', 'S9')])

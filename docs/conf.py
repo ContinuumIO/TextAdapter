@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# TextAdapter documentation build configuration file, created by
+# IOPro documentation build configuration file, created by
 # sphinx-quickstart on Thu Aug  9 10:20:31 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -18,15 +18,7 @@ import sys, os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# -- General configuration ***REMOVED******REMOVED***-------
-=======
 # -- General configuration -----------------------------------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-# -- General configuration -----------------------------------------------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
@@ -48,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'TextAdapter'
+project = u'IOPro'
 copyright = u'2016, Continuum Analytics'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -95,15 +87,7 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# -- Options for HTML output ***REMOVED******REMOVED***-----
-=======
 # -- Options for HTML output ---------------------------------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-# -- Options for HTML output ---------------------------------------------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -180,18 +164,10 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'TextAdapterdoc'
+htmlhelp_basename = 'IOProdoc'
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# -- Options for LaTeX output ***REMOVED******REMOVED***----
-=======
 # -- Options for LaTeX output --------------------------------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-# -- Options for LaTeX output --------------------------------------------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
@@ -207,7 +183,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'TextAdapter.tex', u'TextAdapter Documentation',
+  ('index', 'IOPro.tex', u'IOPro Documentation',
    u'Continuum Analytics', 'manual'),
 ]
 
@@ -232,20 +208,12 @@ latex_documents = [
 #latex_domain_indices = True
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# -- Options for manual page output ***REMOVED******REMOVED******REMOVED***
-=======
 # -- Options for manual page output --------------------------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-# -- Options for manual page output --------------------------------------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'TextAdapter', u'TextAdapter Documentation',
+    ('index', 'iopro', u'IOPro Documentation',
      ['Continuum Analytics', 'Jay Bourque', 'David Mertz'], 1)
 ]
 
@@ -253,22 +221,14 @@ man_pages = [
 #man_show_urls = False
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# -- Options for Texinfo output ***REMOVED******REMOVED***--
-=======
 # -- Options for Texinfo output ------------------------------------------------
->>>>>>> 14dcbb9542f8d05344fd4a2cc4ef07c47528a8f1
-=======
-# -- Options for Texinfo output ------------------------------------------------
->>>>>>> 0e94e8123ce07aa964a82f678b115c7defb0a49c
 
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'TextAdapter', u'TextAdapter Documentation',
-   u'Continuum Analytics', 'TextAdapter', 'One line description of project.',
+  ('index', 'IOPro', u'IOPro Documentation',
+   u'Continuum Analytics', 'IOPro', 'One line description of project.',
    'Miscellaneous'),
 ]
 

@@ -1,4 +1,4 @@
-name: TextAdapter
+name: textadapter
 dependencies:
 - ipython
 - numpy
@@ -6,8 +6,5 @@ dependencies:
 - pytest
 - cython
 - pcre
-- mongo-driver
 - zlib
-- openssl
-- postgresql
-
+- nose

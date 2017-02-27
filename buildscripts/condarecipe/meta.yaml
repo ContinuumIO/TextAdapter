@@ -1,5 +1,5 @@
 package:
-  name: TextAdapter
+  name: textadapter
   version: "2.0.0"
 
 source:
@@ -10,28 +10,29 @@ build:
 
 requirements:
   build:
-    - python 
+    - python
     - numpy
     - cython
-    - zlib
-    - pcre
-    - boost
-    - thrift 0.9.3
+
+    # zlib and pcre versions pinned to fix shared library issues
+    - zlib 1.2.8
+    - pcre 8.31
+
   run:
-    - python 
+    - python
     - numpy
     - pandas
     - six
     - ordereddict     [py26]
-    - boost
-    - thrift 0.9.3
 
 test:
   requires:
     - nose
     - pytest
+
   imports:
-    - TextAdapter.textadapter.TextAdapter
+    - textadapter
+    - textadapter.core.TextAdapter
 
 about:
   home: https://github.com/ContinuumIO/TextAdapter
